@@ -3,7 +3,7 @@
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.123.0">
+    <meta name="generator" content="Hugo 0.150.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Chuẩn bị &amp; Cấu hình Lambda Trigger cho S3 :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1762237841" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1762237841" rel="stylesheet">
-    <link href="/css/hybrid.css?1762237841" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1762237841" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1762237841" rel="stylesheet">
-    <link href="/css/auto-complete.css?1762237841" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1762237841" rel="stylesheet">
-    <link href="/css/theme.css?1762237841" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1762237841" rel="stylesheet">
+    <link href="/css/nucleus.css?1762535296" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1762535296" rel="stylesheet">
+    <link href="/css/hybrid.css?1762535296" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1762535296" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1762535296" rel="stylesheet">
+    <link href="/css/auto-complete.css?1762535296" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1762535296" rel="stylesheet">
+    <link href="/css/theme.css?1762535296" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1762535296" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1762237841" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1762535296" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1762237841"></script>
+    <script src="/js/jquery-3.3.1.min.js?1762535296"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1762237841"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1762237841"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1762535296"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1762535296"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1762237841"></script>
+<script type="text/javascript" src="/js/search.js?1762535296"></script>
 
     
   </div>
@@ -918,11 +918,11 @@
 <ul>
 <li>Truy cập dịch vụ <strong>S3</strong>.</li>
 </ul>
-<p><img alt="S3_1" src="/images/5-Workshop/2.prerequisite/S3_1.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/S3_1.png" alt="S3\_1"></p>
 <ul>
 <li>Trong giao diện <strong>S3</strong>, chọn <strong>Create bucket</strong>.</li>
 </ul>
-<p><img alt="S3_2" src="/images/5-Workshop/2.prerequisite/S3_2.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/S3_2.png" alt="S3\_2"></p>
 <ul>
 <li>
 <p>Trong màn hình <strong>Create bucket</strong>:</p>
@@ -941,7 +941,7 @@
 <div class="notices note" ><p>Giữ nguyên các thiết lập mặc định còn lại.</p>
 </div>
 
-<p><img alt="S3_2" src="/images/5-Workshop/2.prerequisite/S3_3.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/S3_3.png" alt="S3\_2"></p>
 <ul>
 <li>Xem lại cấu hình và chọn <strong>Create bucket</strong> để hoàn tất.</li>
 </ul>
@@ -960,14 +960,14 @@
 </ul>
 </li>
 </ol>
-<p><img alt="lambda_1" src="/images/5-Workshop/2.prerequisite/lambda_1.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/lambda_1.png" alt="lambda_1"></p>
 <ul>
 <li>Chọn <strong>Author from scratch</strong>.</li>
 <li>Đặt tên: <code>AutoImportCSVtoDynamoDB</code>.</li>
 <li>Runtime: <strong>Python 3.13</strong>.</li>
 <li>Role: chọn <strong>LambdaS3DynamoDBRole</strong> đã tạo ở bước trước.</li>
 </ul>
-<p><img alt="lambda_2" src="/images/5-Workshop/2.prerequisite/lambda_2.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/lambda_2.png" alt="lambda_2"></p>
 <ol start="2">
 <li><strong>Thêm Trigger</strong>
 <ul>
@@ -975,17 +975,17 @@
 </ul>
 </li>
 </ol>
-<p><img alt="lambda_3" src="/images/5-Workshop/2.prerequisite/lambda_3.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/lambda_3.png" alt="lambda_3"></p>
 <ul>
 <li>Chọn <strong>S3</strong>.</li>
 <li>Chọn Bucket <code>flyora-bucket</code>.</li>
 <li>Event type: <code>All object create events</code>.</li>
 </ul>
-<p><img alt="lambda_4" src="/images/5-Workshop/2.prerequisite/lambda_4.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/lambda_4.png" alt="lambda_4"></p>
 <ul>
 <li>Nhấn <strong>Add</strong> để lưu.</li>
 </ul>
-<p><img alt="lambda_5" src="/images/5-Workshop/2.prerequisite/lambda_5.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/lambda_5.png" alt="lambda_5"></p>
 <ol>
 <li><strong>Dán code Lambda</strong>
 <ul>
@@ -1058,11 +1058,11 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#39;statusCode&#39;</span>: <span style="color:#ae81ff">500</span>, <span style="color:#e6db74">&#39;body&#39;</span>: json<span style="color:#f92672">.</span>dumps(<span style="color:#e6db74">&#39;General Error&#39;</span>)}
 </span></span></code></pre></div></li>
 </ol>
-<p><img alt="lambda_6" src="/images/5-Workshop/2.prerequisite/lambda_6.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/lambda_6.png" alt="lambda_6"></p>
 <ul>
 <li>Nhấn <strong>Deploy</strong> và xác nhận <strong>Successfully</strong>.</li>
 </ul>
-<p><img alt="lambda_7" src="/images/5-Workshop/2.prerequisite/lambda_7.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/lambda_7.png" alt="lambda_7"></p>
 
 
 
@@ -1475,19 +1475,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1762237841"></script>
-    <script src="/js/perfect-scrollbar.min.js?1762237841"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1762237841"></script>
-    <script src="/js/jquery.sticky.js?1762237841"></script>
-    <script src="/js/featherlight.min.js?1762237841"></script>
-    <script src="/js/highlight.pack.js?1762237841"></script>
+    <script src="/js/clipboard.min.js?1762535296"></script>
+    <script src="/js/perfect-scrollbar.min.js?1762535296"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1762535296"></script>
+    <script src="/js/jquery.sticky.js?1762535296"></script>
+    <script src="/js/featherlight.min.js?1762535296"></script>
+    <script src="/js/highlight.pack.js?1762535296"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1762237841"></script>
-    <script src="/js/learn.js?1762237841"></script>
-    <script src="/js/hugo-learn.js?1762237841"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1762535296"></script>
+    <script src="/js/learn.js?1762535296"></script>
+    <script src="/js/hugo-learn.js?1762535296"></script>
 
-    <link href="/mermaid/mermaid.css?1762237841" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1762237841"></script>
+    <link href="/mermaid/mermaid.css?1762535296" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1762535296"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
