@@ -1,6 +1,6 @@
 ---
 title : "Tạo API Gateway và tích hợp với Lambda"
-date : "`r Sys.Date()`"
+date : 2025-09-09
 weight: 4
 chapter: false
 pre: " <b> 5.3.4. </b> "

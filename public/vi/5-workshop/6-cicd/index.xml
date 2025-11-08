@@ -4,8 +4,9 @@
     <title>Thiết lập CI/CD tự động deploy on AWS System Manager</title>
     <link>//localhost:1313/vi/5-workshop/6-cicd/</link>
     <description>Recent content in Thiết lập CI/CD tự động deploy on AWS System Manager</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>vi</language>
+    <lastBuildDate></lastBuildDate>
     <atom:link href="//localhost:1313/vi/5-workshop/6-cicd/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

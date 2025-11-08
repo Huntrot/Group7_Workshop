@@ -1,6 +1,6 @@
 ---
 title : "Kiểm thử hệ thống & đánh giá hiệu năng"
-date : "`r Sys.Date()`"
+date : 2025-09-09
 weight: 7
 chapter: false
 pre: " <b> 5.7. </b> "
