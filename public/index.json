@@ -95,7 +95,7 @@
 	"title": "Create API Gateway &amp; Integrate with Lambda",
 	"tags": [],
 	"description": "",
-	"content": "API Gateway \u0026amp; Lambda Integration "
+	"content": "Objective Create a new Lambda Function to handle requests to DynamoDB via API Gateway..\nSteps to Follow Step 1: Create IAM Role Open IAM Console → Roles → Create role Select Trusted entity: AWS Service → Lambda Attach permissions: AmazonDynamoDBFullAccess CloudWatchLogsFullAccess Name the role: LambdaAPIAccessRole Step 2: Create Lambda Function Go to AWS Lambda → Create function Select Author from scratch Name: DynamoDB_API_Handler Runtime: Python 3.13 Select IAM Role: LambdaAPIAccessRole Bước 3: Paste Example Code ```python\rimport boto3\rimport json\rfrom decimal import Decimal\rdynamodb = boto3.resource('dynamodb')\rclass DecimalEncoder(json.JSONEncoder):\rdef default(self, obj):\rif isinstance(obj, Decimal):\rreturn int(obj) if obj % 1 == 0 else float(obj)\rreturn super(DecimalEncoder, self).default(obj)\rdef lambda_handler(event, context):\rtry:\rmethod = event.get('httpMethod', 'GET')\rpath = event.get('path', '') body = json.loads(event.get('body', '{}')) if event.get('body') else {}\rpath_to_table = {\r'/api/account': 'Account',\r'/api/admin': 'Admin',\r'/api/role': 'Role',\r'/api/customer': 'Customer',\r'/api/staff': 'SalesStaff',\r'/api/owner': 'ShopOwner',\r'/api/product': 'Product',\r'/api/category': 'ProductCategory',\r'/api/review': 'ProductReview',\r'/api/promotion': 'Promotion',\r'/api/inventory': 'Inventory',\r'/api/type/food': 'FoodType',\r'/api/type/furniture': 'FurnitureType',\r'/api/type/toy': 'ToyType',\r'/api/type/bird': 'BirdType',\r'/api/detail/food': 'FoodDetail',\r'/api/detail/furniture': 'FurnitureDetail',\r'/api/detail/toy': 'ToyDetail',\r'/api/order': 'Order',\r'/api/order-item': 'OrderItem',\r'/api/payment': 'Payment',\r'/api/payment-method': 'PaymentMethod',\r'/api/delivery-note': 'DeliveryNote',\r'/api/shipping-method': 'ShippingMethod',\r'/api/notification': 'Notification',\r'/api/notification-type': 'NotificationType',\r'/api/chatbot': 'ChatBot',\r'/api/faq': 'FAQ',\r'/api/new': 'NewsArticle',\r'/api/log/access': 'AccessLog',\r'/api/log/system': 'SystemLog',\r'/api/issue': 'IssueReport',\r'/api/policy': 'Policy'\r}\rtable_name = path_to_table.get(path)\rif not table_name:\rreturn {\r'statusCode': 404,\r'body': json.dumps({'error': f'Unknown API path: {path}'})\r}\rtable = dynamodb.Table(table_name)\rif method == 'GET':\rresponse = table.scan()\rreturn {\r'statusCode': 200,\r'headers': {'Content-Type': 'application/json'},\r'body': json.dumps(response['Items'], cls=DecimalEncoder)\r}\relif method == 'POST':\ritem = body.get('item')\rif not item:\rreturn {\r'statusCode': 400,\r'body': json.dumps({'error': 'Missing item data'})\r}\rtable.put_item(Item=item)\rreturn {\r'statusCode': 200,\r'headers': {'Content-Type': 'application/json'},\r'body': json.dumps({'message': 'Item added successfully', 'item': item}, cls=DecimalEncoder)\r}\relif method == 'PUT':\ritem = body.get('item')\rif not item:\rreturn {\r'statusCode': 400,\r'body': json.dumps({'error': 'Missing item data for update'})\r}\rtable.put_item(Item=item)\rreturn {\r'statusCode': 200,\r'headers': {'Content-Type': 'application/json'},\r'body': json.dumps({'message': 'Item updated successfully', 'item': item}, cls=DecimalEncoder)\r}\relif method == 'DELETE':\rkey = body.get('key')\rif not key:\rreturn {\r'statusCode': 400,\r'body': json.dumps({'error': 'Missing key for delete'})\r}\rtable.delete_item(Key=key)\rreturn {\r'statusCode': 200,\r'body': json.dumps({'message': 'Item deleted successfully'})\r}\relse:\rreturn {\r'statusCode': 405,\r'body': json.dumps({'error': f'Method {method} not allowed'})\r}\rexcept Exception as e:\rreturn {\r'statusCode': 500,\r'body': json.dumps({'error': str(e)})\r}\r"
 },
 {
 	"uri": "//localhost:1313/5-workshop/4-ai/",
@@ -117,6 +117,13 @@
 	"tags": [],
 	"description": "",
 	"content": "Frontend Development \u0026amp; Chatbot Embedding "
+},
+{
+	"uri": "//localhost:1313/5-workshop/3-backend/3.5/",
+	"title": "Test API using Postman",
+	"tags": [],
+	"description": "",
+	"content": "API Testing "
 },
 {
 	"uri": "//localhost:1313/5-workshop/",

@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Test API using Postman :: AWS System Manager</title>
+    <title>Creating API Gateway and Integrating with Lambda :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1762535296" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1762535296" rel="stylesheet">
-    <link href="/css/hybrid.css?1762535296" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1762535296" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1762535296" rel="stylesheet">
-    <link href="/css/auto-complete.css?1762535296" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1762535296" rel="stylesheet">
-    <link href="/css/theme.css?1762535296" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1762535296" rel="stylesheet">
+    <link href="/css/nucleus.css?1762577766" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1762577766" rel="stylesheet">
+    <link href="/css/hybrid.css?1762577766" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1762577766" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1762577766" rel="stylesheet">
+    <link href="/css/auto-complete.css?1762577766" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1762577766" rel="stylesheet">
+    <link href="/css/theme.css?1762577766" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1762577766" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1762535296" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1762577766" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1762535296"></script>
+    <script src="/js/jquery-3.3.1.min.js?1762577766"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,23 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
+<<<<<<< HEAD
 <script type="text/javascript" src="/js/lunr.min.js?1762535296"></script>
 <script type="text/javascript" src="/js/auto-complete.js?1762535296"></script>
+=======
+<script type="text/javascript" src="/js/lunr.min.js?1762577766"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1762577766"></script>
+>>>>>>> Khanh
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
+<<<<<<< HEAD
 <script type="text/javascript" src="/js/search.js?1762535296"></script>
+=======
+<script type="text/javascript" src="/js/search.js?1762577766"></script>
+>>>>>>> Khanh
 
     
   </div>
@@ -352,13 +361,41 @@
  
   
     
-    <li data-nav-id="/5-workshop/3-backend/3.4/" title="Test API using Postman" class="dd-item 
+    <li data-nav-id="/5-workshop/3-backend/3.4/" title="Creating API Gateway and Integrating with Lambda" class="dd-item 
         
         active
         
         ">
       <a href="/5-workshop/3-backend/3.4/">
-           <b> 5.3.4. </b> Test API using Postman
+           <b> 5.3.4. </b> Creating API Gateway and Integrating with Lambda
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-workshop/3-backend/3.5/" title="Test API using Postman" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-workshop/3-backend/3.5/">
+           <b> 5.3.5. </b> Test API using Postman
           
             <i class="fas fa-check read-icon"></i>
           
@@ -865,7 +902,7 @@
             
           
           
-            <a href='/'>AWS System Manager</a> > <a href='/5-workshop/'>Workshop</a> > <a href='/5-workshop/3-backend/'>Backend Workshop (API & Data Layer)</a> > Test API using Postman
+            <a href='/'>AWS System Manager</a> > <a href='/5-workshop/'>Workshop</a> > <a href='/5-workshop/3-backend/'>Backend Workshop (API & Data Layer)</a> > Creating API Gateway and Integrating with Lambda
           
         
           
@@ -882,7 +919,22 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#api-testing">API Testing</a></li>
+    <li>
+      <ul>
+        <li><a href="#objective">Objective</a></li>
+        <li><a href="#steps-to-follow">Steps to Follow</a></li>
+      </ul>
+    </li>
+    <li><a href="#api_3"><img src="/images/3.api-gateway/3.2/api_3.png" alt="API_3"></a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#api_7"><img src="/images/3.api-gateway/3.2/api_11.png" alt="API_7"></a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -900,7 +952,7 @@
           
             <h1>
               
-              Test API using Postman
+              Creating API Gateway and Integrating with Lambda
             </h1>
           
 
@@ -908,7 +960,91 @@
 
 
 
-	<h2 id="api-testing">API Testing</h2>
+	<h3 id="objective">Objective</h3>
+<p>Connect <strong>AWS API Gateway</strong> with a <strong>Lambda Function</strong> to create a RESTful endpoint that allows access to data <strong>DynamoDB</strong>.</p>
+<hr>
+<h3 id="steps-to-follow">Steps to Follow</h3>
+<h4 id="1-access-api-gateway"><strong>1. Access API Gateway</strong></h4>
+<ul>
+<li>Go to <strong>AWS Console → API Gateway</strong></li>
+<li>Select <strong>Create API</strong></li>
+</ul>
+<p><img src="/images/3.api-gateway/3.2/api_1.png" alt="API\_1"></p>
+<ul>
+<li>Choose type: <strong>REST API (Build)</strong></li>
+</ul>
+<p><img src="/images/3.api-gateway/3.2/api_2.png" alt="API\_2"></p>
+<ul>
+<li>Configure:
+<ul>
+<li><strong>Create new API:</strong> New API</li>
+<li><strong>API name:</strong> <code>FlyoraAPI</code></li>
+<li><strong>Endpoint Type:</strong> Regional</li>
+</ul>
+</li>
+<li>Click <strong>Create API</strong></li>
+</ul>
+<h2 id="api_3"><img src="/images/3.api-gateway/3.2/api_3.png" alt="API\_3"></h2>
+<h4 id="2-tạo-resource-và-method"><strong>2. Tạo Resource và Method</strong></h4>
+<ol>
+<li>In the sidebar, select <strong>Actions → Create Resource</strong></li>
+</ol>
+<p><img src="/images/3.api-gateway/3.2/api_4.png" alt="API\_4"></p>
+<ul>
+<li><strong>Resource Name:</strong> <code>api</code></li>
+<li>Click <strong>Create Resource</strong></li>
+</ul>
+<p><img src="/images/3.api-gateway/3.2/api_10.png" alt="API\_5"></p>
+<ol start="2">
+<li>Select <strong>/api → Actions → Create Resource</strong></li>
+</ol>
+<p><img src="/images/3.api-gateway/3.2/api_12.png" alt="API\_6"></p>
+<ol start="3">
+<li>In the resource configuration:
+<ul>
+<li>Tick <strong>Proxy resource</strong></li>
+<li><strong>Resource path:</strong> /api/</li>
+<li><strong>Resource Name:</strong> <code>myProxy</code></li>
+<li>Click <strong>Create resource</strong></li>
+</ul>
+</li>
+</ol>
+<h2 id="api_7"><img src="/images/3.api-gateway/3.2/api_11.png" alt="API\_7"></h2>
+<h4 id="3-attach-lambda"><strong>3. Attach Lambda</strong></h4>
+<ol>
+<li>After successfully creating <strong>/api/{myProxy+}</strong>, the <strong>ANY</strong> method appears:
+<ul>
+<li>Chọn <strong>ANY → Integration request → Edit</strong></li>
+<li>Then click <strong>Create method</strong>.</li>
+</ul>
+</li>
+</ol>
+<p><img src="/images/3.api-gateway/3.2/api_13.png" alt="API\_8"></p>
+<ol start="2">
+<li>Attach Lambda:
+<ul>
+<li><strong>Integration type:</strong> Lambda Function</li>
+<li>Tick <strong>Lambda proxy integration</strong></li>
+<li><strong>Lambda Region:</strong> <code>ap-southeast-1</code> (Singapore)</li>
+<li><strong>Lambda Function:</strong> select your <code>Lambda_API_Handler</code> function</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="4-deploy-api"><strong>4. Deploy API</strong></h4>
+<ul>
+<li>Select <strong>Actions → Deploy API</strong></li>
+<li><strong>Deployment stage:</strong> New stage
+<ul>
+<li><strong>Stage name:</strong> <code>dev</code></li>
+<li><strong>Description:</strong> Development stage for Lambda API</li>
+</ul>
+</li>
+<li>Click <strong>Deploy</strong></li>
+</ul>
+<p><img src="/images/3.api-gateway/3.2/api_9.png" alt="API\_9"></p>
+<p>After deployment, you will receive an Invoke URL like:
+<code>https://&lt;api_id&gt;.execute-api.ap-southeast-1.amazonaws.com/dev</code></p>
 
 
 
@@ -1113,9 +1249,6 @@
             
         
                     
-            
-        
-                    
                         
             
             
@@ -1123,6 +1256,25 @@
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1314,7 +1466,7 @@
 			<a class="nav nav-prev" href="/5-workshop/3-backend/3.3/" title="Create API Gateway &amp; Integrate with Lambda"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/5-workshop/4-ai/" title="AI Workshop (Chatbot)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/5-workshop/3-backend/3.5/" title="Test API using Postman" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1324,6 +1476,7 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
+<<<<<<< HEAD
     <script src="/js/clipboard.min.js?1762535296"></script>
     <script src="/js/perfect-scrollbar.min.js?1762535296"></script>
     <script src="/js/perfect-scrollbar.jquery.min.js?1762535296"></script>
@@ -1337,6 +1490,21 @@
 
     <link href="/mermaid/mermaid.css?1762535296" rel="stylesheet" />
     <script src="/mermaid/mermaid.js?1762535296"></script>
+=======
+    <script src="/js/clipboard.min.js?1762577766"></script>
+    <script src="/js/perfect-scrollbar.min.js?1762577766"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1762577766"></script>
+    <script src="/js/jquery.sticky.js?1762577766"></script>
+    <script src="/js/featherlight.min.js?1762577766"></script>
+    <script src="/js/highlight.pack.js?1762577766"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1762577766"></script>
+    <script src="/js/learn.js?1762577766"></script>
+    <script src="/js/hugo-learn.js?1762577766"></script>
+
+    <link href="/mermaid/mermaid.css?1762577766" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1762577766"></script>
+>>>>>>> Khanh
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

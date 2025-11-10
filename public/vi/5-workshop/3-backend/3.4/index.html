@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Kiểm thử API bằng Postman :: AWS System Manager</title>
+    <title>Tạo API Gateway và tích hợp với Lambda :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1762535296" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1762535296" rel="stylesheet">
-    <link href="/css/hybrid.css?1762535296" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1762535296" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1762535296" rel="stylesheet">
-    <link href="/css/auto-complete.css?1762535296" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1762535296" rel="stylesheet">
-    <link href="/css/theme.css?1762535296" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1762535296" rel="stylesheet">
+    <link href="/css/nucleus.css?1762576458" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1762576458" rel="stylesheet">
+    <link href="/css/hybrid.css?1762576458" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1762576458" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1762576458" rel="stylesheet">
+    <link href="/css/auto-complete.css?1762576458" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1762576458" rel="stylesheet">
+    <link href="/css/theme.css?1762576458" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1762576458" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1762535296" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1762576458" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1762535296"></script>
+    <script src="/js/jquery-3.3.1.min.js?1762576458"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,23 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
+<<<<<<< HEAD
 <script type="text/javascript" src="/js/lunr.min.js?1762535296"></script>
 <script type="text/javascript" src="/js/auto-complete.js?1762535296"></script>
+=======
+<script type="text/javascript" src="/js/lunr.min.js?1762576458"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1762576458"></script>
+>>>>>>> Khanh
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
+<<<<<<< HEAD
 <script type="text/javascript" src="/js/search.js?1762535296"></script>
+=======
+<script type="text/javascript" src="/js/search.js?1762576458"></script>
+>>>>>>> Khanh
 
     
   </div>
@@ -352,13 +361,41 @@
  
   
     
-    <li data-nav-id="/vi/5-workshop/3-backend/3.4/" title="Kiểm thử API bằng Postman" class="dd-item 
+    <li data-nav-id="/vi/5-workshop/3-backend/3.4/" title="Tạo API Gateway và tích hợp với Lambda" class="dd-item 
         
         active
         
         ">
       <a href="/vi/5-workshop/3-backend/3.4/">
-           <b> 5.3.4. </b> Kiểm thử API bằng Postman
+           <b> 5.3.4. </b> Tạo API Gateway và tích hợp với Lambda
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-workshop/3-backend/3.5/" title="Kiểm thử API bằng Postman" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-workshop/3-backend/3.5/">
+           <b> 5.3.5. </b> Kiểm thử API bằng Postman
           
             <i class="fas fa-check read-icon"></i>
           
@@ -865,7 +902,7 @@
             
           
           
-            <a href='/vi/'>AWS System Manager</a> > <a href='/vi/5-workshop/'>Workshop</a> > <a href='/vi/5-workshop/3-backend/'>Backend Workshop (BE)</a> > Kiểm thử API bằng Postman
+            <a href='/vi/'>AWS System Manager</a> > <a href='/vi/5-workshop/'>Workshop</a> > <a href='/vi/5-workshop/3-backend/'>Backend Workshop (BE)</a> > Tạo API Gateway và tích hợp với Lambda
           
         
           
@@ -882,7 +919,22 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#kiểm-thử-api-bằng-postman">Kiểm thử API bằng Postman</a></li>
+    <li>
+      <ul>
+        <li><a href="#mục-tiêu">Mục tiêu</a></li>
+        <li><a href="#các-bước-thực-hiện">Các bước thực hiện</a></li>
+      </ul>
+    </li>
+    <li><a href="#api_3"><img src="/images/3.api-gateway/3.2/api_3.png" alt="API_3"></a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#api_7"><img src="/images/3.api-gateway/3.2/api_11.png" alt="API_7"></a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -900,7 +952,7 @@
           
             <h1>
               
-              Kiểm thử API bằng Postman
+              Tạo API Gateway và tích hợp với Lambda
             </h1>
           
 
@@ -908,7 +960,91 @@
 
 
 
-	<h2 id="kiểm-thử-api-bằng-postman">Kiểm thử API bằng Postman</h2>
+	<h3 id="mục-tiêu">Mục tiêu</h3>
+<p>Kết nối <strong>AWS API Gateway</strong> với <strong>Lambda Function</strong> để tạo endpoint RESTful cho phép truy cập dữ liệu trong <strong>DynamoDB</strong>.</p>
+<hr>
+<h3 id="các-bước-thực-hiện">Các bước thực hiện</h3>
+<h4 id="1-truy-cập-dịch-vụ-api-gateway"><strong>1. Truy cập dịch vụ API Gateway</strong></h4>
+<ul>
+<li>Vào <strong>AWS Console → API Gateway</strong></li>
+<li>Chọn <strong>Create API</strong></li>
+</ul>
+<p><img src="/images/3.api-gateway/3.2/api_1.png" alt="API\_1"></p>
+<ul>
+<li>Chọn loại <strong>REST API (Build)</strong></li>
+</ul>
+<p><img src="/images/3.api-gateway/3.2/api_2.png" alt="API\_2"></p>
+<ul>
+<li>Chọn:
+<ul>
+<li><strong>Create new API:</strong> New API</li>
+<li><strong>API name:</strong> <code>FlyoraAPI</code></li>
+<li><strong>Endpoint Type:</strong> Regional</li>
+</ul>
+</li>
+<li>Chọn <strong>Create API</strong></li>
+</ul>
+<h2 id="api_3"><img src="/images/3.api-gateway/3.2/api_3.png" alt="API\_3"></h2>
+<h4 id="2-tạo-resource-và-method"><strong>2. Tạo Resource và Method</strong></h4>
+<ol>
+<li>Trong sidebar, chọn <strong>Actions → Create Resource</strong></li>
+</ol>
+<p><img src="/images/3.api-gateway/3.2/api_4.png" alt="API\_4"></p>
+<ul>
+<li><strong>Resource Name:</strong> <code>api</code></li>
+<li>Chọn <strong>Create Resource</strong></li>
+</ul>
+<p><img src="/images/3.api-gateway/3.2/api_10.png" alt="API\_5"></p>
+<ol start="2">
+<li>Chọn <strong>/api → Actions → Create Resource</strong></li>
+</ol>
+<p><img src="/images/3.api-gateway/3.2/api_12.png" alt="API\_6"></p>
+<ol start="3">
+<li>Trong cấu hình resource:
+<ul>
+<li>Tick <strong>Proxy resource</strong></li>
+<li><strong>Resource path:</strong> /api/</li>
+<li><strong>Resource Name:</strong> <code>myProxy</code></li>
+<li>Nhấn <strong>Create resource</strong></li>
+</ul>
+</li>
+</ol>
+<h2 id="api_7"><img src="/images/3.api-gateway/3.2/api_11.png" alt="API\_7"></h2>
+<h4 id="3-gắn-lambda"><strong>3. Gắn Lambda</strong></h4>
+<ol>
+<li>Sau khi tạo thành công <strong>/api/{myProxy+}</strong>, xuất hiện method <strong>ANY</strong>:
+<ul>
+<li>Chọn <strong>ANY → Integration request → Edit</strong></li>
+<li>Tương tự rồi nhấn <strong>Create method</strong>.</li>
+</ul>
+</li>
+</ol>
+<p><img src="/images/3.api-gateway/3.2/api_13.png" alt="API\_8"></p>
+<ol start="2">
+<li>Gắn Lambda:
+<ul>
+<li><strong>Integration type:</strong> Lambda Function</li>
+<li>Tick <strong>Lambda proxy integration</strong></li>
+<li><strong>Lambda Region:</strong> <code>ap-southeast-1</code> (Singapore)</li>
+<li><strong>Lambda Function:</strong> chọn hàm <code>Lambda_API_Handler</code> của bạn</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="4-deploy-api"><strong>4. Deploy API</strong></h4>
+<ul>
+<li>Chọn <strong>Actions → Deploy API</strong></li>
+<li><strong>Deployment stage:</strong> New stage
+<ul>
+<li><strong>Stage name:</strong> <code>dev</code></li>
+<li><strong>Description:</strong> Development stage for Lambda API</li>
+</ul>
+</li>
+<li>Nhấn <strong>Deploy</strong></li>
+</ul>
+<p><img src="/images/3.api-gateway/3.2/api_9.png" alt="API\_9"></p>
+<p>Sau khi deploy, bạn sẽ nhận được Invoke URL dạng:
+<code>https://&lt;api_id&gt;.execute-api.ap-southeast-1.amazonaws.com/dev</code></p>
 
 
 
@@ -1113,9 +1249,6 @@
             
         
                     
-            
-        
-                    
                         
             
             
@@ -1123,6 +1256,25 @@
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1314,7 +1466,7 @@
 			<a class="nav nav-prev" href="/vi/5-workshop/3-backend/3.3/" title="Tạo API Gateway và tích hợp Lambda"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/5-workshop/4-ai/" title="AI Workshop (Chatbot)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/5-workshop/3-backend/3.5/" title="Kiểm thử API bằng Postman" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1324,6 +1476,7 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
+<<<<<<< HEAD
     <script src="/js/clipboard.min.js?1762535296"></script>
     <script src="/js/perfect-scrollbar.min.js?1762535296"></script>
     <script src="/js/perfect-scrollbar.jquery.min.js?1762535296"></script>
@@ -1337,6 +1490,21 @@
 
     <link href="/mermaid/mermaid.css?1762535296" rel="stylesheet" />
     <script src="/mermaid/mermaid.js?1762535296"></script>
+=======
+    <script src="/js/clipboard.min.js?1762576458"></script>
+    <script src="/js/perfect-scrollbar.min.js?1762576458"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1762576458"></script>
+    <script src="/js/jquery.sticky.js?1762576458"></script>
+    <script src="/js/featherlight.min.js?1762576458"></script>
+    <script src="/js/highlight.pack.js?1762576458"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1762576458"></script>
+    <script src="/js/learn.js?1762576458"></script>
+    <script src="/js/hugo-learn.js?1762576458"></script>
+
+    <link href="/mermaid/mermaid.css?1762576458" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1762576458"></script>
+>>>>>>> Khanh
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

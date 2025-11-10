@@ -95,7 +95,7 @@
 	"title": "Tạo API Gateway và tích hợp Lambda",
 	"tags": [],
 	"description": "",
-	"content": "Tạo API Gateway \u0026amp; Lambda Integration "
+	"content": "Mục tiêu Tạo Lambda Function mới để xử lý các yêu cầu đến DynamoDB thông qua API Gateway.\nCác bước thực hiện Bước 1: Tạo IAM Role Mở IAM Console → Roles → Create role Chọn Trusted entity: AWS Service → Lambda Gán quyền: AmazonDynamoDBFullAccess CloudWatchLogsFullAccess Đặt tên role: LambdaAPIAccessRole Bước 2: Tạo Lambda Function Vào AWS Lambda → Create function Chọn Author from scratch Nhập tên: DynamoDB_API_Handler Runtime: Python 3.13 Chọn IAM Role: LambdaAPIAccessRole Bước 3: Dán code ví dụ ```python\rimport boto3\rimport json\rfrom decimal import Decimal\rdynamodb = boto3.resource('dynamodb')\rclass DecimalEncoder(json.JSONEncoder):\rdef default(self, obj):\rif isinstance(obj, Decimal):\rreturn int(obj) if obj % 1 == 0 else float(obj)\rreturn super(DecimalEncoder, self).default(obj)\rdef lambda_handler(event, context):\rtry:\rmethod = event.get('httpMethod', 'GET')\rpath = event.get('path', '') body = json.loads(event.get('body', '{}')) if event.get('body') else {}\rpath_to_table = {\r'/api/account': 'Account',\r'/api/admin': 'Admin',\r'/api/role': 'Role',\r'/api/customer': 'Customer',\r'/api/staff': 'SalesStaff',\r'/api/owner': 'ShopOwner',\r'/api/product': 'Product',\r'/api/category': 'ProductCategory',\r'/api/review': 'ProductReview',\r'/api/promotion': 'Promotion',\r'/api/inventory': 'Inventory',\r'/api/type/food': 'FoodType',\r'/api/type/furniture': 'FurnitureType',\r'/api/type/toy': 'ToyType',\r'/api/type/bird': 'BirdType',\r'/api/detail/food': 'FoodDetail',\r'/api/detail/furniture': 'FurnitureDetail',\r'/api/detail/toy': 'ToyDetail',\r'/api/order': 'Order',\r'/api/order-item': 'OrderItem',\r'/api/payment': 'Payment',\r'/api/payment-method': 'PaymentMethod',\r'/api/delivery-note': 'DeliveryNote',\r'/api/shipping-method': 'ShippingMethod',\r'/api/notification': 'Notification',\r'/api/notification-type': 'NotificationType',\r'/api/chatbot': 'ChatBot',\r'/api/faq': 'FAQ',\r'/api/new': 'NewsArticle',\r'/api/log/access': 'AccessLog',\r'/api/log/system': 'SystemLog',\r'/api/issue': 'IssueReport',\r'/api/policy': 'Policy'\r}\rtable_name = path_to_table.get(path)\rif not table_name:\rreturn {\r'statusCode': 404,\r'body': json.dumps({'error': f'Unknown API path: {path}'})\r}\rtable = dynamodb.Table(table_name)\rif method == 'GET':\rresponse = table.scan()\rreturn {\r'statusCode': 200,\r'headers': {'Content-Type': 'application/json'},\r'body': json.dumps(response['Items'], cls=DecimalEncoder)\r}\relif method == 'POST':\ritem = body.get('item')\rif not item:\rreturn {\r'statusCode': 400,\r'body': json.dumps({'error': 'Missing item data'})\r}\rtable.put_item(Item=item)\rreturn {\r'statusCode': 200,\r'headers': {'Content-Type': 'application/json'},\r'body': json.dumps({'message': 'Item added successfully', 'item': item}, cls=DecimalEncoder)\r}\relif method == 'PUT':\ritem = body.get('item')\rif not item:\rreturn {\r'statusCode': 400,\r'body': json.dumps({'error': 'Missing item data for update'})\r}\rtable.put_item(Item=item)\rreturn {\r'statusCode': 200,\r'headers': {'Content-Type': 'application/json'},\r'body': json.dumps({'message': 'Item updated successfully', 'item': item}, cls=DecimalEncoder)\r}\relif method == 'DELETE':\rkey = body.get('key')\rif not key:\rreturn {\r'statusCode': 400,\r'body': json.dumps({'error': 'Missing key for delete'})\r}\rtable.delete_item(Key=key)\rreturn {\r'statusCode': 200,\r'body': json.dumps({'message': 'Item deleted successfully'})\r}\relse:\rreturn {\r'statusCode': 405,\r'body': json.dumps({'error': f'Method {method} not allowed'})\r}\rexcept Exception as e:\rreturn {\r'statusCode': 500,\r'body': json.dumps({'error': str(e)})\r}\r"
 },
 {
 	"uri": "//localhost:1313/vi/5-workshop/4-ai/",
@@ -106,10 +106,10 @@
 },
 {
 	"uri": "//localhost:1313/vi/5-workshop/3-backend/3.4/",
-	"title": "Kiểm thử API bằng Postman",
+	"title": "Creating API Gateway and Integrating with Lambda",
 	"tags": [],
 	"description": "",
-	"content": "Kiểm thử API bằng Postman "
+	"content": "Mục tiêu Connect AWS API Gateway with a Lambda Function to create a RESTful endpoint that allows access to data in DynamoDB.\nCác bước thực hiện 1. Truy cập dịch vụ API Gateway Vào AWS Console → API Gateway Chọn Create API Chọn loại REST API (Build) Chọn: Create new API: New API API name: FlyoraAPI Endpoint Type: Regional Chọn Create API 2. Tạo Resource và Method Trong sidebar, chọn Actions → Create Resource Resource Name: api Chọn Create Resource Chọn /api → Actions → Create Resource Trong cấu hình resource: Tick Proxy resource Resource path: /api/ Resource Name: myProxy Nhấn Create resource 3. Gắn Lambda Sau khi tạo thành công /api/{myProxy+}, xuất hiện method ANY: Chọn ANY → Integration request → Edit Tương tự rồi nhấn Create method. Gắn Lambda: Integration type: Lambda Function Tick Lambda proxy integration Lambda Region: ap-southeast-1 (Singapore) Lambda Function: chọn hàm Lambda_API_Handler của bạn 4. Deploy API Chọn Actions → Deploy API Deployment stage: New stage Stage name: dev Description: Development stage for Lambda API Nhấn Deploy Sau khi deploy, bạn sẽ nhận được Invoke URL dạng: https://\u0026lt;api_id\u0026gt;.execute-api.ap-southeast-1.amazonaws.com/dev\n"
 },
 {
 	"uri": "//localhost:1313/vi/5-workshop/5-frontend/",
@@ -117,6 +117,13 @@
 	"tags": [],
 	"description": "",
 	"content": "Xây dựng Frontend \u0026amp; Nhúng Chatbot "
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/3-backend/3.5/",
+	"title": "Kiểm thử API bằng Postman",
+	"tags": [],
+	"description": "",
+	"content": "Mục tiêu Kiểm thử API Gateway REST endpoint tích hợp với Lambda Function để xác nhận hoạt động dữ liệu DynamoDB.\nTải và cài đặt Postman trước khi bắt đầu phần này.\nKiểm thử GET Mở Postman\nChọn GET\nNhập URL: https://uwbxj9wfq6.execute-api.ap-southeast-1.amazonaws.com/dev/api/account\nTab Headers: Key: Content-Type | Value: application/json\nNhấn Send\nKết quả: Trả về danh sách Items trong bảng Account\nKiểm thử POST Chọn POST\nURL: https://uwbxj9wfq6.execute-api.ap-southeast-1.amazonaws.com/dev/api/account\nBody → raw → JSON\n{ \u0026#34;item\u0026#34;: { \u0026#34;id\u0026#34;: \u0026#34;120\u0026#34;, \u0026#34;username\u0026#34;: \u0026#34;owner02\u0026#34;, \u0026#34;password\u0026#34;: \u0026#34;securepass\u0026#34;, \u0026#34;email\u0026#34;: \u0026#34;owner02@gmail.com\u0026#34;, \u0026#34;phone\u0026#34;: \u0026#34;0912345678\u0026#34;, \u0026#34;role_id\u0026#34;: \u0026#34;2\u0026#34;, \u0026#34;is_active\u0026#34;: \u0026#34;1\u0026#34;, \u0026#34;is_approved\u0026#34;: \u0026#34;1\u0026#34;, \u0026#34;approved_by\u0026#34;: \u0026#34;NULL\u0026#34; } }\nNhấn Send Kết quả: Thêm Items trong bảng Account "
 },
 {
 	"uri": "//localhost:1313/vi/5-workshop/",

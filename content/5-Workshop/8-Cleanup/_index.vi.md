@@ -1,6 +1,6 @@
 ---
 title : "Dọn dẹp tài nguyên để tránh phát sinh chi phí"
-date : "`r Sys.Date()`"
+date : "2025-01-15"
 weight: 8
 chapter: false
 pre: " <b> 5.8. </b> "
