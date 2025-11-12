@@ -52,7 +52,7 @@ Workshop được phân chia theo vai trò nhóm để dễ triển khai song so
    - *(Để nhóm AI tự điền nội dung)* [](4-AI/4.3/)
 
 5. **Frontend Workshop (FE)** — Hiển thị dữ liệu & tích hợp chatbot
-   - *(Để nhóm FE tự điền nội dung)* [](5-Frontend/5.1/)
+   - [Hosting website với S3](5-Frontend/5.1/)
    - *(Để nhóm FE tự điền nội dung)* [](5-Frontend/5.2/)
    - *(Để nhóm FE tự điền nội dung)* [](5-Frontend/5.3/)
 

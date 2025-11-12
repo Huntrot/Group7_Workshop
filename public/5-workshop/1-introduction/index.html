@@ -3,7 +3,7 @@
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.150.0">
+    <meta name="generator" content="Hugo 0.134.3">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,39 +12,21 @@
     <title>Introduction :: AWS System Manager</title>
 
     
-<<<<<<< HEAD
-    <link href="/css/nucleus.css?1762535296" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1762535296" rel="stylesheet">
-    <link href="/css/hybrid.css?1762535296" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1762535296" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1762535296" rel="stylesheet">
-    <link href="/css/auto-complete.css?1762535296" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1762535296" rel="stylesheet">
-    <link href="/css/theme.css?1762535296" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1762535296" rel="stylesheet">
+    <link href="/css/nucleus.css?1762945568" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1762945568" rel="stylesheet">
+    <link href="/css/hybrid.css?1762945568" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1762945568" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1762945568" rel="stylesheet">
+    <link href="/css/auto-complete.css?1762945568" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1762945568" rel="stylesheet">
+    <link href="/css/theme.css?1762945568" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1762945568" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1762535296" rel="stylesheet">
-    
-    
-
-    <script src="/js/jquery-3.3.1.min.js?1762535296"></script>
-=======
-    <link href="/css/nucleus.css?1762574909" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1762574909" rel="stylesheet">
-    <link href="/css/hybrid.css?1762574909" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1762574909" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1762574909" rel="stylesheet">
-    <link href="/css/auto-complete.css?1762574909" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1762574909" rel="stylesheet">
-    <link href="/css/theme.css?1762574909" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1762574909" rel="stylesheet">
-    
-    <link href="/css/theme-workshop.css?1762574909" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1762945568" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1762574909"></script>
->>>>>>> Khanh
+    <script src="/js/jquery-3.3.1.min.js?1762945568"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -75,23 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<<<<<<< HEAD
-<script type="text/javascript" src="/js/lunr.min.js?1762535296"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1762535296"></script>
-=======
-<script type="text/javascript" src="/js/lunr.min.js?1762574909"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1762574909"></script>
->>>>>>> Khanh
+<script type="text/javascript" src="/js/lunr.min.js?1762945568"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1762945568"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<<<<<<< HEAD
-<script type="text/javascript" src="/js/search.js?1762535296"></script>
-=======
-<script type="text/javascript" src="/js/search.js?1762574909"></script>
->>>>>>> Khanh
+<script type="text/javascript" src="/js/search.js?1762945568"></script>
 
     
   </div>
@@ -379,13 +352,13 @@
  
   
     
-    <li data-nav-id="/5-workshop/3-backend/3.4/" title="Test API using Postman" class="dd-item 
+    <li data-nav-id="/5-workshop/3-backend/3.4/" title="Creating API Gateway and Integrating with Lambda" class="dd-item 
         
         
         
         ">
       <a href="/5-workshop/3-backend/3.4/">
-           <b> 5.3.4. </b> Test API using Postman
+           <b> 5.3.4. </b> Creating API Gateway and Integrating with Lambda
           
             <i class="fas fa-check read-icon"></i>
           
@@ -931,7 +904,18 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#introduction">Introduction</a>
+      <ul>
+        <li><a href="#what-is-flyora">What is Flyora?</a></li>
+        <li><a href="#workshop-objectives">Workshop Objectives</a></li>
+        <li><a href="#architecture-overview">Architecture Overview</a></li>
+        <li><a href="#workshop-structure">Workshop Structure</a></li>
+        <li><a href="#expected-outcomes">Expected Outcomes</a></li>
+        <li><a href="#cost-considerations">Cost Considerations</a></li>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#lets-get-started">Let&rsquo;s Get Started!</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -958,6 +942,81 @@
 
 
 	<h2 id="introduction">Introduction</h2>
+<h3 id="what-is-flyora">What is Flyora?</h3>
+<p>Flyora is a modern e-commerce platform designed to demonstrate cloud-native architecture using AWS serverless services. This workshop guides you through building a fully functional online store with product browsing, AI-powered chatbot assistance, and automated data management.</p>
+<h3 id="workshop-objectives">Workshop Objectives</h3>
+<p>By completing this workshop, you will:</p>
+<ul>
+<li>Deploy a <strong>serverless e-commerce system</strong> on AWS</li>
+<li>Implement <strong>automated data pipelines</strong> using S3 and Lambda triggers</li>
+<li>Build <strong>RESTful APIs</strong> with API Gateway and Lambda</li>
+<li>Create a <strong>scalable database</strong> using DynamoDB</li>
+<li>Integrate <strong>AI chatbot</strong> functionality for customer support</li>
+<li>Deploy a <strong>static frontend</strong> with S3 and CloudFront</li>
+<li>Set up <strong>CI/CD pipelines</strong> for automated deployments</li>
+</ul>
+<h3 id="architecture-overview">Architecture Overview</h3>
+<p>The Flyora platform uses a fully serverless architecture:</p>
+<p><strong>Frontend Layer:</strong></p>
+<ul>
+<li>Static website hosted on <strong>Amazon S3</strong></li>
+<li>Global content delivery via <strong>Amazon CloudFront</strong></li>
+<li>Responsive UI for product browsing and shopping</li>
+</ul>
+<p><strong>Backend Layer:</strong></p>
+<ul>
+<li><strong>API Gateway</strong> for RESTful API endpoints</li>
+<li><strong>AWS Lambda</strong> functions for business logic</li>
+<li><strong>Amazon DynamoDB</strong> for product and order data</li>
+<li><strong>Amazon S3</strong> for data import and storage</li>
+</ul>
+<p><strong>AI Layer:</strong></p>
+<ul>
+<li>AI-powered chatbot for product recommendations</li>
+<li>Integrated into the frontend UI</li>
+<li>Provides real-time customer assistance</li>
+</ul>
+<p><strong>Security &amp; Authentication:</strong></p>
+<ul>
+<li><strong>Amazon Cognito</strong> for user authentication</li>
+<li><strong>IAM roles</strong> for secure service access</li>
+</ul>
+<h3 id="workshop-structure">Workshop Structure</h3>
+<p>This workshop is organized into team-based modules:</p>
+<ol>
+<li><strong>Prerequisites</strong> - Environment setup and IAM configuration</li>
+<li><strong>Backend Team</strong> - API development and data pipeline</li>
+<li><strong>AI Team</strong> - Chatbot integration and AI features</li>
+<li><strong>Frontend Team</strong> - UI development and deployment</li>
+<li><strong>CI/CD</strong> - Automated deployment pipeline</li>
+<li><strong>Testing</strong> - System validation and performance testing</li>
+<li><strong>Cleanup</strong> - Resource management and cost optimization</li>
+</ol>
+<h3 id="expected-outcomes">Expected Outcomes</h3>
+<p>After completing this workshop, you will have:</p>
+<ul>
+<li>A fully functional e-commerce website running on AWS</li>
+<li>Hands-on experience with serverless architecture</li>
+<li>Understanding of AWS best practices for scalability and security</li>
+<li>Knowledge of CI/CD implementation for cloud applications</li>
+<li>A portfolio project demonstrating cloud engineering skills</li>
+</ul>
+<h3 id="cost-considerations">Cost Considerations</h3>
+
+<div class="notices info" ><p>This workshop is designed to run within the <strong>AWS Free Tier</strong>. All services used have free tier options, and the architecture avoids costly resources like EC2 instances. Estimated cost for running this workshop: <strong>$0-5 USD</strong> if completed within a few hours.</p>
+</div>
+
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Before starting, ensure you have:</p>
+<ul>
+<li>An AWS account with administrative access</li>
+<li>Basic understanding of cloud computing concepts</li>
+<li>Familiarity with REST APIs and JSON</li>
+<li>Basic knowledge of HTML/CSS/JavaScript (for frontend work)</li>
+<li>Git installed on your local machine</li>
+</ul>
+<h3 id="lets-get-started">Let&rsquo;s Get Started!</h3>
+<p>Ready to build your serverless e-commerce platform? Let&rsquo;s move on to the <a href="/5-workshop/2-prerequisites/">Prerequisites</a> section to set up your environment.</p>
 
 
 
@@ -1382,35 +1441,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-<<<<<<< HEAD
-    <script src="/js/clipboard.min.js?1762535296"></script>
-    <script src="/js/perfect-scrollbar.min.js?1762535296"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1762535296"></script>
-    <script src="/js/jquery.sticky.js?1762535296"></script>
-    <script src="/js/featherlight.min.js?1762535296"></script>
-    <script src="/js/highlight.pack.js?1762535296"></script>
+    <script src="/js/clipboard.min.js?1762945568"></script>
+    <script src="/js/perfect-scrollbar.min.js?1762945568"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1762945568"></script>
+    <script src="/js/jquery.sticky.js?1762945568"></script>
+    <script src="/js/featherlight.min.js?1762945568"></script>
+    <script src="/js/highlight.pack.js?1762945568"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1762535296"></script>
-    <script src="/js/learn.js?1762535296"></script>
-    <script src="/js/hugo-learn.js?1762535296"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1762945568"></script>
+    <script src="/js/learn.js?1762945568"></script>
+    <script src="/js/hugo-learn.js?1762945568"></script>
 
-    <link href="/mermaid/mermaid.css?1762535296" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1762535296"></script>
-=======
-    <script src="/js/clipboard.min.js?1762574909"></script>
-    <script src="/js/perfect-scrollbar.min.js?1762574909"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1762574909"></script>
-    <script src="/js/jquery.sticky.js?1762574909"></script>
-    <script src="/js/featherlight.min.js?1762574909"></script>
-    <script src="/js/highlight.pack.js?1762574909"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1762574909"></script>
-    <script src="/js/learn.js?1762574909"></script>
-    <script src="/js/hugo-learn.js?1762574909"></script>
-
-    <link href="/mermaid/mermaid.css?1762574909" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1762574909"></script>
->>>>>>> Khanh
+    <link href="/mermaid/mermaid.css?1762945568" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1762945568"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

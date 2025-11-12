@@ -3,11 +3,7 @@
   <channel>
     <title>Tạo API Gateway và tích hợp với Lambda on AWS System Manager</title>
     <link>//localhost:1313/vi/5-workshop/3-backend/3.4/</link>
-<<<<<<< HEAD
-    <description>Recent content in Kiểm thử API bằng Postman on AWS System Manager</description>
-=======
     <description>Recent content in Tạo API Gateway và tích hợp với Lambda on AWS System Manager</description>
->>>>>>> Khanh
     <generator>Hugo</generator>
     <language>vi</language>
     <lastBuildDate></lastBuildDate>

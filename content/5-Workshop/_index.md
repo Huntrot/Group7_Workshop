@@ -52,7 +52,7 @@ The workshop is divided into group roles for parallel development:
    - *(AI team will fill in content)* [](4-AI/4.3/)
 
 5. **Frontend Workshop (FE)** — Display Data & Integrate Chatbot
-   - *(Frontend team will fill in content)* [](5-Frontend/5.1/)
+   - [Hosting website with S3](5-Frontend/5.1/)
    - *(Frontend team will fill in content)* [](5-Frontend/5.2/)
    - *(Frontend team will fill in content)* [](5-Frontend/5.3/)
 

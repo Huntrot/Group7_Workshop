@@ -3,7 +3,7 @@
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.150.0">
+    <meta name="generator" content="Hugo 0.134.3">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Create IAM User &amp; Configure Access Permissions :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1762574909" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1762574909" rel="stylesheet">
-    <link href="/css/hybrid.css?1762574909" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1762574909" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1762574909" rel="stylesheet">
-    <link href="/css/auto-complete.css?1762574909" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1762574909" rel="stylesheet">
-    <link href="/css/theme.css?1762574909" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1762574909" rel="stylesheet">
+    <link href="/css/nucleus.css?1762945568" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1762945568" rel="stylesheet">
+    <link href="/css/hybrid.css?1762945568" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1762945568" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1762945568" rel="stylesheet">
+    <link href="/css/auto-complete.css?1762945568" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1762945568" rel="stylesheet">
+    <link href="/css/theme.css?1762945568" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1762945568" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1762574909" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1762945568" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1762574909"></script>
+    <script src="/js/jquery-3.3.1.min.js?1762945568"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,23 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<<<<<<< HEAD
-<script type="text/javascript" src="/js/lunr.min.js?1762535296"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1762535296"></script>
-=======
-<script type="text/javascript" src="/js/lunr.min.js?1762574909"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1762574909"></script>
->>>>>>> Khanh
+<script type="text/javascript" src="/js/lunr.min.js?1762945568"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1762945568"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<<<<<<< HEAD
-<script type="text/javascript" src="/js/search.js?1762535296"></script>
-=======
-<script type="text/javascript" src="/js/search.js?1762574909"></script>
->>>>>>> Khanh
+<script type="text/javascript" src="/js/search.js?1762945568"></script>
 
     
   </div>
@@ -361,13 +352,13 @@
  
   
     
-    <li data-nav-id="/5-workshop/3-backend/3.4/" title="Test API using Postman" class="dd-item 
+    <li data-nav-id="/5-workshop/3-backend/3.4/" title="Creating API Gateway and Integrating with Lambda" class="dd-item 
         
         
         
         ">
       <a href="/5-workshop/3-backend/3.4/">
-           <b> 5.3.4. </b> Test API using Postman
+           <b> 5.3.4. </b> Creating API Gateway and Integrating with Lambda
           
             <i class="fas fa-check read-icon"></i>
           
@@ -957,16 +948,16 @@
 <ul>
 <li>Go to the <strong>AWS Management Console</strong> → search for <strong>IAM</strong>.</li>
 </ul>
-<p><img src="/images/5-Workshop/2.prerequisite/iam_1.png" alt="IAM_1"></p>
+<p><img alt="IAM_1" src="/images/5-Workshop/2.prerequisite/iam_1.png"></p>
 <ul>
 <li>Select <strong>Roles</strong> → <strong>Create Role</strong>.</li>
 </ul>
-<p><img src="/images/5-Workshop/2.prerequisite/iam_2.png" alt="IAM_2"></p>
+<p><img alt="IAM_2" src="/images/5-Workshop/2.prerequisite/iam_2.png"></p>
 <ul>
 <li>Choose <strong>Trusted entity type:</strong> <em>AWS service</em>.</li>
 <li>Choose <strong>Use case:</strong> <em>Lambda</em>, then click <strong>Next</strong>.</li>
 </ul>
-<p><img src="/images/5-Workshop/2.prerequisite/iam_3.png" alt="IAM_3"></p>
+<p><img alt="IAM_3" src="/images/5-Workshop/2.prerequisite/iam_3.png"></p>
 <h4 id="2-attach-permissions-to-the-role">2. Attach Permissions to the Role</h4>
 <ul>
 <li>
@@ -980,8 +971,8 @@
 <p>Click <strong>Next</strong>, then name the role <code>LambdaS3DynamoDBRole</code>.</p>
 </li>
 </ul>
-<p><img src="/images/5-Workshop/2.prerequisite/iam_4.png" alt="IAM_4"><br>
-<img src="/images/5-Workshop/2.prerequisite/iam_5.png" alt="IAM_5"></p>
+<p><img alt="IAM_4" src="/images/5-Workshop/2.prerequisite/iam_4.png"><br>
+<img alt="IAM_5" src="/images/5-Workshop/2.prerequisite/iam_5.png"></p>
 
 <div class="notices note" ><p>This role allows Lambda to read files from <strong>S3</strong> and write data to <strong>DynamoDB</strong>.</p>
 </div>
@@ -1414,35 +1405,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-<<<<<<< HEAD
-    <script src="/js/clipboard.min.js?1762535296"></script>
-    <script src="/js/perfect-scrollbar.min.js?1762535296"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1762535296"></script>
-    <script src="/js/jquery.sticky.js?1762535296"></script>
-    <script src="/js/featherlight.min.js?1762535296"></script>
-    <script src="/js/highlight.pack.js?1762535296"></script>
+    <script src="/js/clipboard.min.js?1762945568"></script>
+    <script src="/js/perfect-scrollbar.min.js?1762945568"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1762945568"></script>
+    <script src="/js/jquery.sticky.js?1762945568"></script>
+    <script src="/js/featherlight.min.js?1762945568"></script>
+    <script src="/js/highlight.pack.js?1762945568"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1762535296"></script>
-    <script src="/js/learn.js?1762535296"></script>
-    <script src="/js/hugo-learn.js?1762535296"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1762945568"></script>
+    <script src="/js/learn.js?1762945568"></script>
+    <script src="/js/hugo-learn.js?1762945568"></script>
 
-    <link href="/mermaid/mermaid.css?1762535296" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1762535296"></script>
-=======
-    <script src="/js/clipboard.min.js?1762574909"></script>
-    <script src="/js/perfect-scrollbar.min.js?1762574909"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1762574909"></script>
-    <script src="/js/jquery.sticky.js?1762574909"></script>
-    <script src="/js/featherlight.min.js?1762574909"></script>
-    <script src="/js/highlight.pack.js?1762574909"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1762574909"></script>
-    <script src="/js/learn.js?1762574909"></script>
-    <script src="/js/hugo-learn.js?1762574909"></script>
-
-    <link href="/mermaid/mermaid.css?1762574909" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1762574909"></script>
->>>>>>> Khanh
+    <link href="/mermaid/mermaid.css?1762945568" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1762945568"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

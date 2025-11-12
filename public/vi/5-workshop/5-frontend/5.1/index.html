@@ -3,7 +3,7 @@
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.150.0">
+    <meta name="generator" content="Hugo 0.134.3">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title> :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1762574909" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1762574909" rel="stylesheet">
-    <link href="/css/hybrid.css?1762574909" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1762574909" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1762574909" rel="stylesheet">
-    <link href="/css/auto-complete.css?1762574909" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1762574909" rel="stylesheet">
-    <link href="/css/theme.css?1762574909" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1762574909" rel="stylesheet">
+    <link href="/css/nucleus.css?1762942105" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1762942105" rel="stylesheet">
+    <link href="/css/hybrid.css?1762942105" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1762942105" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1762942105" rel="stylesheet">
+    <link href="/css/auto-complete.css?1762942105" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1762942105" rel="stylesheet">
+    <link href="/css/theme.css?1762942105" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1762942105" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1762574909" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1762942105" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1762574909"></script>
+    <script src="/js/jquery-3.3.1.min.js?1762942105"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,23 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<<<<<<< HEAD
-<script type="text/javascript" src="/js/lunr.min.js?1762535296"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1762535296"></script>
-=======
-<script type="text/javascript" src="/js/lunr.min.js?1762574909"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1762574909"></script>
->>>>>>> Khanh
+<script type="text/javascript" src="/js/lunr.min.js?1762942105"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1762942105"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<<<<<<< HEAD
-<script type="text/javascript" src="/js/search.js?1762535296"></script>
-=======
-<script type="text/javascript" src="/js/search.js?1762574909"></script>
->>>>>>> Khanh
+<script type="text/javascript" src="/js/search.js?1762942105"></script>
 
     
   </div>
@@ -361,13 +352,13 @@
  
   
     
-    <li data-nav-id="/vi/5-workshop/3-backend/3.4/" title="Creating API Gateway and Integrating with Lambda" class="dd-item 
+    <li data-nav-id="/vi/5-workshop/3-backend/3.4/" title="Tạo API Gateway và tích hợp với Lambda" class="dd-item 
         
         
         
         ">
       <a href="/vi/5-workshop/3-backend/3.4/">
-           <b> 5.3.4. </b> Creating API Gateway and Integrating with Lambda
+           <b> 5.3.4. </b> Tạo API Gateway và tích hợp với Lambda
           
             <i class="fas fa-check read-icon"></i>
           
@@ -919,7 +910,15 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li></li>
+    <li><a href="#heading"></a></li>
+    <li><a href="#hosting-website-với-s3">Hosting website với S3</a>
+      <ul>
+        <li><a href="#bước-1-tạo-một-s3-bucket">Bước 1: Tạo một S3 Bucket</a></li>
+        <li><a href="#bước-2-tải-lên-các-tệp-website">Bước 2: Tải lên các tệp website</a></li>
+        <li><a href="#bước-3-bật-tính-năng-static-website-hosting">Bước 3: Bật tính năng Static Website Hosting</a></li>
+        <li><a href="#bước-4-kiểm-tra-website">Bước 4: Kiểm tra Website</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -945,7 +944,83 @@
 
 
 
-	<h2></h2>
+	<h2 id="heading"></h2>
+<h2 id="hosting-website-với-s3">Hosting website với S3</h2>
+<h3 id="bước-1-tạo-một-s3-bucket">Bước 1: Tạo một S3 Bucket</h3>
+<ul>
+<li>
+<p>Truy cập vào dịch vụ <strong>S3</strong>.
+<img alt="S3_hosting_website1" src="/images/5-Workshop/5.frontend/S3_hosting_website1.png"></p>
+</li>
+<li>
+<p>Nhấn <strong>Create bucket</strong>.
+<img alt="S3_hosting_website2" src="/images/5-Workshop/5.frontend/S3_hosting_website2.png"></p>
+</li>
+<li>
+<p>Nhập một <strong>Tên Bucket</strong> duy nhất (ví dụ: <code>flyora-shop</code>).</p>
+</li>
+<li>
+<p><strong>Bỏ chọn</strong> “Block all public access”
+<img alt="S3_hosting_website3" src="/images/5-Workshop/5.frontend/S3_hosting_website3.png"></p>
+</li>
+<li>
+<p>Xác nhận cảnh báo về quyền truy cập công khai.
+<img alt="S3_hosting_website4" src="/images/5-Workshop/5.frontend/S3_hosting_website4.png"></p>
+</li>
+<li>
+<p>Nhấn <strong>Create bucket</strong>.
+<img alt="S3_hosting_website5" src="/images/5-Workshop/5.frontend/S3_hosting_website5.png"></p>
+</li>
+</ul>
+<h3 id="bước-2-tải-lên-các-tệp-website">Bước 2: Tải lên các tệp website</h3>
+<ul>
+<li>Mở bucket vừa tạo.
+<img alt="S3_hosting_website5" src="/images/5-Workshop/5.frontend/S3_hosting_website6.png"></li>
+<li>Nhấn <strong>Upload</strong> → <strong>Add files</strong> → chọn các tệp website của bạn (ví dụ: <code>index.html</code>)
+<img alt="S3_hosting_website6" src="/images/5-Workshop/5.frontend/S3_hosting_website7.png"></li>
+<li>Nhấn <strong>Upload</strong>.
+<img alt="S3_hosting_website7" src="/images/5-Workshop/5.frontend/S3_hosting_website8.png"></li>
+</ul>
+<h3 id="bước-3-bật-tính-năng-static-website-hosting">Bước 3: Bật tính năng Static Website Hosting</h3>
+<ul>
+<li>Chuyển đến tab <strong>Properties</strong> của bucket.
+<img alt="S3_hosting_website8" src="/images/5-Workshop/5.frontend/S3_hosting_website9.png"></li>
+<li>Kéo xuống <strong>Static website hosting</strong>.
+<img alt="S3_hosting_website9" src="/images/5-Workshop/5.frontend/S3_hosting_website10.png"></li>
+<li>Nhấn <strong>Edit</strong> → Bật <strong>Static website hosting</strong></li>
+<li>Nhập:
+<ul>
+<li><strong>Index document:</strong> <code>index.html</code></li>
+<li><strong>Error document:</strong> <code>index.html</code> (tùy chọn)
+<img alt="S3_hosting_website11" src="/images/5-Workshop/5.frontend/S3_hosting_website11.png"></li>
+</ul>
+</li>
+<li>Nhấn <strong>Save changes</strong>.
+<img alt="S3_hosting_website12" src="/images/5-Workshop/5.frontend/S3_hosting_website12.png"></li>
+<li>Chuyển sang tab <strong>Permission</strong> của bucket.
+<img alt="S3_hosting_website13" src="/images/5-Workshop/5.frontend/S3_hosting_website13.png"></li>
+<li>Chỉnh sửa <strong>Bucket Policy</strong></li>
+<li>Dán JSON policy sau (thay <code>flyora-shop</code> bằng tên bucket của bạn):</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Statement&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Sid&#34;</span>: <span style="color:#e6db74">&#34;PublicReadGetObject&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Principal&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;s3:GetObject&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:s3:::your-bucket-name/*&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="bước-4-kiểm-tra-website">Bước 4: Kiểm tra Website</h3>
+<ul>
+<li>Nhấn vào Bucket website endpoint URL
+<code>http://your-bucket-name.s3-website-ap-southeast-1.amazonaws.com</code>
+Đảm bảo website hiển thị như hình dưới:
+<img alt="S3_hosting_website14" src="/images/5-Workshop/5.frontend/S3_hosting_website14.png"></li>
+</ul>
 
 
 
@@ -1374,35 +1449,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-<<<<<<< HEAD
-    <script src="/js/clipboard.min.js?1762535296"></script>
-    <script src="/js/perfect-scrollbar.min.js?1762535296"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1762535296"></script>
-    <script src="/js/jquery.sticky.js?1762535296"></script>
-    <script src="/js/featherlight.min.js?1762535296"></script>
-    <script src="/js/highlight.pack.js?1762535296"></script>
+    <script src="/js/clipboard.min.js?1762942105"></script>
+    <script src="/js/perfect-scrollbar.min.js?1762942105"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1762942105"></script>
+    <script src="/js/jquery.sticky.js?1762942105"></script>
+    <script src="/js/featherlight.min.js?1762942105"></script>
+    <script src="/js/highlight.pack.js?1762942105"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1762535296"></script>
-    <script src="/js/learn.js?1762535296"></script>
-    <script src="/js/hugo-learn.js?1762535296"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1762942105"></script>
+    <script src="/js/learn.js?1762942105"></script>
+    <script src="/js/hugo-learn.js?1762942105"></script>
 
-    <link href="/mermaid/mermaid.css?1762535296" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1762535296"></script>
-=======
-    <script src="/js/clipboard.min.js?1762574909"></script>
-    <script src="/js/perfect-scrollbar.min.js?1762574909"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1762574909"></script>
-    <script src="/js/jquery.sticky.js?1762574909"></script>
-    <script src="/js/featherlight.min.js?1762574909"></script>
-    <script src="/js/highlight.pack.js?1762574909"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1762574909"></script>
-    <script src="/js/learn.js?1762574909"></script>
-    <script src="/js/hugo-learn.js?1762574909"></script>
-
-    <link href="/mermaid/mermaid.css?1762574909" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1762574909"></script>
->>>>>>> Khanh
+    <link href="/mermaid/mermaid.css?1762942105" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1762942105"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
