@@ -15,13 +15,14 @@ In this step, you will verify that the data from the CSV file has been successfu
 1. **Upload the CSV File to the Bucket**
 
 {{% notice info %}}
-Download the sample CSV file from [here](/files/database.zip).
+Download the sample CSV file from [here](/files/database01.zip).
 {{% /notice %}}
 
 * In the newly created Bucket:
 
   * Go to the **Objects** tab → click **Upload**.
-  * Drag and drop the file `products.csv`, then click **Upload**.
+  * Extract file zip.
+  * Drag and drop the **files**, then click **Upload**.
 
 ![test_1](/images/5-Workshop/2.prerequisite/test_1.png)
 ![test_2](/images/5-Workshop/2.prerequisite/test_2.png)

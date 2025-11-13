@@ -14,13 +14,14 @@ Trong bước này, bạn sẽ xác minh rằng dữ liệu từ file CSV đã �
 1. **Upload dữ liệu CSV lên Bucket**
 
 {{% notice info %}}
-Tải file mẫu CSV từ [đây](/files/database.zip).
+Tải file mẫu CSV từ [đây](/files/database01.zip).
 {{% /notice %}}
 
 * Trong Bucket vừa tạo:
 
   * Chọn tab **Objects** → **Upload**.
-  * Kéo & thả file `products.csv`, sau đó nhấn **Upload**.
+  * Giải nén file zip.
+  * Kéo & thả các **file**, sau đó nhấn **Upload**.
 
 ![test_1](/images/5-Workshop/2.prerequisite/test_1.png)
 ![test_2](/images/5-Workshop/2.prerequisite/test_2.png)

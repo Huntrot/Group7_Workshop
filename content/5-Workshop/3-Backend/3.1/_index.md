@@ -22,7 +22,7 @@ pre: " <b> 5.3.1. </b> "
   * **Bucket name:** Enter a name, for example:
 
     ```text
-    flyora-bucket
+    flyora-bucket-database
     ```
   * (If the name already exists, add a number at the end.)
 

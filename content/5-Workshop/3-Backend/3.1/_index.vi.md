@@ -22,7 +22,7 @@ pre: " <b> 5.3.1. </b> "
   * **Bucket name:** Nhập tên, ví dụ:
 
     ```text
-    flyora-bucket
+    flyora-bucket-database
     ```
   * (Nếu tên đã tồn tại, hãy thêm số phía sau.)
 
