@@ -1,5 +1,5 @@
 ---
-title : ""
+title : "Hosting website với S3"
 date : "2025-01-15"
 weight: 1
 chapter: false
@@ -7,7 +7,6 @@ pre: " <b> 5.5.1. </b> "
 ---
 
 ## 
-## Hosting website với S3
 ### Bước 1: Tạo một S3 Bucket
 * Truy cập vào dịch vụ **S3**.
 ![S3_hosting_website1](/images/5-Workshop/5.frontend/S3_hosting_website1.png)

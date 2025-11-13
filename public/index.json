@@ -7,18 +7,18 @@
 	"content": " "
 },
 {
-	"uri": "//localhost:1313/5-workshop/5-frontend/5.1/",
-	"title": "",
-	"tags": [],
-	"description": "",
-	"content": " Hosting website with S3 Step 1: Create an S3 Bucket Go to the S3 service. Click Create bucket. Enter a unique Bucket name (for example: flyora-shop). Uncheck “Block all public access” Acknowledge the warning about public access. Click Create bucket. Step 2: Upload Website Files Open your newly created bucket. Click Upload → Add files → select your website files (e.g, index.html) Click Upload. Step 3: Enable Static Website Hosting Go to the Properties tab of your bucket. Scroll down to Static website hosting. Click Edit → Enable Static website hosting Enter: Index document: index.html Error document: index.html (optional) Click Save changes. *Go to the Permission tab of your bucket. Edit Bucket Policy Paste the following JSON policy (replace flyora-shop with your bucket name): { \u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Sid\u0026#34;: \u0026#34;PublicReadGetObject\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Principal\u0026#34;: \u0026#34;*\u0026#34;, \u0026#34;Action\u0026#34;: \u0026#34;s3:GetObject\u0026#34;, \u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:s3:::your-bucket-name/*\u0026#34; } ] } Step 4: Test Your Website Click the Bucket website endpoint URL. http://your-bucket-name.s3-website-ap-southeast-1.amazonaws.com\nMake sure it looks like this "
-},
-{
 	"uri": "//localhost:1313/5-workshop/2-prerequisites/2.1/",
 	"title": "Create IAM User &amp; Configure Access Permissions",
 	"tags": [],
 	"description": "",
 	"content": "Create IAM User \u0026amp; Access Setup In this step, you will create an IAM Role for Lambda and an S3 Bucket to store CSV data files before importing them into DynamoDB.\nSteps to Perform 1. Access the IAM Service Go to the AWS Management Console → search for IAM. Select Roles → Create Role. Choose Trusted entity type: AWS service. Choose Use case: Lambda, then click Next. 2. Attach Permissions to the Role Attach the following policies:\nAmazonS3FullAccess AmazonDynamoDBFullAccess_v2 Click Next, then name the role LambdaS3DynamoDBRole.\nThis role allows Lambda to read files from S3 and write data to DynamoDB.\n"
+},
+{
+	"uri": "//localhost:1313/5-workshop/5-frontend/5.1/",
+	"title": "Hosting website with S3",
+	"tags": [],
+	"description": "",
+	"content": " Step 1: Create an S3 Bucket Go to the S3 service. Click Create bucket. Enter a unique Bucket name (for example: flyora-shop). Uncheck “Block all public access” Acknowledge the warning about public access. Click Create bucket. Step 2: Upload Website Files Open your newly created bucket. Click Upload → Add files → select your website files (e.g, index.html) Click Upload. Step 3: Enable Static Website Hosting Go to the Properties tab of your bucket. Scroll down to Static website hosting. Click Edit → Enable Static website hosting Enter: Index document: index.html Error document: index.html (optional) Click Save changes. *Go to the Permission tab of your bucket. Edit Bucket Policy Paste the following JSON policy (replace flyora-shop with your bucket name): { \u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Sid\u0026#34;: \u0026#34;PublicReadGetObject\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Principal\u0026#34;: \u0026#34;*\u0026#34;, \u0026#34;Action\u0026#34;: \u0026#34;s3:GetObject\u0026#34;, \u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:s3:::your-bucket-name/*\u0026#34; } ] } Step 4: Test Your Website Click the Bucket website endpoint URL. http://your-bucket-name.s3-website-ap-southeast-1.amazonaws.com\nMake sure it looks like this "
 },
 {
 	"uri": "//localhost:1313/5-workshop/1-introduction/",
@@ -43,10 +43,10 @@
 },
 {
 	"uri": "//localhost:1313/5-workshop/5-frontend/5.2/",
-	"title": "",
+	"title": "Distribute with CloudFront",
 	"tags": [],
 	"description": "",
-	"content": " "
+	"content": "Distribute with CloudFront Create a CloudFront Distribution pointing to the S3 bucket Go to the Cloudfront service. Create Cloudfront Distribution Enter a Cloudfront name (for example: flyora-shop). Select your S3 you have created before Turn on Website endpoint make sure you get a url like this http://Your-S3-name.s3-website.ap-southeast-1.amazonaws.com/ Configure: Viewer protocol policy: Redirect HTTP to HTTPS Allowed HTTP method: GET, HEAD , OPTION Cache policy: CatchingOptimized Response headers policy: CORS-with-preflight-and-SecurityHeadersPolicy Choose do not enable securiy protections Review and click Create Distribution After Create Distribution you have to wait for 5 or 10 minutes to deploy and if it deploy successfully it will show you date you have deploy "
 },
 {
 	"uri": "//localhost:1313/5-workshop/2-prerequisites/",
@@ -78,10 +78,10 @@
 },
 {
 	"uri": "//localhost:1313/5-workshop/5-frontend/5.3/",
-	"title": "",
+	"title": "API Integration",
 	"tags": [],
 	"description": "",
-	"content": " "
+	"content": "Step 1: Get Your API Gateway URL First of all you have to receive API GateWay url https://uwbxj9wfq6.execute-api.ap-southeast-1.amazonaws.com/dev Open your project folder in VS Code. Create a new file named api.js inside your src directory. Add the following JavaScript code: Step 2: Create api.js in VS Code Create api.js Step 3: Configure Environment Variables Create a .env file in your project Add your API Gateway URL: Step 4: Test the API in Postman Take the data from postman You should receive a status 200 response with JSON data Step 5: Deploy and Verify on S3 Visit your http://your-bucket-name.s3-website-ap-southeast-1.amazonaws.com Using data from Postman with https://uwbxj9wfq6.execute-api.ap-southeast-1.amazonaws.com/dev If you login and it show a notification like this the API Integration was successfully "
 },
 {
 	"uri": "//localhost:1313/5-workshop/3-backend/",

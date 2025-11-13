@@ -1,5 +1,5 @@
 ---
-title : ""
+title : "Hosting website with S3"
 date : "2025-01-15"
 weight: 1
 chapter: false
@@ -7,7 +7,6 @@ pre: " <b> 5.5.1. </b> "
 ---
 
 ## 
-## Hosting website with S3
 ### Step 1: Create an S3 Bucket
 * Go to the **S3** service.
 ![S3_hosting_website1](/images/5-Workshop/5.frontend/S3_hosting_website1.png)
