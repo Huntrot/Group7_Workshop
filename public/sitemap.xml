@@ -4,22 +4,14 @@
   <sitemap>
     <loc>//localhost:1313/en/sitemap.xml</loc>
     
-<<<<<<< Updated upstream
       <lastmod>2025-09-09T00:00:00+00:00</lastmod>
-=======
-      <lastmod>2025-01-15T00:00:00+00:00</lastmod>
->>>>>>> Stashed changes
     
   </sitemap>
   
   <sitemap>
     <loc>//localhost:1313/vi/sitemap.xml</loc>
     
-<<<<<<< Updated upstream
       <lastmod>2025-09-09T00:00:00+00:00</lastmod>
-=======
-      <lastmod>2025-01-15T00:00:00+00:00</lastmod>
->>>>>>> Stashed changes
     
   </sitemap>
   

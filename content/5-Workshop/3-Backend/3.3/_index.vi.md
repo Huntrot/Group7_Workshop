@@ -43,6 +43,12 @@ Tạo **Lambda Function** mới để xử lý các yêu cầu đến DynamoDB t
 ---
 
 ### Bước 3: Deploy file jar 
+1. Vào **S3 → Upload**: Chọn file jar. Sau đó copy object Url
+2. Vào **AWS Lambda → Upload from**: dan s3 url vua tai len 
+3. Vào **AWS Lambda → Runtime settings -> Edit**
+4. Handler: **org.example.flyora_backend.handler.StreamLambdaHandler::handleRequest**
+   
+
         
 
 
