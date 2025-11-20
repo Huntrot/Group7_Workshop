@@ -25,7 +25,7 @@
 	"title": "Introduction",
 	"tags": [],
 	"description": "",
-	"content": "Introduction "
+	"content": "Introduction What is Flyora? Flyora is a modern e-commerce platform designed to demonstrate cloud-native architecture using AWS serverless services. This workshop guides you through building a fully functional online store with product browsing, AI-powered chatbot assistance, and automated data management.\nWorkshop Objectives By completing this workshop, you will:\nDeploy a serverless e-commerce system on AWS Implement automated data pipelines using S3 and Lambda triggers Build RESTful APIs with API Gateway and Lambda Create a scalable database using DynamoDB Integrate AI chatbot functionality for customer support Deploy a static frontend with S3 and CloudFront Set up CI/CD pipelines for automated deployments Architecture Overview The Flyora platform uses a fully serverless architecture:\nFrontend Layer:\nStatic website hosted on Amazon S3 Global content delivery via Amazon CloudFront Responsive UI for product browsing and shopping Backend Layer:\nAPI Gateway for RESTful API endpoints AWS Lambda functions for business logic Amazon DynamoDB for product and order data Amazon S3 for data import and storage AI Layer:\nAI-powered chatbot for product recommendations Integrated into the frontend UI Provides real-time customer assistance Security \u0026amp; Authentication:\nAmazon Cognito for user authentication IAM roles for secure service access Workshop Structure This workshop is organized into team-based modules:\nPrerequisites - Environment setup and IAM configuration Backend Team - API development and data pipeline AI Team - Chatbot integration and AI features Frontend Team - UI development and deployment CI/CD - Automated deployment pipeline Testing - System validation and performance testing Cleanup - Resource management and cost optimization Expected Outcomes After completing this workshop, you will have:\nA fully functional e-commerce website running on AWS Hands-on experience with serverless architecture Understanding of AWS best practices for scalability and security Knowledge of CI/CD implementation for cloud applications A portfolio project demonstrating cloud engineering skills Cost Considerations This workshop is designed to run within the AWS Free Tier. All services used have free tier options, and the architecture avoids costly resources like EC2 instances. Estimated cost for running this workshop: $0-5 USD if completed within a few hours.\nPrerequisites Before starting, ensure you have:\nAn AWS account with administrative access Basic understanding of cloud computing concepts Familiarity with REST APIs and JSON Basic knowledge of HTML/CSS/JavaScript (for frontend work) Git installed on your local machine Let\u0026rsquo;s Get Started! Ready to build your serverless e-commerce platform? Let\u0026rsquo;s move on to the Prerequisites section to set up your environment.\n"
 },
 {
 	"uri": "//localhost:1313/5-workshop/3-backend/3.1/",
@@ -106,10 +106,10 @@
 },
 {
 	"uri": "//localhost:1313/5-workshop/3-backend/3.4/",
-	"title": "Test API using Postman",
+	"title": "Creating API Gateway and Integrating with Lambda",
 	"tags": [],
 	"description": "",
-	"content": "API Testing "
+	"content": "Objective Connect AWS API Gateway with a Lambda Function to create a RESTful endpoint that allows access to data DynamoDB.\nSteps to Follow 1. Access API Gateway Go to AWS Console → API Gateway Select Create API Choose type: REST API (Build) Configure: Create new API: New API API name: FlyoraAPI Endpoint Type: Regional Click Create API 2. Tạo Resource và Method In the sidebar, select Actions → Create Resource Resource Name: api Click Create Resource Select /api → Actions → Create Resource In the resource configuration: Tick Proxy resource Resource path: /api/ Resource Name: myProxy Click Create resource 3. Attach Lambda After successfully creating /api/{myProxy+}, the ANY method appears: Chọn ANY → Integration request → Edit Then click Create method. Attach Lambda: Integration type: Lambda Function Tick Lambda proxy integration Lambda Region: ap-southeast-1 (Singapore) Lambda Function: select your Lambda_API_Handler function 4. Deploy API Select Actions → Deploy API Deployment stage: New stage Stage name: dev Description: Development stage for Lambda API Click Deploy After deployment, you will receive an Invoke URL like: https://\u0026lt;api_id\u0026gt;.execute-api.ap-southeast-1.amazonaws.com/dev\n"
 },
 {
 	"uri": "//localhost:1313/5-workshop/5-frontend/",
@@ -123,7 +123,7 @@
 	"title": "Test API using Postman",
 	"tags": [],
 	"description": "",
-	"content": "API Testing "
+	"content": "Objective Test the API Gateway REST endpoint integrated with a Lambda Function to verify DynamoDB data operations.\nDownload and install Postman before starting this section.\nGET Test Open Postman\nSelect GET\nEnter URL: https://uwbxj9wfq6.execute-api.ap-southeast-1.amazonaws.com/dev/api/account\nTab Headers: Key: Content-Type | Value: application/json\nClick Send\nResult: Returns the list of Items in the table Account\nPOST Test Select POST\nURL: https://uwbxj9wfq6.execute-api.ap-southeast-1.amazonaws.com/dev/api/account\nBody → raw → JSON\n{ \u0026#34;item\u0026#34;: { \u0026#34;id\u0026#34;: \u0026#34;120\u0026#34;, \u0026#34;username\u0026#34;: \u0026#34;owner02\u0026#34;, \u0026#34;password\u0026#34;: \u0026#34;securepass\u0026#34;, \u0026#34;email\u0026#34;: \u0026#34;owner02@gmail.com\u0026#34;, \u0026#34;phone\u0026#34;: \u0026#34;0912345678\u0026#34;, \u0026#34;role_id\u0026#34;: \u0026#34;2\u0026#34;, \u0026#34;is_active\u0026#34;: \u0026#34;1\u0026#34;, \u0026#34;is_approved\u0026#34;: \u0026#34;1\u0026#34;, \u0026#34;approved_by\u0026#34;: \u0026#34;NULL\u0026#34; } }\nClick Send Result: Adds an Items in the table Account "
 },
 {
 	"uri": "//localhost:1313/5-workshop/",

@@ -62,9 +62,17 @@ Kết nối **AWS API Gateway** với **Lambda Function** để tạo endpoint R
 
 
 3. Trong cấu hình resource:
-   - Tick **Proxy resource**
+   
    - **Resource path:** /api/  
-   - **Resource Name:** `myProxy`
+   - **Resource Name:** `v1`
+   - Nhấn **Create resource**
+
+4. Chọn **/v1 → Actions → Create Resource**
+
+   Trong cấu hình resource:
+   - Tick **Proxy resource**
+   - **Resource path:** /api/v1/  
+   - **Resource Name:** `{myProxy+}`
    - Nhấn **Create resource**
 
 
@@ -73,14 +81,16 @@ Kết nối **AWS API Gateway** với **Lambda Function** để tạo endpoint R
 
 
 #### **3. Gắn Lambda**
-1. Sau khi tạo thành công **/api/{myProxy+}**, xuất hiện method **ANY**:
+1. Sau khi tạo thành công **/api/vi/{myProxy+}**, xuất hiện method **ANY**:
+   - Chọn **ANY → Method request → Edit**
+   - Authorization: AWS_IAM
    - Chọn **ANY → Integration request → Edit**
-   - Tương tự rồi nhấn **Create method**.
+  
 
 
 ![API\_8](/images/3.api-gateway/3.2/api_13.png)
 
-2. Gắn Lambda:
+1. Gắn Lambda:
    - **Integration type:** Lambda Function  
    - Tick **Lambda proxy integration**
    - **Lambda Region:** `ap-southeast-1` (Singapore)  

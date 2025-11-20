@@ -22,15 +22,20 @@ Tải và cài đặt [Postman](https://dl.pstmn.io/download/latest/win64) trư�
 - Mở **Postman**
 - Chọn **GET**
 - Nhập URL:
-```https://uwbxj9wfq6.execute-api.ap-southeast-1.amazonaws.com/dev/api/account```
+```https://3b39kyvi8f.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/product/1```
 
 
 - Tab **Headers**:
 Key: `Content-Type` | Value: `application/json`
-
+- Tab **Authorization**:
+   - Type: AWS Signature
+   - Nhap AccessKey
+   - Nhap SecretKey
+   - AWS Region: ap-southeast-1
+   - Service Name: execute-api
 
 - Nhấn **Send**  
-- Kết quả: Trả về danh sách `Items` trong bảng **Account**
+- Kết quả: Trả về danh sách `Items` trong bảng **reviews**
 
 
 ![POST\_1](/images/3.api-gateway/3.3/post_4.png)
