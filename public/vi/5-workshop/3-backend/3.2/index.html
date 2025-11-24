@@ -12,21 +12,21 @@
     <title>Kiểm tra dữ liệu trong DynamoDB :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1762574909" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1762574909" rel="stylesheet">
-    <link href="/css/hybrid.css?1762574909" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1762574909" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1762574909" rel="stylesheet">
-    <link href="/css/auto-complete.css?1762574909" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1762574909" rel="stylesheet">
-    <link href="/css/theme.css?1762574909" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1762574909" rel="stylesheet">
+    <link href="/css/nucleus.css?1763954252" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1763954252" rel="stylesheet">
+    <link href="/css/hybrid.css?1763954252" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1763954252" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1763954252" rel="stylesheet">
+    <link href="/css/auto-complete.css?1763954252" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1763954252" rel="stylesheet">
+    <link href="/css/theme.css?1763954252" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1763954252" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1762574909" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1763954252" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1762574909"></script>
+    <script src="/js/jquery-3.3.1.min.js?1763954252"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,23 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<<<<<<< HEAD
-<script type="text/javascript" src="/js/lunr.min.js?1762535296"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1762535296"></script>
-=======
-<script type="text/javascript" src="/js/lunr.min.js?1762574909"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1762574909"></script>
->>>>>>> Khanh
+<script type="text/javascript" src="/js/lunr.min.js?1763954252"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1763954252"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<<<<<<< HEAD
-<script type="text/javascript" src="/js/search.js?1762535296"></script>
-=======
-<script type="text/javascript" src="/js/search.js?1762574909"></script>
->>>>>>> Khanh
+<script type="text/javascript" src="/js/search.js?1763954252"></script>
 
     
   </div>
@@ -361,13 +352,13 @@
  
   
     
-    <li data-nav-id="/vi/5-workshop/3-backend/3.4/" title="Creating API Gateway and Integrating with Lambda" class="dd-item 
+    <li data-nav-id="/vi/5-workshop/3-backend/3.4/" title="Tạo API Gateway và tích hợp với Lambda" class="dd-item 
         
         
         
         ">
       <a href="/vi/5-workshop/3-backend/3.4/">
-           <b> 5.3.4. </b> Creating API Gateway and Integrating with Lambda
+           <b> 5.3.4. </b> Tạo API Gateway và tích hợp với Lambda
           
             <i class="fas fa-check read-icon"></i>
           
@@ -956,7 +947,7 @@
 <li><strong>Upload dữ liệu CSV lên Bucket</strong></li>
 </ol>
 
-<div class="notices info" ><p>Tải file mẫu CSV từ <a href="/files/database.zip">đây</a>.</p>
+<div class="notices info" ><p>Tải file mẫu CSV từ <a href="/files/database02.zip">đây</a>.</p>
 </div>
 
 <ul>
@@ -964,7 +955,8 @@
 <p>Trong Bucket vừa tạo:</p>
 <ul>
 <li>Chọn tab <strong>Objects</strong> → <strong>Upload</strong>.</li>
-<li>Kéo &amp; thả file <code>products.csv</code>, sau đó nhấn <strong>Upload</strong>.</li>
+<li>Giải nén file zip.</li>
+<li>Kéo &amp; thả các <strong>file</strong>, sau đó nhấn <strong>Upload</strong>.</li>
 </ul>
 </li>
 </ul>
@@ -978,7 +970,7 @@ Sau khi upload xong hãy đợi khoảng 3-5 phút để lambda import dữ li�
 <li><strong>Truy cập dịch vụ DynamoDB</strong>
 <ul>
 <li>Vào <strong>AWS Management Console</strong> → tìm <strong>DynamoDB</strong>.</li>
-<li>Chọn <strong>Tables</strong> → click vào bảng <code>products</code>.</li>
+<li>Chọn <strong>Tables</strong> → click vào bảng ví dụ: <code>Products</code>.</li>
 </ul>
 </li>
 </ol>
@@ -1002,6 +994,55 @@ Sau khi upload xong hãy đợi khoảng 3-5 phút để lambda import dữ li�
 <li>File CSV phải có header hợp lệ.</li>
 <li>Lambda có đủ quyền truy cập S3 và DynamoDB.</li>
 </ul>
+</div>
+
+<ol start="3">
+<li>
+<p><strong>Tạo GSI cho DynamoDB</strong></p>
+</li>
+<li>
+<p><strong>Tạo GSI (Global Secondary Index) cho DynamoDB</strong></p>
+</li>
+</ol>
+<p>Để backend có thể truy vấn dữ liệu dựa trên các trường không phải khóa chính (ví dụ: tìm <code>Account</code> bằng <code>username</code>, tìm <code>Order</code> bằng <code>customer_id</code>), chúng ta cần tạo các <strong>Global Secondary Indexes (GSI)</strong> tương ứng với cấu trúc trong mã nguồn Java.</p>
+<p>Chúng ta sẽ sử dụng <strong>AWS CloudShell</strong> để chạy script tự động tạo toàn bộ Index nhằm đảm bảo chính xác và tiết kiệm thời gian.</p>
+<ul>
+<li>Trên thanh điều hướng phía trên cùng (Top Navigation Bar), nhấp vào biểu tượng <strong>CloudShell</strong> (hình terminal <code>&gt;_</code>).</li>
+</ul>
+<p><img src="/images/5-Workshop/3.api-gateway/3.2/cloudshell_01.png" alt="cloudshell01"></p>
+<ul>
+<li>
+<p>Đợi vài giây để môi trường dòng lệnh khởi động.</p>
+</li>
+<li>
+<p>Tại dòng lệnh CloudShell, tạo một file script mới tên là <code>create_gsi.sh</code>:</p>
+</li>
+<li>
+<p>Xóa file (nếu đã tạo trước đó): <code>rm create_all_gsi.sh</code></p>
+</li>
+<li>
+<p>Tạo <a href="/files/ai_studio_code.sh"><strong>File</strong></a> mới: <code>nano create_all_gsi.sh</code></p>
+<ul>
+<li>
+<p>Tải file về mở lên rồi copy toàn bộ vào Cloudshell.</p>
+</li>
+<li>
+<p>Ctrl + O (Để lưu) -&gt; Nhấn Enter</p>
+</li>
+<li>
+<p>Ctrl + X (Để thoát)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Cấp quyền chạy cho file: <code>chmod +x create_all_gsi.sh</code></p>
+</li>
+<li>
+<p>Khởi chạy file: <code>./create_all_gsi.sh</code></p>
+</li>
+</ul>
+
+<div class="notices info" ><p>Thời gian đợi sẽ tùy thuộc vào việc Indexs được tạo ra trong bao lâu</p>
 </div>
 
 
@@ -1435,35 +1476,19 @@ Sau khi upload xong hãy đợi khoảng 3-5 phút để lambda import dữ li�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-<<<<<<< HEAD
-    <script src="/js/clipboard.min.js?1762535296"></script>
-    <script src="/js/perfect-scrollbar.min.js?1762535296"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1762535296"></script>
-    <script src="/js/jquery.sticky.js?1762535296"></script>
-    <script src="/js/featherlight.min.js?1762535296"></script>
-    <script src="/js/highlight.pack.js?1762535296"></script>
+    <script src="/js/clipboard.min.js?1763954252"></script>
+    <script src="/js/perfect-scrollbar.min.js?1763954252"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1763954252"></script>
+    <script src="/js/jquery.sticky.js?1763954252"></script>
+    <script src="/js/featherlight.min.js?1763954252"></script>
+    <script src="/js/highlight.pack.js?1763954252"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1762535296"></script>
-    <script src="/js/learn.js?1762535296"></script>
-    <script src="/js/hugo-learn.js?1762535296"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1763954252"></script>
+    <script src="/js/learn.js?1763954252"></script>
+    <script src="/js/hugo-learn.js?1763954252"></script>
 
-    <link href="/mermaid/mermaid.css?1762535296" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1762535296"></script>
-=======
-    <script src="/js/clipboard.min.js?1762574909"></script>
-    <script src="/js/perfect-scrollbar.min.js?1762574909"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1762574909"></script>
-    <script src="/js/jquery.sticky.js?1762574909"></script>
-    <script src="/js/featherlight.min.js?1762574909"></script>
-    <script src="/js/highlight.pack.js?1762574909"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1762574909"></script>
-    <script src="/js/learn.js?1762574909"></script>
-    <script src="/js/hugo-learn.js?1762574909"></script>
-
-    <link href="/mermaid/mermaid.css?1762574909" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1762574909"></script>
->>>>>>> Khanh
+    <link href="/mermaid/mermaid.css?1763954252" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1763954252"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
