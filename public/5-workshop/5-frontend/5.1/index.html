@@ -3,30 +3,30 @@
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.150.0">
+    <meta name="generator" content="Hugo 0.134.3">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title> :: AWS System Manager</title>
+    <title>Hosting website with S3 :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1763954178" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1763954178" rel="stylesheet">
-    <link href="/css/hybrid.css?1763954178" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1763954178" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1763954178" rel="stylesheet">
-    <link href="/css/auto-complete.css?1763954178" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1763954178" rel="stylesheet">
-    <link href="/css/theme.css?1763954178" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1763954178" rel="stylesheet">
+    <link href="/css/nucleus.css?1764239657" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1764239657" rel="stylesheet">
+    <link href="/css/hybrid.css?1764239657" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1764239657" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1764239657" rel="stylesheet">
+    <link href="/css/auto-complete.css?1764239657" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1764239657" rel="stylesheet">
+    <link href="/css/theme.css?1764239657" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1764239657" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1763954178" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1764239657" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1763954178"></script>
+    <script src="/js/jquery-3.3.1.min.js?1764239657"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1763954178"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1763954178"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1764239657"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1764239657"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1763954178"></script>
+<script type="text/javascript" src="/js/search.js?1764239657"></script>
 
     
   </div>
@@ -399,6 +399,34 @@
 
             
           
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-workshop/3-backend/3.6/" title="S3 CSV Backup" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-workshop/3-backend/3.6/">
+           <b> 5.3.6. </b> S3 CSV Backup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -572,13 +600,13 @@
  
   
     
-    <li data-nav-id="/5-workshop/5-frontend/5.1/" title="" class="dd-item 
+    <li data-nav-id="/5-workshop/5-frontend/5.1/" title="Hosting website with S3" class="dd-item 
         
         active
         
         ">
       <a href="/5-workshop/5-frontend/5.1/">
-           <b> 5.5.1. </b> 
+           <b> 5.5.1. </b> Hosting website with S3
           
             <i class="fas fa-check read-icon"></i>
           
@@ -600,13 +628,13 @@
  
   
     
-    <li data-nav-id="/5-workshop/5-frontend/5.2/" title="" class="dd-item 
+    <li data-nav-id="/5-workshop/5-frontend/5.2/" title="Distribute with CloudFront " class="dd-item 
         
         
         
         ">
       <a href="/5-workshop/5-frontend/5.2/">
-           <b> 5.5.2. </b> 
+           <b> 5.5.2. </b> Distribute with CloudFront 
           
             <i class="fas fa-check read-icon"></i>
           
@@ -628,13 +656,13 @@
  
   
     
-    <li data-nav-id="/5-workshop/5-frontend/5.3/" title="" class="dd-item 
+    <li data-nav-id="/5-workshop/5-frontend/5.3/" title="API Integration" class="dd-item 
         
         
         
         ">
       <a href="/5-workshop/5-frontend/5.3/">
-           <b> 5.5.3. </b> 
+           <b> 5.5.3. </b> API Integration
           
             <i class="fas fa-check read-icon"></i>
           
@@ -893,7 +921,7 @@
             
           
           
-            <a href='/'>AWS System Manager</a> > <a href='/5-workshop/'>Workshop</a> > <a href='/5-workshop/5-frontend/'>Frontend Workshop (UI)</a> > 
+            <a href='/'>AWS System Manager</a> > <a href='/5-workshop/'>Workshop</a> > <a href='/5-workshop/5-frontend/'>Frontend Workshop (UI)</a> > Hosting website with S3
           
         
           
@@ -910,7 +938,14 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li></li>
+    <li><a href="#heading"></a>
+      <ul>
+        <li><a href="#step-1-create-an-s3-bucket">Step 1: Create an S3 Bucket</a></li>
+        <li><a href="#step-2-upload-website-files">Step 2: Upload Website Files</a></li>
+        <li><a href="#step-3-enable-static-website-hosting">Step 3: Enable Static Website Hosting</a></li>
+        <li><a href="#step-4-test-your-website">Step 4: Test Your Website</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -928,7 +963,7 @@
           
             <h1>
               
-              
+              Hosting website with S3
             </h1>
           
 
@@ -936,7 +971,74 @@
 
 
 
-	<h2></h2>
+	<h2 id="heading"></h2>
+<h3 id="step-1-create-an-s3-bucket">Step 1: Create an S3 Bucket</h3>
+<ul>
+<li>Go to the <strong>S3</strong> service.
+<img alt="S3_hosting_website1" src="/images/5-Workshop/5.frontend/S3_hosting_website1.png"></li>
+<li>Click <strong>Create bucket</strong>.
+<img alt="S3_hosting_website2" src="/images/5-Workshop/5.frontend/S3_hosting_website2.png"></li>
+<li>Enter a unique <strong>Bucket name</strong> (for example: <code>flyora-shop</code>).</li>
+<li><strong>Uncheck</strong> “Block all public access”
+<img alt="S3_hosting_website3" src="/images/5-Workshop/5.frontend/S3_hosting_website3.png"></li>
+<li>Acknowledge the warning about public access.
+<img alt="S3_hosting_website4" src="/images/5-Workshop/5.frontend/S3_hosting_website4.png"></li>
+<li>Click <strong>Create bucket</strong>.</li>
+<li><img alt="S3_hosting_website5" src="/images/5-Workshop/5.frontend/S3_hosting_website5.png"></li>
+</ul>
+<h3 id="step-2-upload-website-files">Step 2: Upload Website Files</h3>
+<ul>
+<li>Open your newly created bucket.
+<img alt="S3_hosting_website5" src="/images/5-Workshop/5.frontend/S3_hosting_website6.png"></li>
+<li>Click <strong>Upload</strong> → <strong>Add files</strong> → select your website files (e.g, <code>index.html</code>)
+<img alt="S3_hosting_website6" src="/images/5-Workshop/5.frontend/S3_hosting_website7.png"></li>
+<li>
+<ul>
+<li>Click <strong>Upload</strong>.
+<img alt="S3_hosting_website7" src="/images/5-Workshop/5.frontend/S3_hosting_website8.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="step-3-enable-static-website-hosting">Step 3: Enable Static Website Hosting</h3>
+<ul>
+<li>Go to the <strong>Properties</strong> tab of your bucket.
+<img alt="S3_hosting_website8" src="/images/5-Workshop/5.frontend/S3_hosting_website9.png"></li>
+<li>Scroll down to <strong>Static website hosting</strong>.
+<img alt="S3_hosting_website9" src="/images/5-Workshop/5.frontend/S3_hosting_website10.png"></li>
+<li>Click <strong>Edit</strong> → Enable <strong>Static website hosting</strong></li>
+<li>Enter:
+<ul>
+<li><strong>Index document:</strong> <code>index.html</code></li>
+<li><strong>Error document:</strong> <code>index.html</code> (optional)
+<img alt="S3_hosting_website11" src="/images/5-Workshop/5.frontend/S3_hosting_website11.png"></li>
+</ul>
+</li>
+<li>Click <strong>Save changes</strong>.
+<img alt="S3_hosting_website12" src="/images/5-Workshop/5.frontend/S3_hosting_website12.png">
+*Go to the <strong>Permission</strong> tab of your bucket.
+<img alt="S3_hosting_website13" src="/images/5-Workshop/5.frontend/S3_hosting_website13.png"></li>
+<li>Edit <strong>Bucket Policy</strong></li>
+<li>Paste the following JSON policy (replace <code>flyora-shop</code> with your bucket name):</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;Statement&#34;</span>: [
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&#34;Sid&#34;</span>: <span style="color:#e6db74">&#34;PublicReadGetObject&#34;</span>,
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&#34;Principal&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;s3:GetObject&#34;</span>,
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:s3:::your-bucket-name/*&#34;</span>
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span> ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="step-4-test-your-website">Step 4: Test Your Website</h3>
+<p>Click the <strong>Bucket website endpoint URL</strong>.
+<code>http://your-bucket-name.s3-website-ap-southeast-1.amazonaws.com</code></p>
+<ul>
+<li>Make sure it looks like this</li>
+<li><img alt="S3_hosting_website14" src="/images/5-Workshop/5.frontend/S3_hosting_website14.png"></li>
+</ul>
 
 
 
@@ -1071,6 +1173,22 @@
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1355,7 +1473,7 @@
 			<a class="nav nav-prev" href="/5-workshop/5-frontend/" title="Frontend Workshop (UI)"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/5-workshop/5-frontend/5.2/" title="" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/5-workshop/5-frontend/5.2/" title="Distribute with CloudFront " style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1365,19 +1483,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1763954178"></script>
-    <script src="/js/perfect-scrollbar.min.js?1763954178"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1763954178"></script>
-    <script src="/js/jquery.sticky.js?1763954178"></script>
-    <script src="/js/featherlight.min.js?1763954178"></script>
-    <script src="/js/highlight.pack.js?1763954178"></script>
+    <script src="/js/clipboard.min.js?1764239657"></script>
+    <script src="/js/perfect-scrollbar.min.js?1764239657"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1764239657"></script>
+    <script src="/js/jquery.sticky.js?1764239657"></script>
+    <script src="/js/featherlight.min.js?1764239657"></script>
+    <script src="/js/highlight.pack.js?1764239657"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1763954178"></script>
-    <script src="/js/learn.js?1763954178"></script>
-    <script src="/js/hugo-learn.js?1763954178"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1764239657"></script>
+    <script src="/js/learn.js?1764239657"></script>
+    <script src="/js/hugo-learn.js?1764239657"></script>
 
-    <link href="/mermaid/mermaid.css?1763954178" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1763954178"></script>
+    <link href="/mermaid/mermaid.css?1764239657" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1764239657"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

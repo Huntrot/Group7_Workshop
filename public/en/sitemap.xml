@@ -262,6 +262,19 @@
                 href="//localhost:1313/5-workshop/6-cicd/"
                 />
   </url><url>
+    <loc>//localhost:1313/5-workshop/3-backend/3.6/</loc>
+    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/5-workshop/3-backend/3.6/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/5-workshop/3-backend/3.6/"
+                />
+  </url><url>
     <loc>//localhost:1313/5-workshop/7-testing/</loc>
     <lastmod>2025-01-15T00:00:00+00:00</lastmod>
     <xhtml:link
