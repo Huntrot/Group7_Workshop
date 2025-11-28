@@ -98,8 +98,14 @@ Kết nối **AWS API Gateway** với **Lambda Function** để tạo endpoint R
    - **Resource path:** /api/  
    - **Resource Name:** `v1`
    - Nhấn **Create resource**
-![API\_14](/images/3.api-gateway/3.2/api_14.png)
-4. Chọn **/v1 → Actions → Create Resource**
+  ![API\_14](/images/3.api-gateway/3.2/api_14.png)
+4. Trong cấu hình resource:
+   - Tick **Proxy resource**
+   - **Resource path:** /api/  
+   - **Resource Name:** `{proxy+}`
+   - Nhấn **Create resource**
+![API\_14](/images/3.api-gateway/3.2/api_18.png)
+5. Chọn **/v1 → Actions → Create Resource**
 
 
    Trong cấu hình resource:
@@ -108,10 +114,14 @@ Kết nối **AWS API Gateway** với **Lambda Function** để tạo endpoint R
    - **Resource Name:** `{myProxy+}`
    - Nhấn **Create resource**
 
-
-
-
 ![API\_15](/images/3.api-gateway/3.2/api_15.png)
+6. **Enable CORS** cho tất cả resource
+![API\_15](/images/3.api-gateway/3.2/api_19.png)
+- Vào method **OPTIONS → Integration response → Header Mappings**, đảm bảo có cấu hình: 
+   - Access-Control-Allow-Origin: '*'
+   - Access-Control-Allow-Headers: 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'
+   - Access-Control-Allow-Methods: 'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'
+  ![API\_15](/images/3.api-gateway/3.2/api_20.png)
 ---
 
 
@@ -119,8 +129,6 @@ Kết nối **AWS API Gateway** với **Lambda Function** để tạo endpoint R
 
 #### **3. Gắn Lambda**
 1. Sau khi tạo thành công **/api/vi/{myProxy+}**, xuất hiện method **ANY**:
-   - Chọn **ANY → Method request → Edit**
-   - Authorization: AWS_IAM
    - Chọn **ANY → Integration request → Edit**
  
 
@@ -130,7 +138,7 @@ Kết nối **AWS API Gateway** với **Lambda Function** để tạo endpoint R
 ![API\_16](/images/3.api-gateway/3.2/api_16.png)
 
 
-2. Gắn Lambda:
+1. Gắn Lambda:
    - **Integration type:** Lambda Function  
    - Tick **Lambda proxy integration**
    - **Lambda Region:** `ap-southeast-1` (Singapore)  

@@ -78,7 +78,7 @@ Key: `Content-Type` | Value: `application/json`
 ### **Kiểm thử POST**
 - Chọn **POST**
 - URL:
-```https://uwbxj9wfq6.execute-api.ap-southeast-1.amazonaws.com/dev/api/account```
+```https://3b39kyvi8f.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/submit```
 
 
 
@@ -86,23 +86,16 @@ Key: `Content-Type` | Value: `application/json`
 - **Body → raw → JSON**
    ```json
    {
-  "item": {
-    "id": "120",
-    "username": "owner02",
-    "password": "securepass",
-    "email": "owner02@gmail.com",
-    "phone": "0912345678",
-    "role_id": "2",
-    "is_active": "1",
-    "is_approved": "1",
-    "approved_by": "NULL"
+    "customerId": 2,
+    "rating": 4,
+    "comment": "Chim ăn ngon và vui vẻ!",
+    "customerName": "Nguyễn Văn B"
   }
-}
 - Nhấn **Send**  
-- Kết quả: Thêm `Items` trong bảng **Account**
+- Kết quả: Thêm `Items` trong bảng **Review**
 
 
-![POST\_2](/images/3.api-gateway/3.3/post_3.png)
+
 
 
 
