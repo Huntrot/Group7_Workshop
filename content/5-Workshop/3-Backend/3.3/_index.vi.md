@@ -66,23 +66,10 @@ Tải file backend từ [đây](/files/backend06.zip).
 ![LAMBDA\_7](/images/3.api-gateway/3.1/lambda_7.png)
 5. Vào **AWS Lambda → Code -> Configuration → Edit**:
 6. Timeout: 1 min
-   
-
-
-       
-
-
-
-
-
-
-
-
-
-
-
-
-![LAMBDA\_8](/images/3.api-gateway/3.1/lambda_8.png)
+![LAMBDA\_8](/images/3.api-gateway/3.1/lambda_8.png) 
+3. Vào **AWS Lambda → Configuration → Environment variables → Edit** 
+4. Key: APP_JWT_SECRET; Value: huntrotflyorateam!@ky5group5member 
+![LAMBDA\_9](/images/3.api-gateway/3.1/lambda_9.png)
 
 
 
