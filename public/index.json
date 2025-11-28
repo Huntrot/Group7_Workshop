@@ -1,0 +1,183 @@
+[
+{
+	"uri": "//localhost:1313/5-workshop/4-ai/4.1/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " "
+},
+{
+	"uri": "//localhost:1313/5-workshop/5-frontend/5.1/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " "
+},
+{
+	"uri": "//localhost:1313/5-workshop/2-prerequisites/2.1/",
+	"title": "Create IAM User &amp; Configure Access Permissions",
+	"tags": [],
+	"description": "",
+	"content": "Create IAM User \u0026amp; Access Setup In this step, you will create an IAM Role for Lambda and an S3 Bucket to store CSV data files before importing them into DynamoDB.\nSteps to Perform 1. Access the IAM Service Go to the AWS Management Console → search for IAM. Select Roles → Create Role. Choose Trusted entity type: AWS service. Choose Use case: Lambda, then click Next. 2. Attach Permissions to the Role Attach the following policies:\nAmazonS3FullAccess AmazonDynamoDBFullAccess_v2 Click Next, then name the role LambdaS3DynamoDBRole.\nThis role allows Lambda to read files from S3 and write data to DynamoDB.\n"
+},
+{
+	"uri": "//localhost:1313/5-workshop/1-introduction/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "Introduction What is Flyora? Flyora is a modern e-commerce platform designed to demonstrate cloud-native architecture using AWS serverless services. This workshop guides you through building a fully functional online store with product browsing, AI-powered chatbot assistance, and automated data management.\nWorkshop Objectives By completing this workshop, you will:\nDeploy a serverless e-commerce system on AWS Implement automated data pipelines using S3 and Lambda triggers Build RESTful APIs with API Gateway and Lambda Create a scalable database using DynamoDB Integrate AI chatbot functionality for customer support Deploy a static frontend with S3 and CloudFront Set up CI/CD pipelines for automated deployments Architecture Overview The Flyora platform uses a fully serverless architecture:\nFrontend Layer:\nStatic website hosted on Amazon S3 Global content delivery via Amazon CloudFront Responsive UI for product browsing and shopping Backend Layer:\nAPI Gateway for RESTful API endpoints AWS Lambda functions for business logic Amazon DynamoDB for product and order data Amazon S3 for data import and storage AI Layer:\nAI-powered chatbot for product recommendations Integrated into the frontend UI Provides real-time customer assistance Security \u0026amp; Authentication:\nAmazon Cognito for user authentication IAM roles for secure service access Workshop Structure This workshop is organized into team-based modules:\nPrerequisites - Environment setup and IAM configuration Backend Team - API development and data pipeline AI Team - Chatbot integration and AI features Frontend Team - UI development and deployment CI/CD - Automated deployment pipeline Testing - System validation and performance testing Cleanup - Resource management and cost optimization Expected Outcomes After completing this workshop, you will have:\nA fully functional e-commerce website running on AWS Hands-on experience with serverless architecture Understanding of AWS best practices for scalability and security Knowledge of CI/CD implementation for cloud applications A portfolio project demonstrating cloud engineering skills Cost Considerations This workshop is designed to run within the AWS Free Tier. All services used have free tier options, and the architecture avoids costly resources like EC2 instances. Estimated cost for running this workshop: $0-5 USD if completed within a few hours.\nPrerequisites Before starting, ensure you have:\nAn AWS account with administrative access Basic understanding of cloud computing concepts Familiarity with REST APIs and JSON Basic knowledge of HTML/CSS/JavaScript (for frontend work) Git installed on your local machine Let\u0026rsquo;s Get Started! Ready to build your serverless e-commerce platform? Let\u0026rsquo;s move on to the Prerequisites section to set up your environment.\n"
+},
+{
+	"uri": "//localhost:1313/5-workshop/3-backend/3.1/",
+	"title": "Prepare &amp; Configure Lambda Trigger for S3",
+	"tags": [],
+	"description": "",
+	"content": "Prepare \u0026amp; Configure Lambda Trigger for S3 Create an S3 Bucket Go to the S3 service. In the S3 interface, select Create bucket. On the Create bucket screen:\nBucket name: Enter a name, for example:\nflyora-bucket-database (If the name already exists, add a number at the end.)\nKeep all other default settings unchanged.\nReview your configuration and click Create bucket to finish. Expected Results The flyora-bucket (or your chosen name) is successfully created. The LambdaS3DynamoDBRole role is ready to be assigned to Lambda in the next step. Configure Lambda Trigger for S3 In this step, you will configure AWS Lambda to automatically import CSV files into DynamoDB whenever a new file is uploaded to the S3 Bucket.\nCreate a Lambda Function Go to Lambda → Create function. Select Author from scratch. Function name: AutoImportCSVtoDynamoDB. Runtime: Python 3.13. Role: select LambdaS3DynamoDBRole created in the previous step. Add a Trigger In the Configuration → Triggers tab, click Add trigger. Choose S3. Select Bucket flyora-bucket. Event type: All object create events. Click Add to save. Paste the Lambda Code\nPaste the following code: import boto3 import csv import io import json from botocore.exceptions import ClientError dynamodb = boto3.resource(\u0026#39;dynamodb\u0026#39;) s3 = boto3.client(\u0026#39;s3\u0026#39;) def create_table_if_not_exists(table_name, sample_item): existing_tables = dynamodb.meta.client.list_tables()[\u0026#39;TableNames\u0026#39;] if table_name in existing_tables: print(f\u0026#34;Table \u0026#39;{table_name}\u0026#39; already exists.\u0026#34;) return # Use the first key as the Partition key partition_key = list(sample_item.keys())[0] print(f\u0026#34;Creating new table: {table_name} with partition key: {partition_key}\u0026#34;) table = dynamodb.create_table( TableName=table_name, KeySchema=[{\u0026#39;AttributeName\u0026#39;: partition_key, \u0026#39;KeyType\u0026#39;: \u0026#39;HASH\u0026#39;}], AttributeDefinitions=[{\u0026#39;AttributeName\u0026#39;: partition_key, \u0026#39;AttributeType\u0026#39;: \u0026#39;S\u0026#39;}], BillingMode=\u0026#39;PAY_PER_REQUEST\u0026#39; ) table.wait_until_exists() print(f\u0026#34;Table \u0026#39;{table_name}\u0026#39; created successfully.\u0026#34;) def lambda_handler(event, context): try: for record in event[\u0026#39;Records\u0026#39;]: bucket = record[\u0026#39;s3\u0026#39;][\u0026#39;bucket\u0026#39;][\u0026#39;name\u0026#39;] key = record[\u0026#39;s3\u0026#39;][\u0026#39;object\u0026#39;][\u0026#39;key\u0026#39;] print(f\u0026#34;Processing file: {key} from bucket: {bucket}\u0026#34;) response = s3.get_object(Bucket=bucket, Key=key) body = response[\u0026#39;Body\u0026#39;].read().decode(\u0026#39;utf-8\u0026#39;) reader = csv.DictReader(io.StringIO(body)) items = list(reader) if not items: print(f\u0026#34;File {key} is empty, skipping.\u0026#34;) continue table_name = key.split(\u0026#39;.\u0026#39;)[0] # table name = file name (without .csv) create_table_if_not_exists(table_name, items[0]) table = dynamodb.Table(table_name) with table.batch_writer() as batch: for item in items: batch.put_item(Item=item) print(f\u0026#34;Imported {len(items)} records into {table_name}\u0026#34;) return { \u0026#39;statusCode\u0026#39;: 200, \u0026#39;body\u0026#39;: json.dumps(\u0026#39;Import completed successfully\u0026#39;) } except ClientError as e: print(f\u0026#34;AWS Error: {e.response[\u0026#39;Error\u0026#39;][\u0026#39;Message\u0026#39;]}\u0026#34;) return {\u0026#39;statusCode\u0026#39;: 500, \u0026#39;body\u0026#39;: json.dumps(\u0026#39;AWS Error\u0026#39;)} except Exception as e: print(f\u0026#34;General Error: {str(e)}\u0026#34;) return {\u0026#39;statusCode\u0026#39;: 500, \u0026#39;body\u0026#39;: json.dumps(\u0026#39;General Error\u0026#39;)} Click Deploy and confirm it shows Successfully. "
+},
+{
+	"uri": "//localhost:1313/5-workshop/4-ai/4.2/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " "
+},
+{
+	"uri": "//localhost:1313/5-workshop/5-frontend/5.2/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " "
+},
+{
+	"uri": "//localhost:1313/5-workshop/2-prerequisites/",
+	"title": "Prerequisites",
+	"tags": [],
+	"description": "",
+	"content": "Environment Setup "
+},
+{
+	"uri": "//localhost:1313/5-workshop/2-prerequisites/2.2/",
+	"title": "Something we will figure out later :))",
+	"tags": [],
+	"description": "",
+	"content": "Something we will figure out later :)) "
+},
+{
+	"uri": "//localhost:1313/5-workshop/3-backend/3.2/",
+	"title": "Verify Data in DynamoDB",
+	"tags": [],
+	"description": "",
+	"content": "Verify Data in DynamoDB In this step, you will verify that the data from the CSV file has been successfully imported into DynamoDB.\nSteps to Perform Upload the CSV File to the Bucket Download the sample CSV file from here.\nIn the newly created Bucket:\nGo to the Objects tab → click Upload. Extract file zip. Drag and drop the files, then click Upload. [!TIP] After uploading, please wait about 3–5 minutes for the Lambda function to import the data.\nAccess the DynamoDB Service Go to AWS Management Console → search for DynamoDB. Select Tables → click on the products table. View the Data Open the Explore items tab. Check the list of products that have been imported. If you don\u0026rsquo;t see any data, please check the following:\nThe DynamoDB table name must match the CSV file name. The CSV file must have a valid header. The Lambda function must have sufficient permissions to access both S3 and DynamoDB. "
+},
+{
+	"uri": "//localhost:1313/5-workshop/4-ai/4.3/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " "
+},
+{
+	"uri": "//localhost:1313/5-workshop/5-frontend/5.3/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " "
+},
+{
+	"uri": "//localhost:1313/5-workshop/3-backend/",
+	"title": "Backend Workshop (API &amp; Data Layer)",
+	"tags": [],
+	"description": "",
+	"content": "Backend: API \u0026amp; Data Pipeline In this workshop, you will:\nUse Amazon S3 to store input data (CSV files). Configure AWS Lambda Trigger to automatically import data into DynamoDB. Create Lambda (API Handler) and expose it through API Gateway to access DynamoDB data. Test REST API endpoints via Postman or API Gateway Console. Clean up all resources after completion. "
+},
+{
+	"uri": "//localhost:1313/5-workshop/3-backend/3.3/",
+	"title": "Create API Gateway &amp; Integrate with Lambda",
+	"tags": [],
+	"description": "",
+	"content": "Objective Create a new Lambda Function to handle requests to DynamoDB via API Gateway..\nSteps to Follow Step 1: Create IAM Role Open IAM Console → Roles → Create role Select Trusted entity: AWS Service → Lambda Attach permissions: AmazonDynamoDBFullAccess CloudWatchLogsFullAccess Name the role: LambdaAPIAccessRole Step 2: Create Lambda Function Go to AWS Lambda → Create function Select Author from scratch Name: DynamoDB_API_Handler Runtime: Python 3.13 Select IAM Role: LambdaAPIAccessRole Bước 3: Paste Example Code ```python\rimport boto3\rimport json\rfrom decimal import Decimal\rdynamodb = boto3.resource('dynamodb')\rclass DecimalEncoder(json.JSONEncoder):\rdef default(self, obj):\rif isinstance(obj, Decimal):\rreturn int(obj) if obj % 1 == 0 else float(obj)\rreturn super(DecimalEncoder, self).default(obj)\rdef lambda_handler(event, context):\rtry:\rmethod = event.get('httpMethod', 'GET')\rpath = event.get('path', '') body = json.loads(event.get('body', '{}')) if event.get('body') else {}\rpath_to_table = {\r'/api/account': 'Account',\r'/api/admin': 'Admin',\r'/api/role': 'Role',\r'/api/customer': 'Customer',\r'/api/staff': 'SalesStaff',\r'/api/owner': 'ShopOwner',\r'/api/product': 'Product',\r'/api/category': 'ProductCategory',\r'/api/review': 'ProductReview',\r'/api/promotion': 'Promotion',\r'/api/inventory': 'Inventory',\r'/api/type/food': 'FoodType',\r'/api/type/furniture': 'FurnitureType',\r'/api/type/toy': 'ToyType',\r'/api/type/bird': 'BirdType',\r'/api/detail/food': 'FoodDetail',\r'/api/detail/furniture': 'FurnitureDetail',\r'/api/detail/toy': 'ToyDetail',\r'/api/order': 'Order',\r'/api/order-item': 'OrderItem',\r'/api/payment': 'Payment',\r'/api/payment-method': 'PaymentMethod',\r'/api/delivery-note': 'DeliveryNote',\r'/api/shipping-method': 'ShippingMethod',\r'/api/notification': 'Notification',\r'/api/notification-type': 'NotificationType',\r'/api/chatbot': 'ChatBot',\r'/api/faq': 'FAQ',\r'/api/new': 'NewsArticle',\r'/api/log/access': 'AccessLog',\r'/api/log/system': 'SystemLog',\r'/api/issue': 'IssueReport',\r'/api/policy': 'Policy'\r}\rtable_name = path_to_table.get(path)\rif not table_name:\rreturn {\r'statusCode': 404,\r'body': json.dumps({'error': f'Unknown API path: {path}'})\r}\rtable = dynamodb.Table(table_name)\rif method == 'GET':\rresponse = table.scan()\rreturn {\r'statusCode': 200,\r'headers': {'Content-Type': 'application/json'},\r'body': json.dumps(response['Items'], cls=DecimalEncoder)\r}\relif method == 'POST':\ritem = body.get('item')\rif not item:\rreturn {\r'statusCode': 400,\r'body': json.dumps({'error': 'Missing item data'})\r}\rtable.put_item(Item=item)\rreturn {\r'statusCode': 200,\r'headers': {'Content-Type': 'application/json'},\r'body': json.dumps({'message': 'Item added successfully', 'item': item}, cls=DecimalEncoder)\r}\relif method == 'PUT':\ritem = body.get('item')\rif not item:\rreturn {\r'statusCode': 400,\r'body': json.dumps({'error': 'Missing item data for update'})\r}\rtable.put_item(Item=item)\rreturn {\r'statusCode': 200,\r'headers': {'Content-Type': 'application/json'},\r'body': json.dumps({'message': 'Item updated successfully', 'item': item}, cls=DecimalEncoder)\r}\relif method == 'DELETE':\rkey = body.get('key')\rif not key:\rreturn {\r'statusCode': 400,\r'body': json.dumps({'error': 'Missing key for delete'})\r}\rtable.delete_item(Key=key)\rreturn {\r'statusCode': 200,\r'body': json.dumps({'message': 'Item deleted successfully'})\r}\relse:\rreturn {\r'statusCode': 405,\r'body': json.dumps({'error': f'Method {method} not allowed'})\r}\rexcept Exception as e:\rreturn {\r'statusCode': 500,\r'body': json.dumps({'error': str(e)})\r}\r"
+},
+{
+	"uri": "//localhost:1313/5-workshop/4-ai/",
+	"title": "AI Workshop (Chatbot)",
+	"tags": [],
+	"description": "",
+	"content": "AI Chatbot Development "
+},
+{
+	"uri": "//localhost:1313/5-workshop/3-backend/3.4/",
+	"title": "Creating API Gateway and Integrating with Lambda",
+	"tags": [],
+	"description": "",
+	"content": "Objective Connect AWS API Gateway with a Lambda Function to create a RESTful endpoint that allows access to data DynamoDB.\nSteps to Follow 1. Access API Gateway Go to AWS Console → API Gateway Select Create API Choose type: REST API (Build) Configure: Create new API: New API API name: FlyoraAPI Endpoint Type: Regional Click Create API 2. Tạo Resource và Method In the sidebar, select Actions → Create Resource Resource Name: api Click Create Resource Select /api → Actions → Create Resource In the resource configuration: Tick Proxy resource Resource path: /api/ Resource Name: myProxy Click Create resource 3. Attach Lambda After successfully creating /api/{myProxy+}, the ANY method appears: Chọn ANY → Integration request → Edit Then click Create method. Attach Lambda: Integration type: Lambda Function Tick Lambda proxy integration Lambda Region: ap-southeast-1 (Singapore) Lambda Function: select your Lambda_API_Handler function 4. Deploy API Select Actions → Deploy API Deployment stage: New stage Stage name: dev Description: Development stage for Lambda API Click Deploy After deployment, you will receive an Invoke URL like: https://\u0026lt;api_id\u0026gt;.execute-api.ap-southeast-1.amazonaws.com/dev\n"
+},
+{
+	"uri": "//localhost:1313/5-workshop/5-frontend/",
+	"title": "Frontend Workshop (UI)",
+	"tags": [],
+	"description": "",
+	"content": "Frontend Development \u0026amp; Chatbot Embedding "
+},
+{
+	"uri": "//localhost:1313/5-workshop/3-backend/3.5/",
+	"title": "Test API using Postman",
+	"tags": [],
+	"description": "",
+	"content": "Objective Test the API Gateway REST endpoint integrated with a Lambda Function to verify DynamoDB data operations.\nDownload and install Postman before starting this section.\nGET Test Open Postman\nSelect GET\nEnter URL: https://uwbxj9wfq6.execute-api.ap-southeast-1.amazonaws.com/dev/api/account\nTab Headers: Key: Content-Type | Value: application/json\nClick Send\nResult: Returns the list of Items in the table Account\nPOST Test Select POST\nURL: https://uwbxj9wfq6.execute-api.ap-southeast-1.amazonaws.com/dev/api/account\nBody → raw → JSON\n{ \u0026#34;item\u0026#34;: { \u0026#34;id\u0026#34;: \u0026#34;120\u0026#34;, \u0026#34;username\u0026#34;: \u0026#34;owner02\u0026#34;, \u0026#34;password\u0026#34;: \u0026#34;securepass\u0026#34;, \u0026#34;email\u0026#34;: \u0026#34;owner02@gmail.com\u0026#34;, \u0026#34;phone\u0026#34;: \u0026#34;0912345678\u0026#34;, \u0026#34;role_id\u0026#34;: \u0026#34;2\u0026#34;, \u0026#34;is_active\u0026#34;: \u0026#34;1\u0026#34;, \u0026#34;is_approved\u0026#34;: \u0026#34;1\u0026#34;, \u0026#34;approved_by\u0026#34;: \u0026#34;NULL\u0026#34; } }\nClick Send Result: Adds an Items in the table Account "
+},
+{
+	"uri": "//localhost:1313/5-workshop/",
+	"title": "Workshop",
+	"tags": [],
+	"description": "",
+	"content": "Deploying the Flyora E-commerce System on AWS Overview In this workshop, you will deploy the core components of the Flyora platform using a Serverless architecture on AWS.\nThe objective is to build a system that is scalable, cost-efficient, and easy to maintain.\nComponents to be deployed:\nFrontend: Store \u0026amp; deliver UI via S3 + CloudFront Backend API: Handle business logic with API Gateway + AWS Lambda Database: Manage product / order data using DynamoDB + S3 User Authentication: Implemented via Amazon Cognito Chatbot: Product consultation assistant integrated into UI (handled by AI Team) The workshop is divided into group roles for parallel development: Backend (BE), AI (Chatbot), and Frontend (FE).\nSystem Architecture Workshop Content Introduction: Objectives \u0026amp; Expected Outcomes\nEnvironment Setup (Prerequisites)\nCreate IAM User + Configure Access Permissions Something we will figure out later :)) Backend Workshop (BE) — Build API + Automated Data Import Pipeline\nPrepare \u0026amp; upload CSV data to S3 Create Lambda to automatically write CSV data to DynamoDB (S3 Trigger) Create API Gateway and integrate Lambda as Backend API Test API via Postman / API Gateway Console AI Workshop (Chatbot) — Product Consultation Support\n(AI team will fill in content) (AI team will fill in content) (AI team will fill in content) Frontend Workshop (FE) — Display Data \u0026amp; Integrate Chatbot\n(Frontend team will fill in content) (Frontend team will fill in content) (Frontend team will fill in content) Set Up CI/CD for Automatic Deployment\nSystem Testing \u0026amp; Performance Evaluation\nResource Cleanup to Avoid Unnecessary Charges\nThis workshop is designed to run within the AWS Free Tier,\nusing no EC2, no SSH, and no paid services beyond free tier limits.\n"
+},
+{
+	"uri": "//localhost:1313/5-workshop/6-cicd/",
+	"title": "CI/CD Automation (Optional Step)",
+	"tags": [],
+	"description": "",
+	"content": "CI/CD Pipeline Setup "
+},
+{
+	"uri": "//localhost:1313/5-workshop/3-backend/3.7/",
+	"title": "Integrating AWS X-Ray",
+	"tags": [],
+	"description": "",
+	"content": "Objective Use AWS X-Ray to trace and inspect the entire processing flow of API Gateway → Lambda → DynamoDB.\nX-Ray helps visualize traces, latency, errors, and segments/subsegments to ensure the API behaves correctly and efficiently.\nImplementation Steps 1. Access IAM Service Go to AWS Console → IAM Select Roles → LambdaAPIAccessRole Choose Add permissions → Attach policies → AWSXRayDaemonWriteAccess 2. Access Lambda Go to AWS Console → Lambda Select Functions → DynamoDB_API_Handler Go to\nConfiguration → Monitoring and operations tools → Additional monitoring tools → Edit Under Lambda service traces, enable Enable 3. Access API Gateway Go to AWS Console → API Gateway Select APIs → FlyoraAPI Go to\nStages → Logs and tracing → Edit Check X-Ray tracing 4. Testing Go to AWS Console → Lambda In the Test tab, click Create new event\nEvent name: test\nPaste the JSON below into the event:\n{\r\u0026#34;resource\u0026#34;: \u0026#34;/{myProxy+}\u0026#34;,\r\u0026#34;path\u0026#34;: \u0026#34;/api/v1/bird-types\u0026#34;,\r\u0026#34;httpMethod\u0026#34;: \u0026#34;GET\u0026#34;,\r\u0026#34;headers\u0026#34;: {},\r\u0026#34;multiValueHeaders\u0026#34;: {},\r\u0026#34;queryStringParameters\u0026#34;: {},\r\u0026#34;multiValueQueryStringParameters\u0026#34;: {},\r\u0026#34;pathParameters\u0026#34;: {},\r\u0026#34;stageVariables\u0026#34;: {},\r\u0026#34;requestContext\u0026#34;: {\r\u0026#34;identity\u0026#34;: {}\r},\r\u0026#34;body\u0026#34;: null,\r\u0026#34;isBase64Encoded\u0026#34;: false\r} Save -\u0026gt; Test\nNext, go to AWS Console → X-ray In tab Traces, a new trace ID will appear Click it to view detailed trace information\n"
+},
+{
+	"uri": "//localhost:1313/5-workshop/7-testing/",
+	"title": "System Testing &amp; Performance Review",
+	"tags": [],
+	"description": "",
+	"content": "System Testing "
+},
+{
+	"uri": "//localhost:1313/5-workshop/8-cleanup/",
+	"title": "Clean Up Resources to Avoid AWS Charges",
+	"tags": [],
+	"description": "",
+	"content": "Clean Up AWS Resources "
+},
+{
+	"uri": "//localhost:1313/",
+	"title": "AWS System Manager",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

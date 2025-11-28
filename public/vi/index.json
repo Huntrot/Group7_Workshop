@@ -1,0 +1,183 @@
+[
+{
+	"uri": "//localhost:1313/vi/5-workshop/4-ai/4.1/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " "
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/5-frontend/5.1/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " "
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/3-backend/3.1/",
+	"title": "Chuẩn bị &amp; Cấu hình Lambda Trigger cho S3",
+	"tags": [],
+	"description": "",
+	"content": "Chuẩn bị \u0026amp; Cấu hình Lambda Trigger cho S3 Tạo S3 Bucket Truy cập dịch vụ S3. Trong giao diện S3, chọn Create bucket. Trong màn hình Create bucket:\nBucket name: Nhập tên, ví dụ:\nflyora-bucket-database (Nếu tên đã tồn tại, hãy thêm số phía sau.)\nGiữ nguyên các thiết lập mặc định còn lại.\nXem lại cấu hình và chọn Create bucket để hoàn tất. Kết quả mong đợi Bucket flyora-bucket (hoặc tên bạn đã đặt) được tạo thành công. Role LambdaS3DynamoDBRole sẵn sàng để gán cho Lambda trong bước kế tiếp. Cấu hình Lambda Trigger cho S3 Trong bước này, bạn sẽ cấu hình AWS Lambda để tự động import file CSV vào DynamoDB mỗi khi có file mới trong S3 Bucket.\nTạo Lambda Function Truy cập Lambda → Create function. Chọn Author from scratch. Đặt tên: AutoImportCSVtoDynamoDB. Runtime: Python 3.13. Role: chọn LambdaS3DynamoDBRole đã tạo ở bước trước. Thêm Trigger Trong tab Configuration → Triggers, nhấn Add trigger. Chọn S3. Chọn Bucket flyora-bucket. Event type: All object create events. Nhấn Add để lưu. Dán code Lambda Dán đoạn code dưới đây: import boto3 import csv import io import json from botocore.exceptions import ClientError dynamodb = boto3.resource(\u0026#39;dynamodb\u0026#39;) s3 = boto3.client(\u0026#39;s3\u0026#39;) def create_table_if_not_exists(table_name, sample_item): existing_tables = dynamodb.meta.client.list_tables()[\u0026#39;TableNames\u0026#39;] if table_name in existing_tables: print(f\u0026#34;Table \u0026#39;{table_name}\u0026#39; already exists.\u0026#34;) return # Lấy key đầu tiên làm Partition key partition_key = list(sample_item.keys())[0] print(f\u0026#34;Creating new table: {table_name} with partition key: {partition_key}\u0026#34;) table = dynamodb.create_table( TableName=table_name, KeySchema=[{\u0026#39;AttributeName\u0026#39;: partition_key, \u0026#39;KeyType\u0026#39;: \u0026#39;HASH\u0026#39;}], AttributeDefinitions=[{\u0026#39;AttributeName\u0026#39;: partition_key, \u0026#39;AttributeType\u0026#39;: \u0026#39;S\u0026#39;}], BillingMode=\u0026#39;PAY_PER_REQUEST\u0026#39; ) table.wait_until_exists() print(f\u0026#34;Table \u0026#39;{table_name}\u0026#39; created successfully.\u0026#34;) def lambda_handler(event, context): try: for record in event[\u0026#39;Records\u0026#39;]: bucket = record[\u0026#39;s3\u0026#39;][\u0026#39;bucket\u0026#39;][\u0026#39;name\u0026#39;] key = record[\u0026#39;s3\u0026#39;][\u0026#39;object\u0026#39;][\u0026#39;key\u0026#39;] print(f\u0026#34;Processing file: {key} from bucket: {bucket}\u0026#34;) response = s3.get_object(Bucket=bucket, Key=key) body = response[\u0026#39;Body\u0026#39;].read().decode(\u0026#39;utf-8\u0026#39;) reader = csv.DictReader(io.StringIO(body)) items = list(reader) if not items: print(f\u0026#34;File {key} is empty, skipping.\u0026#34;) continue table_name = key.split(\u0026#39;.\u0026#39;)[0] # tên bảng = tên file (không có .csv) create_table_if_not_exists(table_name, items[0]) table = dynamodb.Table(table_name) with table.batch_writer() as batch: for item in items: batch.put_item(Item=item) print(f\u0026#34;Imported {len(items)} records into {table_name}\u0026#34;) return { \u0026#39;statusCode\u0026#39;: 200, \u0026#39;body\u0026#39;: json.dumps(\u0026#39;Import completed successfully\u0026#39;) } except ClientError as e: print(f\u0026#34;AWS Error: {e.response[\u0026#39;Error\u0026#39;][\u0026#39;Message\u0026#39;]}\u0026#34;) return {\u0026#39;statusCode\u0026#39;: 500, \u0026#39;body\u0026#39;: json.dumps(\u0026#39;AWS Error\u0026#39;)} except Exception as e: print(f\u0026#34;General Error: {str(e)}\u0026#34;) return {\u0026#39;statusCode\u0026#39;: 500, \u0026#39;body\u0026#39;: json.dumps(\u0026#39;General Error\u0026#39;)} Nhấn Deploy và xác nhận Successfully. "
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/1-introduction/",
+	"title": "Giới thiệu",
+	"tags": [],
+	"description": "",
+	"content": "Giới thiệu Workshop Flyora là gì? Flyora là nền tảng thương mại điện tử hiện đại được thiết kế để minh họa kiến trúc cloud-native sử dụng các dịch vụ serverless của AWS. Workshop này hướng dẫn bạn xây dựng một cửa hàng trực tuyến hoàn chỉnh với tính năng duyệt sản phẩm, chatbot hỗ trợ AI, và quản lý dữ liệu tự động.\nMục tiêu Workshop Sau khi hoàn thành workshop, bạn sẽ:\nTriển khai hệ thống thương mại điện tử serverless trên AWS Xây dựng pipeline dữ liệu tự động sử dụng S3 và Lambda triggers Phát triển RESTful APIs với API Gateway và Lambda Tạo cơ sở dữ liệu có khả năng mở rộng bằng DynamoDB Tích hợp chatbot AI cho hỗ trợ khách hàng Triển khai frontend tĩnh với S3 và CloudFront Thiết lập CI/CD pipeline cho triển khai tự động Tổng quan Kiến trúc Nền tảng Flyora sử dụng kiến trúc serverless hoàn toàn:\nTầng Frontend:\nWebsite tĩnh được host trên Amazon S3 Phân phối nội dung toàn cầu qua Amazon CloudFront Giao diện responsive cho duyệt và mua sắm sản phẩm Tầng Backend:\nAPI Gateway cho các RESTful API endpoints AWS Lambda functions xử lý business logic Amazon DynamoDB lưu trữ dữ liệu sản phẩm và đơn hàng Amazon S3 cho import và lưu trữ dữ liệu Tầng AI:\nChatbot hỗ trợ AI cho gợi ý sản phẩm Tích hợp vào giao diện frontend Hỗ trợ khách hàng theo thời gian thực Bảo mật \u0026amp; Xác thực:\nAmazon Cognito cho xác thực người dùng IAM roles cho truy cập dịch vụ an toàn Cấu trúc Workshop Workshop được tổ chức theo các module theo nhóm:\nPrerequisites - Thiết lập môi trường và cấu hình IAM Backend Team - Phát triển API và data pipeline AI Team - Tích hợp chatbot và tính năng AI Frontend Team - Phát triển và triển khai UI CI/CD - Pipeline triển khai tự động Testing - Kiểm thử hệ thống và hiệu năng Cleanup - Quản lý tài nguyên và tối ưu chi phí Kết quả Mong đợi Sau khi hoàn thành workshop, bạn sẽ có:\nWebsite thương mại điện tử hoạt động hoàn chỉnh trên AWS Kinh nghiệm thực tế với kiến trúc serverless Hiểu biết về AWS best practices cho khả năng mở rộng và bảo mật Kiến thức triển khai CI/CD cho ứng dụng cloud Dự án portfolio thể hiện kỹ năng cloud engineering Chi phí Workshop này được thiết kế để chạy trong AWS Free Tier. Tất cả dịch vụ sử dụng đều có tùy chọn free tier, và kiến trúc tránh các tài nguyên tốn kém như EC2 instances. Chi phí ước tính: $0-5 USD nếu hoàn thành trong vài giờ.\nYêu cầu Trước khi Bắt đầu Trước khi bắt đầu, đảm bảo bạn có:\nTài khoản AWS với quyền quản trị Hiểu biết cơ bản về cloud computing Quen thuộc với REST APIs và JSON Kiến thức cơ bản về HTML/CSS/JavaScript (cho frontend) Git đã cài đặt trên máy local Bắt đầu Thôi! Sẵn sàng xây dựng nền tảng thương mại điện tử serverless? Chuyển sang phần Prerequisites để thiết lập môi trường.\n"
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/2-prerequisites/2.1/",
+	"title": "Tạo IAM User và phân quyền",
+	"tags": [],
+	"description": "",
+	"content": "Tạo IAM User và phân quyền Trong bước này, bạn sẽ tạo một IAM Role cho Lambda và một S3 Bucket để lưu trữ file dữ liệu CSV trước khi import vào DynamoDB.\nCác bước thực hiện 1. Truy cập dịch vụ IAM Vào AWS Management Console → tìm IAM. Chọn Roles → Create Role. Chọn Trusted entity type: AWS service. Chọn Use case: Lambda, sau đó nhấn Next. 2. Gán quyền truy cập cho Role Gắn các policy sau:\nAmazonS3FullAccess AmazonDynamoDBFullAccess_v2 Nhấn Next, đặt tên role là LambdaS3DynamoDBRole.\nRole này giúp Lambda có thể đọc file từ S3 và ghi dữ liệu vào DynamoDB.\n"
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/4-ai/4.2/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " "
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/5-frontend/5.2/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " "
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/2-prerequisites/",
+	"title": "Các bước chuẩn bị",
+	"tags": [],
+	"description": "",
+	"content": "Chuẩn bị môi trường "
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/2-prerequisites/2.2/",
+	"title": "Cái gì đó mà tôi chưa nghĩ ra tại bước chuẩn bị :))",
+	"tags": [],
+	"description": "",
+	"content": "Cái gì đó mà tôi chưa nghĩ ra tại bước chuẩn bị :)) "
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/3-backend/3.2/",
+	"title": "Kiểm tra dữ liệu trong DynamoDB",
+	"tags": [],
+	"description": "",
+	"content": "Kiểm tra dữ liệu trong DynamoDB Trong bước này, bạn sẽ xác minh rằng dữ liệu từ file CSV đã được import thành công vào DynamoDB.\nCác bước thực hiện Upload dữ liệu CSV lên Bucket Tải file mẫu CSV từ đây.\nTrong Bucket vừa tạo:\nChọn tab Objects → Upload. Giải nén file zip. Kéo \u0026amp; thả các file, sau đó nhấn Upload. [!TIP] Sau khi upload xong hãy đợi khoảng 3-5 phút để lambda import dữ liệu\nTruy cập dịch vụ DynamoDB Vào AWS Management Console → tìm DynamoDB. Chọn Tables → click vào bảng ví dụ: Products. Xem dữ liệu Chọn tab Explore items. Kiểm tra danh sách sản phẩm đã được import. Nếu không thấy dữ liệu, kiểm tra:\nTên bảng DynamoDB phải trùng với tên file CSV. File CSV phải có header hợp lệ. Lambda có đủ quyền truy cập S3 và DynamoDB. Tạo GSI cho DynamoDB\nTạo GSI (Global Secondary Index) cho DynamoDB\nĐể backend có thể truy vấn dữ liệu dựa trên các trường không phải khóa chính (ví dụ: tìm Account bằng username, tìm Order bằng customer_id), chúng ta cần tạo các Global Secondary Indexes (GSI) tương ứng với cấu trúc trong mã nguồn Java.\nChúng ta sẽ sử dụng AWS CloudShell để chạy script tự động tạo toàn bộ Index nhằm đảm bảo chính xác và tiết kiệm thời gian.\nTrên thanh điều hướng phía trên cùng (Top Navigation Bar), nhấp vào biểu tượng CloudShell (hình terminal \u0026gt;_). Đợi vài giây để môi trường dòng lệnh khởi động.\nTại dòng lệnh CloudShell, tạo một file script mới tên là create_gsi.sh:\nXóa file (nếu đã tạo trước đó): rm create_all_gsi.sh\nTạo File mới: nano create_all_gsi.sh\nTải file về mở lên rồi copy toàn bộ vào Cloudshell.\nCtrl + O (Để lưu) -\u0026gt; Nhấn Enter\nCtrl + X (Để thoát)\nCấp quyền chạy cho file: chmod +x create_all_gsi.sh\nKhởi chạy file: ./create_all_gsi.sh\nThời gian đợi sẽ tùy thuộc vào việc Indexs được tạo ra trong bao lâu\n"
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/4-ai/4.3/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " "
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/5-frontend/5.3/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " "
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/3-backend/",
+	"title": "Backend Workshop (BE)",
+	"tags": [],
+	"description": "",
+	"content": "Xây dựng Backend Trong workshop này, bạn sẽ:\nSử dụng Amazon S3 để lưu trữ file dữ liệu đầu vào (CSV). Cấu hình AWS Lambda Trigger để tự động import dữ liệu vào DynamoDB. Tạo Lambda Function (API Handler) và công khai qua API Gateway để truy cập dữ liệu. Kiểm thử API bằng Postman hoặc API Gateway Console. Dọn dẹp toàn bộ tài nguyên sau khi hoàn thành. "
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/3-backend/3.3/",
+	"title": "Tạo API Gateway và tích hợp Lambda",
+	"tags": [],
+	"description": "",
+	"content": "Mục tiêu Tạo Lambda Function mới để xử lý các yêu cầu đến DynamoDB thông qua API Gateway.\nCác bước thực hiện Tải file backend từ đây.\nBước 1: Tạo IAM Role Mở IAM Console → Roles → Create role Chọn Trusted entity: AWS Service → Lambda Gán quyền: AmazonDynamoDBFullAccess CloudWatchLogsFullAccess Đặt tên role: LambdaAPIAccessRole Bước 2: Tạo Lambda Function Vào AWS Lambda → Create function Chọn Author from scratch Nhập tên: DynamoDB_API_Handler Runtime: Java 17 Chọn IAM Role: LambdaAPIAccessRole Bước 3: Deploy file jar Vào S3 → Upload → Add files: Chọn file jar. Sau đó copy object Url Vào AWS Lambda → Upload from: dan s3 url vua tai len Vào AWS Lambda → Code → Runtime settings -\u0026gt; Edit Handler: org.example.flyora_backend.handler.StreamLambdaHandler::handleRequest Vào AWS Lambda → Code -\u0026gt; Configuration → Edit: Timeout: 1 min "
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/4-ai/",
+	"title": "AI Workshop (Chatbot)",
+	"tags": [],
+	"description": "",
+	"content": "Xây dựng AI Chatbot "
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/3-backend/3.4/",
+	"title": "Tạo API Gateway và tích hợp với Lambda",
+	"tags": [],
+	"description": "",
+	"content": "Mục tiêu Kết nối AWS API Gateway với Lambda Function để tạo endpoint RESTful cho phép truy cập dữ liệu trong DynamoDB.\nCác bước thực hiện 1. Truy cập dịch vụ API Gateway Vào AWS Console → API Gateway Chọn Create API Chọn loại REST API (Build) Chọn: Create new API: New API API name: FlyoraAPI Endpoint Type: Regional Chọn Create API 2. Tạo Resource và Method Trong sidebar, chọn Actions → Create Resource Resource Name: api Chọn Create Resource Chọn /api → Actions → Create Resource\nTrong cấu hình resource:\nResource path: /api/ Resource Name: v1 Nhấn Create resource Chọn /v1 → Actions → Create Resource\nTrong cấu hình resource:\nTick Proxy resource Resource path: /api/v1/ Resource Name: {myProxy+} Nhấn Create resource 3. Gắn Lambda Sau khi tạo thành công /api/vi/{myProxy+}, xuất hiện method ANY: Chọn ANY → Method request → Edit Authorization: AWS_IAM Chọn ANY → Integration request → Edit Gắn Lambda: Integration type: Lambda Function Tick Lambda proxy integration Lambda Region: ap-southeast-1 (Singapore) Lambda Function: chọn hàm Lambda_API_Handler của bạn 4. Deploy API Chọn Actions → Deploy API Deployment stage: New stage Stage name: dev Description: Development stage for Lambda API Nhấn Deploy Sau khi deploy, bạn sẽ nhận được Invoke URL dạng: https://\u0026lt;api_id\u0026gt;.execute-api.ap-southeast-1.amazonaws.com/dev\n"
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/5-frontend/",
+	"title": "Frontend Workshop (FE)",
+	"tags": [],
+	"description": "",
+	"content": "Xây dựng Frontend \u0026amp; Nhúng Chatbot "
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/3-backend/3.5/",
+	"title": "Kiểm thử API bằng Postman",
+	"tags": [],
+	"description": "",
+	"content": "Mục tiêu Kiểm thử API Gateway REST endpoint tích hợp với Lambda Function để xác nhận hoạt động dữ liệu DynamoDB.\nTải và cài đặt Postman trước khi bắt đầu phần này.\nChỉnh lại Authorization Vào AWS Console → API Gateway Chọn FlyoraAPI Chọn /api/v1/{myProxy+} → ANY → Method request → Edit Authorization: AWS_IAM Tạo access key Vào AWS Console → IAM → Users Nhấn Create User Đặt tên: test Xác nhận tạo iam user Vào test → Security credentiala → Create access key Chọn Local code Copy access key và Secret access key Kiểm thử GET Mở Postman\nChọn GET\nNhập URL: https://3b39kyvi8f.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/product/1\nTab Headers: Key: Content-Type | Value: application/json\nTab Authorization:\nType: AWS Signature Nhap AccessKey Nhap SecretKey AWS Region: ap-southeast-1 Service Name: execute-api Nhấn Send\nKết quả: Trả về danh sách Items trong bảng reviews\nKiểm thử POST Chọn POST\nURL: https://uwbxj9wfq6.execute-api.ap-southeast-1.amazonaws.com/dev/api/account\nBody → raw → JSON\n{ \u0026#34;item\u0026#34;: { \u0026#34;id\u0026#34;: \u0026#34;120\u0026#34;, \u0026#34;username\u0026#34;: \u0026#34;owner02\u0026#34;, \u0026#34;password\u0026#34;: \u0026#34;securepass\u0026#34;, \u0026#34;email\u0026#34;: \u0026#34;owner02@gmail.com\u0026#34;, \u0026#34;phone\u0026#34;: \u0026#34;0912345678\u0026#34;, \u0026#34;role_id\u0026#34;: \u0026#34;2\u0026#34;, \u0026#34;is_active\u0026#34;: \u0026#34;1\u0026#34;, \u0026#34;is_approved\u0026#34;: \u0026#34;1\u0026#34;, \u0026#34;approved_by\u0026#34;: \u0026#34;NULL\u0026#34; } }\nNhấn Send Kết quả: Thêm Items trong bảng Account "
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/",
+	"title": "Workshop",
+	"tags": [],
+	"description": "",
+	"content": "Triển khai hệ thống thương mại điện tử Flyora trên AWS Tổng quan Trong workshop này, bạn sẽ triển khai các thành phần cốt lõi của nền tảng Flyora theo mô hình Serverless trên AWS.\nMục tiêu là xây dựng hệ thống có khả năng mở rộng, tối ưu chi phí và dễ bảo trì.\nCác thành phần triển khai:\nFrontend: Lưu trữ \u0026amp; phân phối giao diện qua S3 + CloudFront Backend API: Xử lý logic nghiệp vụ qua API Gateway + AWS Lambda Cơ sở dữ liệu: Quản lý dữ liệu sản phẩm / đơn hàng bằng DynamoDB + S3 Xác thực người dùng: Thực hiện thông qua Amazon Cognito Chatbot: Hỗ trợ tư vấn sản phẩm, tích hợp vào UI (Nhóm AI thực hiện) Workshop được phân chia theo vai trò nhóm để dễ triển khai song song: Backend (BE), AI (Chatbot), và Frontend (FE).\nKiến trúc tổng thể Nội dung Workshop Giới thiệu mục tiêu \u0026amp; kết quả kỳ vọng\nChuẩn bị môi trường (Prerequisites)\nTạo IAM User + Cấu hình quyền truy cập Cái gì đó mà tôi chưa nghĩ ra tại bước chuẩn bị :)) Backend Workshop (BE) — Xây dựng API + Pipeline import dữ liệu tự động\nChuẩn bị \u0026amp; Cấu hình Lambda Trigger cho S3 Tạo Lambda tự động ghi dữ liệu CSV vào DynamoDB (S3 Trigger) Tạo API Gateway và tích hợp Lambda làm Backend API Kiểm thử API bằng Postman / API Gateway Console AI Workshop (Chatbot) — Hỗ trợ tư vấn sản phẩm\n(Để nhóm AI tự điền nội dung) (Để nhóm AI tự điền nội dung) (Để nhóm AI tự điền nội dung) Frontend Workshop (FE) — Hiển thị dữ liệu \u0026amp; tích hợp chatbot\n(Để nhóm FE tự điền nội dung) (Để nhóm FE tự điền nội dung) (Để nhóm FE tự điền nội dung) Thiết lập CI/CD tự động deploy\nKiểm thử hệ thống \u0026amp; đánh giá hiệu năng\nDọn dẹp tài nguyên để tránh phát sinh chi phí\nWorkshop này được thiết kế chạy trong phạm vi AWS Free Tier,\nkhông sử dụng EC2, không SSH, và không yêu cầu dịch vụ trả phí.\n"
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/6-cicd/",
+	"title": "Thiết lập CI/CD tự động deploy",
+	"tags": [],
+	"description": "",
+	"content": "Thiết lập CI/CD "
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/7-testing/",
+	"title": "Kiểm thử hệ thống &amp; đánh giá hiệu năng",
+	"tags": [],
+	"description": "",
+	"content": "Kiểm thử \u0026amp; Tối ưu hiệu năng "
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/3-backend/3.7/",
+	"title": "Tích hợp aws x-ray",
+	"tags": [],
+	"description": "",
+	"content": "Mục tiêu Sử dụng AWS X-Ray để theo dõi và kiểm thử toàn bộ luồng xử lý của API Gateway → Lambda → DynamoDB.\nX-Ray giúp quan sát trace, latency, lỗi, và các đoạn (segment/subsegment) để đảm bảo API hoạt động đúng và tối ưu.\nCác bước thực hiện 1. Truy cập dịch vụ IAM Vào AWS Console → IAM Chọn Roles → LambdaAPIAccessRole Chọn Add permissions → Attach policies → AWSXRayDaemonWriteAccess 2. Truy cập Lambda Vào AWS Console → Lambda Chọn Functions → DynamoDB_API_Handler -Configuration → Monitoring and operations tools → Additional monitoring tools → Edit Lambda service traces: Tick Enable 3. Truy cập dịch vụ Api gateway Vào AWS Console → Api gateway Chọn APIs → FlyoraAPI Stages → Logs and tracing → Edit Tick X-Ray tracing 4. Kiểm thử Vào AWS Console → Lambda Ở mục Test, Create new event\nEvent name: test\nDán mục dưới đây vào Event JSON:\n{\r\u0026#34;resource\u0026#34;: \u0026#34;/{myProxy+}\u0026#34;,\r\u0026#34;path\u0026#34;: \u0026#34;/api/v1/bird-types\u0026#34;,\r\u0026#34;httpMethod\u0026#34;: \u0026#34;GET\u0026#34;,\r\u0026#34;headers\u0026#34;: {},\r\u0026#34;multiValueHeaders\u0026#34;: {},\r\u0026#34;queryStringParameters\u0026#34;: {},\r\u0026#34;multiValueQueryStringParameters\u0026#34;: {},\r\u0026#34;pathParameters\u0026#34;: {},\r\u0026#34;stageVariables\u0026#34;: {},\r\u0026#34;requestContext\u0026#34;: {\r\u0026#34;identity\u0026#34;: {}\r},\r\u0026#34;body\u0026#34;: null,\r\u0026#34;isBase64Encoded\u0026#34;: false\r} Save -\u0026gt; Test\nTiếp theo vào AWS Console → X-ray Ở mục Traces, Xuất hiện id mới Bấm vào, xem chi tiết các trace đó\n"
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/8-cleanup/",
+	"title": "Dọn dẹp tài nguyên để tránh phát sinh chi phí",
+	"tags": [],
+	"description": "",
+	"content": "Dọn dẹp tài nguyên AWS "
+},
+{
+	"uri": "//localhost:1313/vi/",
+	"title": "AWS System Manager",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/vi/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/vi/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
