@@ -140,6 +140,13 @@
 	"content": "CI/CD Pipeline Setup "
 },
 {
+	"uri": "//localhost:1313/5-workshop/3-backend/3.7/",
+	"title": "Integrating AWS X-Ray",
+	"tags": [],
+	"description": "",
+	"content": "Objective Use AWS X-Ray to trace and inspect the entire processing flow of API Gateway → Lambda → DynamoDB.\nX-Ray helps visualize traces, latency, errors, and segments/subsegments to ensure the API behaves correctly and efficiently.\nImplementation Steps 1. Access IAM Service Go to AWS Console → IAM Select Roles → LambdaAPIAccessRole Choose Add permissions → Attach policies → AWSXRayDaemonWriteAccess 2. Access Lambda Go to AWS Console → Lambda Select Functions → DynamoDB_API_Handler Go to\nConfiguration → Monitoring and operations tools → Additional monitoring tools → Edit Under Lambda service traces, enable Enable 3. Access API Gateway Go to AWS Console → API Gateway Select APIs → FlyoraAPI Go to\nStages → Logs and tracing → Edit Check X-Ray tracing 4. Testing Go to AWS Console → Lambda In the Test tab, click Create new event\nEvent name: test\nPaste the JSON below into the event:\n{\r\u0026#34;resource\u0026#34;: \u0026#34;/{myProxy+}\u0026#34;,\r\u0026#34;path\u0026#34;: \u0026#34;/api/v1/bird-types\u0026#34;,\r\u0026#34;httpMethod\u0026#34;: \u0026#34;GET\u0026#34;,\r\u0026#34;headers\u0026#34;: {},\r\u0026#34;multiValueHeaders\u0026#34;: {},\r\u0026#34;queryStringParameters\u0026#34;: {},\r\u0026#34;multiValueQueryStringParameters\u0026#34;: {},\r\u0026#34;pathParameters\u0026#34;: {},\r\u0026#34;stageVariables\u0026#34;: {},\r\u0026#34;requestContext\u0026#34;: {\r\u0026#34;identity\u0026#34;: {}\r},\r\u0026#34;body\u0026#34;: null,\r\u0026#34;isBase64Encoded\u0026#34;: false\r} Save -\u0026gt; Test\nNext, go to AWS Console → X-ray In tab Traces, a new trace ID will appear Click it to view detailed trace information\n"
+},
+{
 	"uri": "//localhost:1313/5-workshop/7-testing/",
 	"title": "System Testing &amp; Performance Review",
 	"tags": [],

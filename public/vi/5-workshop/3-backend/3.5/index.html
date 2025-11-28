@@ -12,21 +12,21 @@
     <title>Kiểm thử API bằng Postman :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1763981270" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1763981270" rel="stylesheet">
-    <link href="/css/hybrid.css?1763981270" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1763981270" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1763981270" rel="stylesheet">
-    <link href="/css/auto-complete.css?1763981270" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1763981270" rel="stylesheet">
-    <link href="/css/theme.css?1763981270" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1763981270" rel="stylesheet">
+    <link href="/css/nucleus.css?1764301797" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1764301797" rel="stylesheet">
+    <link href="/css/hybrid.css?1764301797" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1764301797" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1764301797" rel="stylesheet">
+    <link href="/css/auto-complete.css?1764301797" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1764301797" rel="stylesheet">
+    <link href="/css/theme.css?1764301797" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1764301797" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1763981270" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1764301797" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1763981270"></script>
+    <script src="/js/jquery-3.3.1.min.js?1764301797"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1763981270"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1763981270"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1764301797"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1764301797"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1763981270"></script>
+<script type="text/javascript" src="/js/search.js?1764301797"></script>
 
     
   </div>
@@ -387,6 +387,34 @@
         ">
       <a href="/vi/5-workshop/3-backend/3.5/">
            <b> 5.3.5. </b> Kiểm thử API bằng Postman
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-workshop/3-backend/3.7/" title="Tích hợp aws x-ray" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-workshop/3-backend/3.7/">
+           <b> 5.3.7. </b> Tích hợp aws x-ray
           
             <i class="fas fa-check read-icon"></i>
           
@@ -916,7 +944,7 @@
         <li><a href="#kiểm-thử-get"><strong>Kiểm thử GET</strong></a></li>
       </ul>
     </li>
-    <li><a href="#post_1"><img src="/images/3.api-gateway/3.3/post_4.png" alt="POST_1"></a>
+    <li><a href="#post_13"><img src="/images/3.api-gateway/3.3/post_13.png" alt="POST_13"></a>
       <ul>
         <li><a href="#kiểm-thử-post"><strong>Kiểm thử POST</strong></a></li>
       </ul>
@@ -953,6 +981,35 @@
 <div class="notices note" ><p>Tải và cài đặt <a href="https://dl.pstmn.io/download/latest/win64">Postman</a> trước khi bắt đầu phần này.</p>
 </div>
 
+<ol>
+<li><strong>Chỉnh lại Authorization</strong></li>
+</ol>
+<ul>
+<li>Vào <strong>AWS Console → API Gateway</strong></li>
+<li>Chọn <strong>FlyoraAPI</strong></li>
+<li>Chọn <strong>/api/v1/{myProxy+} → ANY → Method request → Edit</strong>
+<img src="/images/3.api-gateway/3.3/post_5.png" alt="POST\_5"></li>
+<li>Authorization: AWS_IAM
+<img src="/images/3.api-gateway/3.3/post_6.png" alt="POST\_6"></li>
+</ul>
+<ol>
+<li><strong>Tạo access key</strong></li>
+</ol>
+<ul>
+<li>Vào <strong>AWS Console → IAM → Users</strong></li>
+<li>Nhấn <strong>Create User</strong>
+<img src="/images/3.api-gateway/3.3/post_8.png" alt="POST\_8"></li>
+<li>Đặt tên: <strong>test</strong>
+<img src="/images/3.api-gateway/3.3/post_7.png" alt="POST\_7"></li>
+<li>Xác nhận tạo iam user
+<img src="/images/3.api-gateway/3.3/post_9.png" alt="POST\_9"></li>
+<li>Vào <strong>test → Security credentiala → Create access key</strong>
+<img src="/images/3.api-gateway/3.3/post_10.png" alt="POST\_10"></li>
+<li>Chọn <strong>Local code</strong>
+<img src="/images/3.api-gateway/3.3/post_11.png" alt="POST\_11"></li>
+<li>Copy access key và Secret access key
+<img src="/images/3.api-gateway/3.3/post_12.png" alt="POST\_12"></li>
+</ul>
 <h3 id="kiểm-thử-get"><strong>Kiểm thử GET</strong></h3>
 <ul>
 <li>
@@ -963,20 +1020,30 @@
 </li>
 <li>
 <p>Nhập URL:
-<code>https://uwbxj9wfq6.execute-api.ap-southeast-1.amazonaws.com/dev/api/account</code></p>
+<code>https://3b39kyvi8f.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/product/1</code></p>
 </li>
 <li>
 <p>Tab <strong>Headers</strong>:
 Key: <code>Content-Type</code> | Value: <code>application/json</code></p>
 </li>
 <li>
+<p>Tab <strong>Authorization</strong>:</p>
+<ul>
+<li>Type: AWS Signature</li>
+<li>Nhap AccessKey</li>
+<li>Nhap SecretKey</li>
+<li>AWS Region: ap-southeast-1</li>
+<li>Service Name: execute-api</li>
+</ul>
+</li>
+<li>
 <p>Nhấn <strong>Send</strong></p>
 </li>
 <li>
-<p>Kết quả: Trả về danh sách <code>Items</code> trong bảng <strong>Account</strong></p>
+<p>Kết quả: Trả về danh sách <code>Items</code> trong bảng <strong>reviews</strong></p>
 </li>
 </ul>
-<h2 id="post_1"><img src="/images/3.api-gateway/3.3/post_4.png" alt="POST\_1"></h2>
+<h2 id="post_13"><img src="/images/3.api-gateway/3.3/post_13.png" alt="POST\_13"></h2>
 <h3 id="kiểm-thử-post"><strong>Kiểm thử POST</strong></h3>
 <ul>
 <li>
@@ -1228,9 +1295,6 @@ Key: <code>Content-Type</code> | Value: <code>application/json</code></p>
             
         
                     
-            
-        
-                    
                         
             
             
@@ -1238,6 +1302,25 @@ Key: <code>Content-Type</code> | Value: <code>application/json</code></p>
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1429,7 +1512,7 @@ Key: <code>Content-Type</code> | Value: <code>application/json</code></p>
 			<a class="nav nav-prev" href="/vi/5-workshop/3-backend/3.4/" title="Tạo API Gateway và tích hợp với Lambda"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/5-workshop/4-ai/" title="AI Workshop (Chatbot)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/5-workshop/3-backend/3.7/" title="Tích hợp aws x-ray" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1439,19 +1522,19 @@ Key: <code>Content-Type</code> | Value: <code>application/json</code></p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1763981270"></script>
-    <script src="/js/perfect-scrollbar.min.js?1763981270"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1763981270"></script>
-    <script src="/js/jquery.sticky.js?1763981270"></script>
-    <script src="/js/featherlight.min.js?1763981270"></script>
-    <script src="/js/highlight.pack.js?1763981270"></script>
+    <script src="/js/clipboard.min.js?1764301797"></script>
+    <script src="/js/perfect-scrollbar.min.js?1764301797"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1764301797"></script>
+    <script src="/js/jquery.sticky.js?1764301797"></script>
+    <script src="/js/featherlight.min.js?1764301797"></script>
+    <script src="/js/highlight.pack.js?1764301797"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1763981270"></script>
-    <script src="/js/learn.js?1763981270"></script>
-    <script src="/js/hugo-learn.js?1763981270"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1764301797"></script>
+    <script src="/js/learn.js?1764301797"></script>
+    <script src="/js/hugo-learn.js?1764301797"></script>
 
-    <link href="/mermaid/mermaid.css?1763981270" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1763981270"></script>
+    <link href="/mermaid/mermaid.css?1764301797" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1764301797"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
