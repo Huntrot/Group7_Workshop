@@ -42,7 +42,6 @@ $AWS_CMD update-table --table-name Account \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"username-index\",\"KeySchema\":[{\"AttributeName\":\"username\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table Account
 
 # 2. AccessLogRepository: table.index("account_id-index")
 # Model: AccessLogDynamoDB -> @DynamoDbAttribute("account_id") -> Number
@@ -52,7 +51,6 @@ $AWS_CMD update-table --table-name AccessLog \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"account_id-index\",\"KeySchema\":[{\"AttributeName\":\"account_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table AccessLog
 
 # 3. AdminRepository: table.index("account_id-index")
 # Model: AdminDynamoDB -> @DynamoDbAttribute("account_id") -> Number
@@ -62,7 +60,6 @@ $AWS_CMD update-table --table-name Admin \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"account_id-index\",\"KeySchema\":[{\"AttributeName\":\"account_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table Admin
 
 # 4. ChatBotRepository: table.index("customer_id-index")
 # Model: ChatBotDynamoDB -> @DynamoDbAttribute("customer_id") -> Number
@@ -72,7 +69,6 @@ $AWS_CMD update-table --table-name ChatBot \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"customer_id-index\",\"KeySchema\":[{\"AttributeName\":\"customer_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table ChatBot
 
 # 5. CustomerRepository: table.index("account_id-index")
 # Model: CustomerDynamoDB -> @DynamoDbAttribute("account_id") -> Number
@@ -82,7 +78,6 @@ $AWS_CMD update-table --table-name Customer \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"account_id-index\",\"KeySchema\":[{\"AttributeName\":\"account_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table Customer
 
 # 6. FaqRepository: table.index("updated_by-index")
 # Model: FaqDynamoDB -> @DynamoDbAttribute("updated_by") -> Number
@@ -92,7 +87,6 @@ $AWS_CMD update-table --table-name Faq \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"updated_by-index\",\"KeySchema\":[{\"AttributeName\":\"updated_by\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table Faq
 
 # 7. FoodDetailRepository: table.index("product_id-index")
 # Model: FoodDetailDynamoDB -> @DynamoDbAttribute("product_id") -> Number
@@ -102,7 +96,6 @@ $AWS_CMD update-table --table-name FoodDetail \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"product_id-index\",\"KeySchema\":[{\"AttributeName\":\"product_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table FoodDetail
 
 # 8. FurnitureDetailRepository: table.index("product_id-index")
 # Model: FurnitureDetailDynamoDB -> @DynamoDbAttribute("product_id") -> Number
@@ -112,7 +105,6 @@ $AWS_CMD update-table --table-name FurnitureDetail \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"product_id-index\",\"KeySchema\":[{\"AttributeName\":\"product_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table FurnitureDetail
 
 # 9. ToyDetailRepository: table.index("product_id-index")
 # Model: ToyDetailDynamoDB -> @DynamoDbAttribute("product_id") -> Number
@@ -122,7 +114,6 @@ $AWS_CMD update-table --table-name ToyDetail \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"product_id-index\",\"KeySchema\":[{\"AttributeName\":\"product_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table ToyDetail
 
 # 10. IssueReportRepository: table.index("customer_id-index")
 # Model: IssueReportDynamoDB -> @DynamoDbAttribute("customer_id") -> Number
@@ -132,7 +123,6 @@ $AWS_CMD update-table --table-name IssueReport \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"customer_id-index\",\"KeySchema\":[{\"AttributeName\":\"customer_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table IssueReport
 
 # 11. NotificationRepository: table.index("recipient_id-index")
 # Model: NotificationDynamoDB -> @DynamoDbAttribute("recipient_id") -> Number
@@ -142,7 +132,6 @@ $AWS_CMD update-table --table-name Notification \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"recipient_id-index\",\"KeySchema\":[{\"AttributeName\":\"recipient_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table Notification
 
 # 12. OrderItemRepository: table.index("order_id-index")
 # Model: OrderItemDynamoDB -> @DynamoDbAttribute("order_id") -> Number
@@ -152,7 +141,6 @@ $AWS_CMD update-table --table-name OrderItem \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"order_id-index\",\"KeySchema\":[{\"AttributeName\":\"order_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table OrderItem
 
 # 13. OrderRepository: table.index("customer_id-index")
 # Model: OrderDynamoDB -> @DynamoDbAttribute("customer_id") -> Number
@@ -162,7 +150,6 @@ $AWS_CMD update-table --table-name Order \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"customer_id-index\",\"KeySchema\":[{\"AttributeName\":\"customer_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table Order
 
 # 14. PaymentRepository: table.index("customer_id-index")
 # Model: PaymentDynamoDB -> @DynamoDbAttribute("customer_id") -> Number
@@ -172,7 +159,6 @@ $AWS_CMD update-table --table-name Payment \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"customer_id-index\",\"KeySchema\":[{\"AttributeName\":\"customer_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table Payment
 
 # 15. PolicyRepository: table.index("updated_by-index")
 # Model: PolicyDynamoDB -> @DynamoDbAttribute("updated_by") -> Number
@@ -182,7 +168,6 @@ $AWS_CMD update-table --table-name Policy \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"updated_by-index\",\"KeySchema\":[{\"AttributeName\":\"updated_by\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table Policy
 
 # 16. ProductCategoryRepository: table.index("product_id-index")
 # Model: ProductCategoryDynamoDB -> @DynamoDbAttribute("id") ??? 
@@ -201,7 +186,6 @@ $AWS_CMD update-table --table-name ProductCategory \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"product_id-index\",\"KeySchema\":[{\"AttributeName\":\"product_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table ProductCategory
 
 # 17. ProductRepository: table.index("shop_owner_id-index")
 # Model: ProductDynamoDB -> @DynamoDbAttribute("shop_owner_id") -> Number
@@ -211,7 +195,6 @@ $AWS_CMD update-table --table-name Product \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"shop_owner_id-index\",\"KeySchema\":[{\"AttributeName\":\"shop_owner_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table Product
 
 # 18. SalesStaffRepository: table.index("account_id-index")
 # Model: SalesStaffDynamoDB -> @DynamoDbAttribute("account_id") -> Number
@@ -221,7 +204,6 @@ $AWS_CMD update-table --table-name SalesStaff \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"account_id-index\",\"KeySchema\":[{\"AttributeName\":\"account_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table SalesStaff
 
 # 19. ShopOwnerRepository: table.index("account_id-index")
 # Model: ShopOwnerDynamoDB -> @DynamoDbAttribute("account_id") -> Number
@@ -231,7 +213,6 @@ $AWS_CMD update-table --table-name ShopOwner \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"account_id-index\",\"KeySchema\":[{\"AttributeName\":\"account_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table ShopOwner
 
 # ==============================================================================
 # GIAI ĐOẠN 2: XỬ LÝ CÁC BẢNG CÓ 2 INDEX (Chạy lần 1)
@@ -248,7 +229,6 @@ $AWS_CMD update-table --table-name DeliveryNote \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"tracking_number-index\",\"KeySchema\":[{\"AttributeName\":\"tracking_number\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table DeliveryNote
 
 # 21. ProductReview: table.index("product_id-index")
 # Model: ProductReviewDynamoDB -> @DynamoDbAttribute("product_id") -> Number
@@ -258,7 +238,6 @@ $AWS_CMD update-table --table-name ProductReview \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"product_id-index\",\"KeySchema\":[{\"AttributeName\":\"product_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table ProductReview
 
 # 22. Promotion: table.index("customer_id-index")
 # Model: PromotionDynamoDB -> @DynamoDbAttribute("customer_id") -> Number
@@ -268,6 +247,8 @@ $AWS_CMD update-table --table-name Promotion \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"customer_id-index\",\"KeySchema\":[{\"AttributeName\":\"customer_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
+wait_for_table DeliveryNote
+wait_for_table ProductReview
 wait_for_table Promotion
 
 # ==============================================================================
@@ -284,7 +265,6 @@ $AWS_CMD update-table --table-name DeliveryNote \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"order_id-index\",\"KeySchema\":[{\"AttributeName\":\"order_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table DeliveryNote
 
 # 24. ProductReview: table.index("customer_id-index")
 # Model: ProductReviewDynamoDB -> @DynamoDbAttribute("customer_id") -> Number
@@ -294,7 +274,6 @@ $AWS_CMD update-table --table-name ProductReview \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"customer_id-index\",\"KeySchema\":[{\"AttributeName\":\"customer_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
-wait_for_table ProductReview
 
 # 25. Promotion: table.index("product_id-index")
 # Model: PromotionDynamoDB -> @DynamoDbAttribute("product_id") -> Number
@@ -304,6 +283,8 @@ $AWS_CMD update-table --table-name Promotion \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"product_id-index\",\"KeySchema\":[{\"AttributeName\":\"product_id\",\"KeyType\":\"HASH\"}],\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
 
+wait_for_table DeliveryNote
+wait_for_table ProductReview
 wait_for_table Promotion
 
 echo ">>> HOÀN TẤT 100%!"

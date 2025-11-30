@@ -1,0 +1,5 @@
+id,name,description
+1,Admin,"Quản trị hệ thống"
+2,ShopOwner,"Chủ cửa hàng"
+3,SalesStaff,"Nhân viên bán hàng"
+4,Customer,"Khách hàng"

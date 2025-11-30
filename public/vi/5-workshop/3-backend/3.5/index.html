@@ -3,7 +3,7 @@
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.134.3">
+    <meta name="generator" content="Hugo 0.150.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Kiểm thử API bằng Postman :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1764238930" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1764238930" rel="stylesheet">
-    <link href="/css/hybrid.css?1764238930" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1764238930" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1764238930" rel="stylesheet">
-    <link href="/css/auto-complete.css?1764238930" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1764238930" rel="stylesheet">
-    <link href="/css/theme.css?1764238930" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1764238930" rel="stylesheet">
+    <link href="/css/nucleus.css?1764483291" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1764483291" rel="stylesheet">
+    <link href="/css/hybrid.css?1764483291" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1764483291" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1764483291" rel="stylesheet">
+    <link href="/css/auto-complete.css?1764483291" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1764483291" rel="stylesheet">
+    <link href="/css/theme.css?1764483291" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1764483291" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1764238930" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1764483291" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1764238930"></script>
+    <script src="/js/jquery-3.3.1.min.js?1764483291"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1764238930"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1764238930"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1764483291"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1764483291"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1764238930"></script>
+<script type="text/javascript" src="/js/search.js?1764483291"></script>
 
     
   </div>
@@ -427,6 +427,34 @@
 
             
           
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-workshop/3-backend/3.7/" title="Tích hợp aws x-ray" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-workshop/3-backend/3.7/">
+           <b> 5.3.7. </b> Tích hợp aws x-ray
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -569,13 +597,13 @@
  
   
     
-    <li data-nav-id="/vi/5-workshop/5-frontend/" title="Frontend Workshop (FE)" class="dd-item 
+    <li data-nav-id="/vi/5-workshop/5-frontend/" title="Frontend Workshop (UI)" class="dd-item 
         
         
         
         ">
       <a href="/vi/5-workshop/5-frontend/">
-           <b> 5.5. </b> Frontend Workshop (FE)
+           <b> 5.5. </b> Frontend Workshop (UI)
           
             <i class="fas fa-check read-icon"></i>
           
@@ -628,13 +656,13 @@
  
   
     
-    <li data-nav-id="/vi/5-workshop/5-frontend/5.2/" title="" class="dd-item 
+    <li data-nav-id="/vi/5-workshop/5-frontend/5.2/" title="Phân phối với CloudFront" class="dd-item 
         
         
         
         ">
       <a href="/vi/5-workshop/5-frontend/5.2/">
-           <b> 5.5.2. </b> 
+           <b> 5.5.2. </b> Phân phối với CloudFront
           
             <i class="fas fa-check read-icon"></i>
           
@@ -656,13 +684,13 @@
  
   
     
-    <li data-nav-id="/vi/5-workshop/5-frontend/5.3/" title="" class="dd-item 
+    <li data-nav-id="/vi/5-workshop/5-frontend/5.3/" title="Kết nối với API" class="dd-item 
         
         
         
         ">
       <a href="/vi/5-workshop/5-frontend/5.3/">
-           <b> 5.5.3. </b> 
+           <b> 5.5.3. </b> Kết nối với API
           
             <i class="fas fa-check read-icon"></i>
           
@@ -944,7 +972,7 @@
         <li><a href="#kiểm-thử-get"><strong>Kiểm thử GET</strong></a></li>
       </ul>
     </li>
-    <li><a href="#post_13images3api-gateway33post_13png"><img src="/images/3.api-gateway/3.3/post_13.png" alt="POST_13"></a>
+    <li><a href="#post_13"><img src="/images/3.api-gateway/3.3/post_13.png" alt="POST_13"></a>
       <ul>
         <li><a href="#kiểm-thử-post"><strong>Kiểm thử POST</strong></a></li>
       </ul>
@@ -988,9 +1016,9 @@
 <li>Vào <strong>AWS Console → API Gateway</strong></li>
 <li>Chọn <strong>FlyoraAPI</strong></li>
 <li>Chọn <strong>/api/v1/{myProxy+} → ANY → Method request → Edit</strong>
-<img alt="POST_5" src="/images/3.api-gateway/3.3/post_5.png"></li>
+<img src="/images/3.api-gateway/3.3/post_5.png" alt="POST\_5"></li>
 <li>Authorization: AWS_IAM
-<img alt="POST_6" src="/images/3.api-gateway/3.3/post_6.png"></li>
+<img src="/images/3.api-gateway/3.3/post_6.png" alt="POST\_6"></li>
 </ul>
 <ol>
 <li><strong>Tạo access key</strong></li>
@@ -998,17 +1026,17 @@
 <ul>
 <li>Vào <strong>AWS Console → IAM → Users</strong></li>
 <li>Nhấn <strong>Create User</strong>
-<img alt="POST_8" src="/images/3.api-gateway/3.3/post_8.png"></li>
+<img src="/images/3.api-gateway/3.3/post_8.png" alt="POST\_8"></li>
 <li>Đặt tên: <strong>test</strong>
-<img alt="POST_7" src="/images/3.api-gateway/3.3/post_7.png"></li>
+<img src="/images/3.api-gateway/3.3/post_7.png" alt="POST\_7"></li>
 <li>Xác nhận tạo iam user
-<img alt="POST_9" src="/images/3.api-gateway/3.3/post_9.png"></li>
+<img src="/images/3.api-gateway/3.3/post_9.png" alt="POST\_9"></li>
 <li>Vào <strong>test → Security credentiala → Create access key</strong>
-<img alt="POST_10" src="/images/3.api-gateway/3.3/post_10.png"></li>
+<img src="/images/3.api-gateway/3.3/post_10.png" alt="POST\_10"></li>
 <li>Chọn <strong>Local code</strong>
-<img alt="POST_11" src="/images/3.api-gateway/3.3/post_11.png"></li>
+<img src="/images/3.api-gateway/3.3/post_11.png" alt="POST\_11"></li>
 <li>Copy access key và Secret access key
-<img alt="POST_12" src="/images/3.api-gateway/3.3/post_12.png"></li>
+<img src="/images/3.api-gateway/3.3/post_12.png" alt="POST\_12"></li>
 </ul>
 <h3 id="kiểm-thử-get"><strong>Kiểm thử GET</strong></h3>
 <ul>
@@ -1043,7 +1071,7 @@ Key: <code>Content-Type</code> | Value: <code>application/json</code></p>
 <p>Kết quả: Trả về danh sách <code>Items</code> trong bảng <strong>reviews</strong></p>
 </li>
 </ul>
-<h2 id="post_13images3api-gateway33post_13png"><img alt="POST_13" src="/images/3.api-gateway/3.3/post_13.png"></h2>
+<h2 id="post_13"><img src="/images/3.api-gateway/3.3/post_13.png" alt="POST\_13"></h2>
 <h3 id="kiểm-thử-post"><strong>Kiểm thử POST</strong></h3>
 <ul>
 <li>
@@ -1051,30 +1079,24 @@ Key: <code>Content-Type</code> | Value: <code>application/json</code></p>
 </li>
 <li>
 <p>URL:
-<code>https://uwbxj9wfq6.execute-api.ap-southeast-1.amazonaws.com/dev/api/account</code></p>
+<code>https://3b39kyvi8f.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/submit</code></p>
 </li>
 <li>
 <p><strong>Body → raw → JSON</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&#34;item&#34;</span>: {
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;120&#34;</span>,
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;owner02&#34;</span>,
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;password&#34;</span>: <span style="color:#e6db74">&#34;securepass&#34;</span>,
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;email&#34;</span>: <span style="color:#e6db74">&#34;owner02@gmail.com&#34;</span>,
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;phone&#34;</span>: <span style="color:#e6db74">&#34;0912345678&#34;</span>,
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;role_id&#34;</span>: <span style="color:#e6db74">&#34;2&#34;</span>,
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;is_active&#34;</span>: <span style="color:#e6db74">&#34;1&#34;</span>,
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;is_approved&#34;</span>: <span style="color:#e6db74">&#34;1&#34;</span>,
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;approved_by&#34;</span>: <span style="color:#e6db74">&#34;NULL&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;customerId&#34;</span>: <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;rating&#34;</span>: <span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;comment&#34;</span>: <span style="color:#e6db74">&#34;Chim ăn ngon và vui vẻ!&#34;</span>,
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#34;customerName&#34;</span>: <span style="color:#e6db74">&#34;Nguyễn Văn B&#34;</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div></li>
+<li>
+<p>Nhấn <strong>Send</strong></p>
+</li>
+<li>
+<p>Kết quả: Thêm <code>Items</code> trong bảng <strong>Review</strong></p>
+</li>
 </ul>
-<p>}</p>
-<ul>
-<li>Nhấn <strong>Send</strong></li>
-<li>Kết quả: Thêm <code>Items</code> trong bảng <strong>Account</strong></li>
-</ul>
-<p><img alt="POST_2" src="/images/3.api-gateway/3.3/post_3.png"></p>
 
 
 
@@ -1314,6 +1336,22 @@ Key: <code>Content-Type</code> | Value: <code>application/json</code></p>
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1522,19 +1560,19 @@ Key: <code>Content-Type</code> | Value: <code>application/json</code></p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1764238930"></script>
-    <script src="/js/perfect-scrollbar.min.js?1764238930"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1764238930"></script>
-    <script src="/js/jquery.sticky.js?1764238930"></script>
-    <script src="/js/featherlight.min.js?1764238930"></script>
-    <script src="/js/highlight.pack.js?1764238930"></script>
+    <script src="/js/clipboard.min.js?1764483291"></script>
+    <script src="/js/perfect-scrollbar.min.js?1764483291"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1764483291"></script>
+    <script src="/js/jquery.sticky.js?1764483291"></script>
+    <script src="/js/featherlight.min.js?1764483291"></script>
+    <script src="/js/highlight.pack.js?1764483291"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1764238930"></script>
-    <script src="/js/learn.js?1764238930"></script>
-    <script src="/js/hugo-learn.js?1764238930"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1764483291"></script>
+    <script src="/js/learn.js?1764483291"></script>
+    <script src="/js/hugo-learn.js?1764483291"></script>
 
-    <link href="/mermaid/mermaid.css?1764238930" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1764238930"></script>
+    <link href="/mermaid/mermaid.css?1764483291" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1764483291"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

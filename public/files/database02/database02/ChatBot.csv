@@ -1,0 +1,4 @@
+id,customer_id,message,response,created_at
+1,1,"Có giao nhanh không?","Dạ, shop có hỗ trợ giao nhanh nhé!","2025-06-22 11:41:37"
+2,1,"Thức ăn này phù hợp cho chim gì?","Sản phẩm này phù hợp cho vẹt, yến phụng và chim hoạ mi ạ.","2025-06-22 11:41:37"
+3,1,"Tôi muốn đổi trả thì làm sao?","Bạn có thể đổi trả trong 7 ngày nếu sản phẩm còn nguyên tem nhé.","2025-06-22 11:41:37"

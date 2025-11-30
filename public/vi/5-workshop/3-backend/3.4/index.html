@@ -3,7 +3,7 @@
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.134.3">
+    <meta name="generator" content="Hugo 0.150.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tạo API Gateway và tích hợp với Lambda :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1764238930" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1764238930" rel="stylesheet">
-    <link href="/css/hybrid.css?1764238930" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1764238930" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1764238930" rel="stylesheet">
-    <link href="/css/auto-complete.css?1764238930" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1764238930" rel="stylesheet">
-    <link href="/css/theme.css?1764238930" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1764238930" rel="stylesheet">
+    <link href="/css/nucleus.css?1764483291" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1764483291" rel="stylesheet">
+    <link href="/css/hybrid.css?1764483291" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1764483291" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1764483291" rel="stylesheet">
+    <link href="/css/auto-complete.css?1764483291" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1764483291" rel="stylesheet">
+    <link href="/css/theme.css?1764483291" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1764483291" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1764238930" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1764483291" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1764238930"></script>
+    <script src="/js/jquery-3.3.1.min.js?1764483291"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1764238930"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1764238930"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1764483291"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1764483291"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1764238930"></script>
+<script type="text/javascript" src="/js/search.js?1764483291"></script>
 
     
   </div>
@@ -427,6 +427,34 @@
 
             
           
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-workshop/3-backend/3.7/" title="Tích hợp aws x-ray" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-workshop/3-backend/3.7/">
+           <b> 5.3.7. </b> Tích hợp aws x-ray
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -569,13 +597,13 @@
  
   
     
-    <li data-nav-id="/vi/5-workshop/5-frontend/" title="Frontend Workshop (FE)" class="dd-item 
+    <li data-nav-id="/vi/5-workshop/5-frontend/" title="Frontend Workshop (UI)" class="dd-item 
         
         
         
         ">
       <a href="/vi/5-workshop/5-frontend/">
-           <b> 5.5. </b> Frontend Workshop (FE)
+           <b> 5.5. </b> Frontend Workshop (UI)
           
             <i class="fas fa-check read-icon"></i>
           
@@ -628,13 +656,13 @@
  
   
     
-    <li data-nav-id="/vi/5-workshop/5-frontend/5.2/" title="" class="dd-item 
+    <li data-nav-id="/vi/5-workshop/5-frontend/5.2/" title="Phân phối với CloudFront" class="dd-item 
         
         
         
         ">
       <a href="/vi/5-workshop/5-frontend/5.2/">
-           <b> 5.5.2. </b> 
+           <b> 5.5.2. </b> Phân phối với CloudFront
           
             <i class="fas fa-check read-icon"></i>
           
@@ -656,13 +684,13 @@
  
   
     
-    <li data-nav-id="/vi/5-workshop/5-frontend/5.3/" title="" class="dd-item 
+    <li data-nav-id="/vi/5-workshop/5-frontend/5.3/" title="Kết nối với API" class="dd-item 
         
         
         
         ">
       <a href="/vi/5-workshop/5-frontend/5.3/">
-           <b> 5.5.3. </b> 
+           <b> 5.5.3. </b> Kết nối với API
           
             <i class="fas fa-check read-icon"></i>
           
@@ -944,12 +972,7 @@
         <li><a href="#các-bước-thực-hiện">Các bước thực hiện</a></li>
       </ul>
     </li>
-    <li><a href="#api_3images3api-gateway32api_3png"><img src="/images/3.api-gateway/3.2/api_3.png" alt="API_3"></a>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
-    <li><a href="#api_15images3api-gateway32api_15png"><img src="/images/3.api-gateway/3.2/api_15.png" alt="API_15"></a>
+    <li><a href="#api_3"><img src="/images/3.api-gateway/3.2/api_3.png" alt="API_3"></a>
       <ul>
         <li></li>
       </ul>
@@ -988,11 +1011,11 @@
 <li>Vào <strong>AWS Console → API Gateway</strong></li>
 <li>Chọn <strong>Create API</strong></li>
 </ul>
-<p><img alt="API_1" src="/images/3.api-gateway/3.2/api_1.png"></p>
+<p><img src="/images/3.api-gateway/3.2/api_1.png" alt="API\_1"></p>
 <ul>
 <li>Chọn loại <strong>REST API (Build)</strong></li>
 </ul>
-<p><img alt="API_2" src="/images/3.api-gateway/3.2/api_2.png"></p>
+<p><img src="/images/3.api-gateway/3.2/api_2.png" alt="API\_2"></p>
 <ul>
 <li>Chọn:
 <ul>
@@ -1003,17 +1026,17 @@
 </li>
 <li>Chọn <strong>Create API</strong></li>
 </ul>
-<h2 id="api_3images3api-gateway32api_3png"><img alt="API_3" src="/images/3.api-gateway/3.2/api_3.png"></h2>
+<h2 id="api_3"><img src="/images/3.api-gateway/3.2/api_3.png" alt="API\_3"></h2>
 <h4 id="2-tạo-resource-và-method"><strong>2. Tạo Resource và Method</strong></h4>
 <ol>
 <li>Trong sidebar, chọn <strong>Actions → Create Resource</strong></li>
 </ol>
-<p><img alt="API_4" src="/images/3.api-gateway/3.2/api_4.png"></p>
+<p><img src="/images/3.api-gateway/3.2/api_4.png" alt="API\_4"></p>
 <ul>
 <li><strong>Resource Name:</strong> <code>api</code></li>
 <li>Chọn <strong>Create Resource</strong></li>
 </ul>
-<p><img alt="API_5" src="/images/3.api-gateway/3.2/api_10.png"></p>
+<p><img src="/images/3.api-gateway/3.2/api_10.png" alt="API\_5"></p>
 <ol start="2">
 <li>
 <p>Chọn <strong>/api → Actions → Create Resource</strong></p>
@@ -1024,7 +1047,17 @@
 <li><strong>Resource path:</strong> /api/</li>
 <li><strong>Resource Name:</strong> <code>v1</code></li>
 <li>Nhấn <strong>Create resource</strong>
-<img alt="API_14" src="/images/3.api-gateway/3.2/api_14.png"></li>
+<img src="/images/3.api-gateway/3.2/api_14.png" alt="API\_14"></li>
+</ul>
+</li>
+<li>
+<p>Trong cấu hình resource:</p>
+<ul>
+<li>Tick <strong>Proxy resource</strong></li>
+<li><strong>Resource path:</strong> /api/</li>
+<li><strong>Resource Name:</strong> <code>{proxy+}</code></li>
+<li>Nhấn <strong>Create resource</strong>
+<img src="/images/3.api-gateway/3.2/api_18.png" alt="API\_14"></li>
 </ul>
 </li>
 <li>
@@ -1038,26 +1071,37 @@
 </ul>
 </li>
 </ol>
-<h2 id="api_15images3api-gateway32api_15png"><img alt="API_15" src="/images/3.api-gateway/3.2/api_15.png"></h2>
+<p><img src="/images/3.api-gateway/3.2/api_15.png" alt="API\_15">
+6. <strong>Enable CORS</strong> cho tất cả resource
+<img src="/images/3.api-gateway/3.2/api_19.png" alt="API\_15"></p>
+<ul>
+<li>Vào method <strong>OPTIONS → Integration response → Header Mappings</strong>, đảm bảo có cấu hình:
+<ul>
+<li>Access-Control-Allow-Origin: &lsquo;*&rsquo;</li>
+<li>Access-Control-Allow-Headers: &lsquo;Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token&rsquo;</li>
+<li>Access-Control-Allow-Methods: &lsquo;DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT&rsquo;
+<img src="/images/3.api-gateway/3.2/api_20.png" alt="API\_15"></li>
+</ul>
+</li>
+</ul>
+<hr>
 <h4 id="3-gắn-lambda"><strong>3. Gắn Lambda</strong></h4>
 <ol>
 <li>Sau khi tạo thành công <strong>/api/vi/{myProxy+}</strong>, xuất hiện method <strong>ANY</strong>:
 <ul>
-<li>Chọn <strong>ANY → Method request → Edit</strong></li>
-<li>Authorization: AWS_IAM</li>
 <li>Chọn <strong>ANY → Integration request → Edit</strong></li>
 </ul>
 </li>
 </ol>
-<p><img alt="API_16" src="/images/3.api-gateway/3.2/api_16.png"></p>
-<ol start="2">
+<p><img src="/images/3.api-gateway/3.2/api_16.png" alt="API\_16"></p>
+<ol>
 <li>Gắn Lambda:
 <ul>
 <li><strong>Integration type:</strong> Lambda Function</li>
 <li>Tick <strong>Lambda proxy integration</strong></li>
 <li><strong>Lambda Region:</strong> <code>ap-southeast-1</code> (Singapore)</li>
 <li><strong>Lambda Function:</strong> chọn hàm <code>Lambda_API_Handler</code> của bạn
-<img alt="API_17" src="/images/3.api-gateway/3.2/api_17.png"></li>
+<img src="/images/3.api-gateway/3.2/api_17.png" alt="API\_17"></li>
 </ul>
 </li>
 </ol>
@@ -1073,7 +1117,7 @@
 </li>
 <li>Nhấn <strong>Deploy</strong></li>
 </ul>
-<p><img alt="API_9" src="/images/3.api-gateway/3.2/api_9.png"></p>
+<p><img src="/images/3.api-gateway/3.2/api_9.png" alt="API\_9"></p>
 <p>Sau khi deploy, bạn sẽ nhận được Invoke URL dạng:
 <code>https://&lt;api_id&gt;.execute-api.ap-southeast-1.amazonaws.com/dev</code></p>
 
@@ -1315,6 +1359,22 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1523,19 +1583,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1764238930"></script>
-    <script src="/js/perfect-scrollbar.min.js?1764238930"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1764238930"></script>
-    <script src="/js/jquery.sticky.js?1764238930"></script>
-    <script src="/js/featherlight.min.js?1764238930"></script>
-    <script src="/js/highlight.pack.js?1764238930"></script>
+    <script src="/js/clipboard.min.js?1764483291"></script>
+    <script src="/js/perfect-scrollbar.min.js?1764483291"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1764483291"></script>
+    <script src="/js/jquery.sticky.js?1764483291"></script>
+    <script src="/js/featherlight.min.js?1764483291"></script>
+    <script src="/js/highlight.pack.js?1764483291"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1764238930"></script>
-    <script src="/js/learn.js?1764238930"></script>
-    <script src="/js/hugo-learn.js?1764238930"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1764483291"></script>
+    <script src="/js/learn.js?1764483291"></script>
+    <script src="/js/hugo-learn.js?1764483291"></script>
 
-    <link href="/mermaid/mermaid.css?1764238930" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1764238930"></script>
+    <link href="/mermaid/mermaid.css?1764483291" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1764483291"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

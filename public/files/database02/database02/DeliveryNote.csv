@@ -1,0 +1,22 @@
+id,order_id,shipping_method_id,delivery_partner_name,tracking_number,status,estimated_delivery_date,actual_delivery_date
+1,1,1,GHTK,GHTK123456,Đang giao,24/06/2025 11:40,0
+2,2,2,GHN,GHN654321,Đã giao,21/06/2025 11:40,22/06/2025 11:40
+3,3,1,J&T,JT987654,Chờ xử lý,25/06/2025 11:40,0
+4,4,2,VNPost,VNPOST1122,Hủy đơn,0,0
+8,121,1,GHN,GYU9XP4V,ready_to_pick,0,0
+9,123,1,GHN,GYU9XP4N,ready_to_pick,0,0
+10,124,1,GHN,GYU9XP4D,ready_to_pick,0,0
+11,125,1,GHN,GYU9XP4P,ready_to_pick,0,0
+12,127,1,GHN,GYU9XP4B,ready_to_pick,0,0
+13,126,1,GHN,GYU9XP43,ready_to_pick,0,0
+14,129,1,GHN,GYU9XP4K,ready_to_pick,0,0
+15,130,1,GHN,GYU9XPMH,ready_to_pick,0,0
+21,144,1,GHN,GYU6QMEV,ready_to_pick,0,0
+23,188,1,GHN,GYUP4U3K,ready_to_pick,0,0
+24,189,1,GHN,GYUP4YP9,ready_to_pick,0,0
+28,245,1,GHN,GYU4MHFR,ready_to_pick,0,0
+29,262,1,GHN,GYUKUENW,ready_to_pick,0,0
+30,266,1,GHN,GYUKUEXR,ready_to_pick,0,0
+31,268,1,GHN,GYUKCQKW,ready_to_pick,0,0
+32,270,1,GHN,GYUKCLBG,ready_to_pick,0,0
+33,277,1,GHN,GYUKBQNX,ready_to_pick,0,0

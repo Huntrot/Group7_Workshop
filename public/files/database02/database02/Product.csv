@@ -1,0 +1,44 @@
+id,name,description,price,stock,shop_owner_id,category_id,bird_type_id,status,salesCount
+1,Hạt hướng dương,Giàu dầu và năng lượng cho chim lớn,50000,87,1,1,1,0,0
+2,Hạt kê vàng,Cung cấp protein tự nhiên cho chim nhỏ,45000,79,1,1,2,0,0
+3,Hạt đậu phộng,Thực phẩm béo tốt cho vẹt,48000,57,1,1,1,0,0
+4,Hạt thóc lứt,Nguyên liệu sạch giàu xơ,30000,69,1,1,3,0,0
+5,Hạt yến mạch,Hạt nghiền dễ tiêu hoá,42000,50,1,1,2,0,0
+6,Thức ăn viên cho vẹt,Viên tổng hợp bổ sung vitamin,60000,89,1,1,3,0,0
+7,Hạt cây rum,Nguồn axit béo omega-6 tự nhiên,39000,75,1,1,3,0,0
+8,Hạt lúa mì,Bổ sung carbohydrate,37000,65,1,1,2,0,0
+9,Hạt ngô khô,"Giàu năng lượng, dễ bảo quản",35000,40,1,1,1,0,0
+10,Thức ăn viên tổng hợp,Hỗn hợp cho chim cảnh tổng hợp,70000,120,1,1,3,0,0
+11,Xích đu gỗ,Giúp chim vận động và giải trí,55000,28,1,2,2,0,0
+12,Chuông kêu,Kích thích phản xạ và vui nhộn,30000,47,1,2,3,0,0
+13,Cầu thang dây,Leo trèo vận động thể chất,60000,40,1,2,1,0,0
+14,Bóng nhựa nhỏ,Đồ chơi cho chim năng động,25000,68,1,2,2,0,0
+15,Gương soi cho chim,Chim thích nhìn hình ảnh phản chiếu,35000,44,1,2,3,0,0
+16,Khối gỗ gặm,Đồ chơi gặm nhấm giảm stress,45000,35,1,2,1,0,0
+17,Dây thừng leo,Kích thích khả năng vận động,40000,59,1,2,2,0,0
+18,Ống lăn thức ăn,Tăng hoạt động tìm kiếm thức ăn,48000,25,1,2,3,0,0
+19,Vòng treo nhựa,Giúp chim vận động và chơi đùa,37000,78,1,2,2,0,0
+20,Cành cây tự nhiên,Giúp chim cảm giác gần gũi tự nhiên,52000,20,1,2,1,0,0
+21,Lồng chim bằng sắt,"Bền và chắc chắn, thích hợp nhiều loài chim",250000,15,1,3,1,0,0
+22,Cành đậu bằng gỗ,Chỗ nghỉ ngơi tự nhiên trong lồng,50000,6,1,3,2,0,0
+23,Hộp tổ cho chim,Tạo không gian sinh sản ấm áp,120000,25,1,3,3,0,0
+24,Máng ăn nhựa,Đựng thức ăn tiện lợi và sạch sẽ,20000,60,1,3,2,0,0
+25,Máng nước tự động,Giữ nước sạch lâu dài,35000,39,1,3,1,0,0
+26,Lồng chim tre,"Nhẹ và thoáng khí, dễ vận chuyển",220000,10,1,3,3,0,0
+27,Khay đựng phân,Giúp dễ dọn dẹp vệ sinh,15000,55,1,3,2,0,0
+28,Cột đậu xoay,Chim có thể xoay vòng và chơi,75000,20,1,3,1,0,0
+29,Lồng chim inox,"Sáng bóng, không gỉ sét",300000,8,1,3,1,0,0
+30,Giá treo lồng,Giúp treo lồng chim tiện lợi,90000,18,1,3,2,0,0
+31,Hạt cỏ canary,"Hạt cỏ tự nhiên, giàu dinh dưỡng cho chim hoàng yến",42000,85,1,1,4,0,0
+32,Hạt mè trắng,Nguồn canxi tự nhiên cho chim nhỏ,38000,70,1,1,4,0,0
+33,Thức ăn viên cho hoàng yến,Viên tổng hợp vitamin cho chim hoàng yến,65000,100,1,1,4,0,0
+34,Hạt chia,"Giàu omega-3, hỗ trợ lông mượt",46000,60,1,1,4,0,0
+35,Hạt vừng đen,Bổ sung khoáng chất cho chim cảnh,40000,55,1,1,4,0,0
+36,Hạt cải xanh,"Hạt giàu xơ, hỗ trợ tiêu hóa",35000,90,1,1,4,0,0
+37,Bột trứng khô,Nguồn protein cao cho chim sinh sản,55000,45,1,1,4,0,0
+38,Hạt hoa hồng,"Hạt thơm, kích thích chim ăn",43000,80,1,1,4,0,0
+39,Hạt lanh,Hỗ trợ sức khỏe tim mạch cho chim,47000,65,1,1,4,0,0
+40,Cám trứng,Cám trứng cho chim,30000,200,1,1,1,1,0
+41,Lồng chào mào vuông 23 nan,Lồng cho chào mào bằng tre,300000,100,1,3,1,1,0
+43,Chuông cho vẹt mini,"Chuồng nhựa bền, thiết kế đẹp, dễ lau chùi, thích hợp cho vẹt nuôi trong nhà.",15000,11,1,3,2,1,0
+44,Cầu gỗ tập leo cho vẹt,"Cầu leo bằng gỗ chắc chắn, giúp chim vận động và phát triển thể chất",28000,30,1,3,2,1,0

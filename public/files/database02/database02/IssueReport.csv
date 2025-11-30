@@ -1,0 +1,3 @@
+id,customer_id,order_id,content
+1,1,1,"Đơn hàng giao thiếu sản phẩm"
+2,1,2,"Sản phẩm bị móp méo khi nhận hàng"

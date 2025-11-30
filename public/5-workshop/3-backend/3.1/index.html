@@ -3,7 +3,7 @@
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.134.3">
+    <meta name="generator" content="Hugo 0.150.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Prepare &amp; Configure Lambda Trigger for S3 :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1764238930" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1764238930" rel="stylesheet">
-    <link href="/css/hybrid.css?1764238930" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1764238930" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1764238930" rel="stylesheet">
-    <link href="/css/auto-complete.css?1764238930" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1764238930" rel="stylesheet">
-    <link href="/css/theme.css?1764238930" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1764238930" rel="stylesheet">
+    <link href="/css/nucleus.css?1764483290" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1764483290" rel="stylesheet">
+    <link href="/css/hybrid.css?1764483290" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1764483290" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1764483290" rel="stylesheet">
+    <link href="/css/auto-complete.css?1764483290" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1764483290" rel="stylesheet">
+    <link href="/css/theme.css?1764483290" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1764483290" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1764238930" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1764483290" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1764238930"></script>
+    <script src="/js/jquery-3.3.1.min.js?1764483290"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1764238930"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1764238930"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1764483290"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1764483290"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1764238930"></script>
+<script type="text/javascript" src="/js/search.js?1764483290"></script>
 
     
   </div>
@@ -324,13 +324,13 @@
  
   
     
-    <li data-nav-id="/5-workshop/3-backend/3.3/" title="Create API Gateway &amp; Integrate with Lambda" class="dd-item 
+    <li data-nav-id="/5-workshop/3-backend/3.3/" title="Create Lambda Function to Handle DynamoDB Requests" class="dd-item 
         
         
         
         ">
       <a href="/5-workshop/3-backend/3.3/">
-           <b> 5.3.3. </b> Create API Gateway &amp; Integrate with Lambda
+           <b> 5.3.3. </b> Create Lambda Function to Handle DynamoDB Requests
           
             <i class="fas fa-check read-icon"></i>
           
@@ -352,13 +352,13 @@
  
   
     
-    <li data-nav-id="/5-workshop/3-backend/3.4/" title="Creating API Gateway and Integrating with Lambda" class="dd-item 
+    <li data-nav-id="/5-workshop/3-backend/3.4/" title="Create API Gateway and Integrate with Lambda" class="dd-item 
         
         
         
         ">
       <a href="/5-workshop/3-backend/3.4/">
-           <b> 5.3.4. </b> Creating API Gateway and Integrating with Lambda
+           <b> 5.3.4. </b> Create API Gateway and Integrate with Lambda
           
             <i class="fas fa-check read-icon"></i>
           
@@ -380,13 +380,13 @@
  
   
     
-    <li data-nav-id="/5-workshop/3-backend/3.5/" title="Test API using Postman" class="dd-item 
+    <li data-nav-id="/5-workshop/3-backend/3.5/" title="Testing API using Postman" class="dd-item 
         
         
         
         ">
       <a href="/5-workshop/3-backend/3.5/">
-           <b> 5.3.5. </b> Test API using Postman
+           <b> 5.3.5. </b> Testing API using Postman
           
             <i class="fas fa-check read-icon"></i>
           
@@ -415,6 +415,34 @@
         ">
       <a href="/5-workshop/3-backend/3.6/">
            <b> 5.3.6. </b> S3 CSV Backup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-workshop/3-backend/3.7/" title="Integrating AWS X-Ray" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-workshop/3-backend/3.7/">
+           <b> 5.3.7. </b> Integrating AWS X-Ray
           
             <i class="fas fa-check read-icon"></i>
           
@@ -600,13 +628,13 @@
  
   
     
-    <li data-nav-id="/5-workshop/5-frontend/5.1/" title="" class="dd-item 
+    <li data-nav-id="/5-workshop/5-frontend/5.1/" title="Hosting website with S3" class="dd-item 
         
         
         
         ">
       <a href="/5-workshop/5-frontend/5.1/">
-           <b> 5.5.1. </b> 
+           <b> 5.5.1. </b> Hosting website with S3
           
             <i class="fas fa-check read-icon"></i>
           
@@ -628,13 +656,13 @@
  
   
     
-    <li data-nav-id="/5-workshop/5-frontend/5.2/" title="" class="dd-item 
+    <li data-nav-id="/5-workshop/5-frontend/5.2/" title="Distribute with CloudFront " class="dd-item 
         
         
         
         ">
       <a href="/5-workshop/5-frontend/5.2/">
-           <b> 5.5.2. </b> 
+           <b> 5.5.2. </b> Distribute with CloudFront 
           
             <i class="fas fa-check read-icon"></i>
           
@@ -656,13 +684,13 @@
  
   
     
-    <li data-nav-id="/5-workshop/5-frontend/5.3/" title="" class="dd-item 
+    <li data-nav-id="/5-workshop/5-frontend/5.3/" title="API Integration" class="dd-item 
         
         
         
         ">
       <a href="/5-workshop/5-frontend/5.3/">
-           <b> 5.5.3. </b> 
+           <b> 5.5.3. </b> API Integration
           
             <i class="fas fa-check read-icon"></i>
           
@@ -975,16 +1003,16 @@
 <ul>
 <li>Go to the <strong>AWS Management Console</strong> → search for <strong>IAM</strong>.</li>
 </ul>
-<p><img alt="IAM_1" src="/images/5-Workshop/2.prerequisite/iam_1.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/iam_1.png" alt="IAM_1"></p>
 <ul>
 <li>Select <strong>Roles</strong> → <strong>Create Role</strong>.</li>
 </ul>
-<p><img alt="IAM_2" src="/images/5-Workshop/2.prerequisite/iam_2.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/iam_2.png" alt="IAM_2"></p>
 <ul>
 <li>Choose <strong>Trusted entity type:</strong> <em>AWS service</em>.</li>
 <li>Choose <strong>Use case:</strong> <em>Lambda</em>, then click <strong>Next</strong>.</li>
 </ul>
-<p><img alt="IAM_3" src="/images/5-Workshop/2.prerequisite/iam_3.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/iam_3.png" alt="IAM_3"></p>
 <h4 id="2-attach-permissions-to-the-role">2. Attach Permissions to the Role</h4>
 <ul>
 <li>
@@ -998,8 +1026,8 @@
 <p>Click <strong>Next</strong>, then name the role <code>LambdaS3DynamoDBRole</code>.</p>
 </li>
 </ul>
-<p><img alt="IAM_4" src="/images/5-Workshop/2.prerequisite/iam_4.png"><br>
-<img alt="IAM_5" src="/images/5-Workshop/2.prerequisite/iam_5.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/iam_4.png" alt="IAM_4"><br>
+<img src="/images/5-Workshop/2.prerequisite/iam_5.png" alt="IAM_5"></p>
 
 <div class="notices note" ><p>This role allows Lambda to read files from <strong>S3</strong> and write data to <strong>DynamoDB</strong>.</p>
 </div>
@@ -1008,11 +1036,11 @@
 <ul>
 <li>Go to the <strong>S3</strong> service.</li>
 </ul>
-<p><img alt="S3_1" src="/images/5-Workshop/2.prerequisite/S3_1.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/S3_1.png" alt="S3_1"></p>
 <ul>
 <li>In the <strong>S3</strong> interface, select <strong>Create bucket</strong>.</li>
 </ul>
-<p><img alt="S3_2" src="/images/5-Workshop/2.prerequisite/S3_2.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/S3_2.png" alt="S3_2"></p>
 <ul>
 <li>
 <p>On the <strong>Create bucket</strong> screen:</p>
@@ -1031,7 +1059,7 @@
 <div class="notices note" ><p>Keep all other default settings unchanged.</p>
 </div>
 
-<p><img alt="S3_3" src="/images/5-Workshop/2.prerequisite/S3_3.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/S3_3.png" alt="S3_3"></p>
 <ul>
 <li>Review your configuration and click <strong>Create bucket</strong> to finish.</li>
 </ul>
@@ -1050,14 +1078,14 @@
 </ul>
 </li>
 </ol>
-<p><img alt="lambda_1" src="/images/5-Workshop/2.prerequisite/lambda_1.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/lambda_1.png" alt="lambda_1"></p>
 <ul>
 <li>Select <strong>Author from scratch</strong>.</li>
 <li>Function name: <code>AutoImportCSVtoDynamoDB</code>.</li>
 <li>Runtime: <strong>Python 3.13</strong>.</li>
 <li>Role: select <strong>LambdaS3DynamoDBRole</strong> created in the previous step.</li>
 </ul>
-<p><img alt="lambda_2" src="/images/5-Workshop/2.prerequisite/lambda_2.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/lambda_2.png" alt="lambda_2"></p>
 <ol start="2">
 <li><strong>Add a Trigger</strong>
 <ul>
@@ -1065,17 +1093,17 @@
 </ul>
 </li>
 </ol>
-<p><img alt="lambda_3" src="/images/5-Workshop/2.prerequisite/lambda_3.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/lambda_3.png" alt="lambda_3"></p>
 <ul>
 <li>Choose <strong>S3</strong>.</li>
 <li>Select Bucket <code>flyora-bucket</code>.</li>
 <li>Event type: <code>All object create events</code>.</li>
 </ul>
-<p><img alt="lambda_4" src="/images/5-Workshop/2.prerequisite/lambda_4.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/lambda_4.png" alt="lambda_4"></p>
 <ul>
 <li>Click <strong>Add</strong> to save.</li>
 </ul>
-<p><img alt="lambda_5" src="/images/5-Workshop/2.prerequisite/lambda_5.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/lambda_5.png" alt="lambda_5"></p>
 <ol start="3">
 <li>
 <p><strong>Paste the Lambda Code</strong></p>
@@ -1230,11 +1258,11 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#39;statusCode&#39;</span>: <span style="color:#ae81ff">500</span>, <span style="color:#e6db74">&#39;body&#39;</span>: json<span style="color:#f92672">.</span>dumps(str(e))}
 </span></span></code></pre></div></li>
 </ol>
-<p><img alt="lambda_6" src="/images/5-Workshop/2.prerequisite/lambda_6.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/lambda_6.png" alt="lambda_6"></p>
 <ul>
 <li>Click <strong>Deploy</strong> and confirm it shows <strong>Successfully</strong>.</li>
 </ul>
-<p><img alt="lambda_7" src="/images/5-Workshop/2.prerequisite/lambda_7.png"></p>
+<p><img src="/images/5-Workshop/2.prerequisite/lambda_7.png" alt="lambda_7"></p>
 
 
 
@@ -1395,6 +1423,22 @@
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1679,19 +1723,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1764238930"></script>
-    <script src="/js/perfect-scrollbar.min.js?1764238930"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1764238930"></script>
-    <script src="/js/jquery.sticky.js?1764238930"></script>
-    <script src="/js/featherlight.min.js?1764238930"></script>
-    <script src="/js/highlight.pack.js?1764238930"></script>
+    <script src="/js/clipboard.min.js?1764483290"></script>
+    <script src="/js/perfect-scrollbar.min.js?1764483290"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1764483290"></script>
+    <script src="/js/jquery.sticky.js?1764483290"></script>
+    <script src="/js/featherlight.min.js?1764483290"></script>
+    <script src="/js/highlight.pack.js?1764483290"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1764238930"></script>
-    <script src="/js/learn.js?1764238930"></script>
-    <script src="/js/hugo-learn.js?1764238930"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1764483290"></script>
+    <script src="/js/learn.js?1764483290"></script>
+    <script src="/js/hugo-learn.js?1764483290"></script>
 
-    <link href="/mermaid/mermaid.css?1764238930" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1764238930"></script>
+    <link href="/mermaid/mermaid.css?1764483290" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1764483290"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

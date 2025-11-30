@@ -1,0 +1,14 @@
+id,product_id,furniture_type_id,material,weight,color,origin,dimensions,image_url
+1,21,1,Sắt sơn tĩnh điện,2.5,Bạch kim,Việt Nam,60x40x50cm,https://shopvatnuoi.vn/wp-content/uploads/2023/05/Long-chim-inox-long-chim-khuyen-chim-chao-mao-chich-choe-khuou-cu-gay-LNT008-c9.jpg
+2,22,2,Gỗ thông,0.3,Nâu nhạt,Việt Nam,30x3x3cm,https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ly0be37w3t95fc
+3,23,3,Gỗ ép,1.2,Nâu,Thái Lan,25x25x25cm,https://salt.tikicdn.com/cache/w300/ts/product/c1/a8/f8/0afdb8fead52bac068ad2b415ca1eee0.jpg
+4,24,4,Nhựa PP,0.15,Xanh,Trung Quốc,10x10x5cm,https://vn-test-11.slatic.net/shop/853b40e2280aafe25e78c5f10059cf4b.jpeg
+5,25,5,Nhựa ABS,0.25,Xanh dương,Hàn Quốc,12x8x8cm,https://bizweb.dktcdn.net/100/381/746/products/855b8a7d4ac6b198e8d7-f772303a-5679-4add-baed-fd32e3d15db8.jpg?v=1587568051857
+6,26,6,Tre đan,1,Tự nhiên,Việt Nam,50x35x45cm,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpVjHnrbL7yGwKgZ7hnrV_le_9KacddGogyg&s
+7,27,7,Nhựa cứng,0.5,Xanh,Việt Nam,35x25x5cm,https://cdn.chiaki.vn/unsafe/0x960/left/top/smart/filters:quality(75)/https://chiaki.vn/upload/product/2020/09/khay-hung-ve-sinh-long-chim-bang-nhua-50x50cm-5f607a32f20dc-15092020152418.jpg
+8,28,8,Gỗ xoay + trục thép,1.5,Trắng,Trung Quốc,40x20x20cm,https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lqd9c3x4laky4b
+9,29,9,Inox 304,3,Bạc sáng,Việt Nam,55x40x50cm,https://cdn.chiaki.vn/unsafe/0x960/left/top/smart/filters:quality(75)/https://chiaki.vn/upload/product/2023/12/long-chim-choe-cao-chat-lieu-inox-khong-gi-set-658bd59390071-27122023144315.png
+10,30,10,Sắt + gỗ,1.8,Đen & nâu,Thái Lan,100x40x100cm,https://filebroker-cdn.lazada.vn/kf/S567bfc7b3c61460bb385a7a86cd21e1bU.jpg
+11,41,1,Tre già,1,xanh,Việt Nam,NULL,https://sieuthilongchim.net/img/webroot/upload/image/files/L%E1%BB%93ng%20ch%C3%A0o%20m%C3%A0o%20tre%20gi%C3%A0%20ch%C3%A2n%20l%C3%A1%20%C4%91%E1%BB%81%20(1).jpg
+13,43,1,nhựa,0.5,bạc,Bến Tre,0.8,https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-luzssyab6ejp82@resize_w450_nl.webp
+14,44,1,gỗ,0.5,nâu,Bến Tre,0.6m,https://down-vn.img.susercontent.com/file/sg-11134201-7rdvt-mc9kf8g7h0io03_tn.webp

@@ -1,0 +1,5 @@
+id,recipient_id,notification_type_id,content,created_at
+1,4,1,"Đơn hàng #1 đang được giao","2025-06-22 11:44:24"
+2,4,2,"Nhận ngay mã giảm giá SALE10 cho đơn tiếp theo!","2025-06-22 11:44:24"
+3,4,3,"Yêu cầu hỗ trợ của bạn đã được phản hồi","2025-06-22 11:44:24"
+4,4,1,"Đơn hàng #2 đã giao thành công","2025-06-22 11:44:24"

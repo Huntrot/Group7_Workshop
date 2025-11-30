@@ -1,0 +1,21 @@
+id,product_id,food_type_id,material,origin,usage_target,weight,image_url
+1,1,1,vải,vn,men,50,https://img.lazcdn.com/g/p/b427c9f9e2262cbdeae29147e1d73ad4.jpg_720x720q80.jpg
+2,2,2,Hạt kê vàng nguyên chất,Thái Lan,"chích chòe, chào mào",400,https://eco-health.vn/wp-content/uploads/2021/08/hat-ke-2-800x800.png
+3,3,3,Hạt đậu phộng sấy khô,Việt Nam,"Vẹt xích, chào mào, yến phụng",300,https://lh5.googleusercontent.com/proxy/LvooykPcfRXuAg4zgYpVGLD4tVdX-KSKLtkC0k-ekNSHRfyrnQ0JEOyTe7ermIfdxy-JOv8zmXqZAwdEpydQ1OhdV2djpfG1
+4,4,4,"Thóc lứt sạch, chưa xay vỏ",Việt Nam,"Vẹt xích, yến phụng, chích chòe, chào mào",450,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFbZAQ9cbRa9YaF6USqTSceDZbwlNMy76v0Q&s
+5,5,5,Hạt yến mạch nghiền nhỏ,Úc,"yến phụng, chim chích chòe, vẹt xích",350,https://tienkhang.com/up/1tienkhang/yen-mach-nguyen-cam.jpg
+6,6,6,Thức ăn viên chuyên dụng cho vẹt,Mỹ,Vẹt,600,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPZfSTCM6SXPzdVgNdqnnN_yN8Ei2r7Vl4dg&s
+7,7,7,Hạt rum giàu dinh dưỡng,Ấn Độ,"Vẹt xích, chào mào, yến phụng, chích chòe",250,https://down-vn.img.susercontent.com/file/sg-11134201-7rdwh-lzlv5yrr3ay4ba
+8,8,8,Lúa mì nguyên hạt,Úc,"chích chòe, vẹt xích, yến phụng",500,https://hoanduong.com/Upload/Photos/products/nguyen-lieu/lua-mi.jpg
+9,9,9,Ngô khô nghiền mịn,Mỹ,"Vẹt xích, yến phụng, chích chòe, chào mào",550,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7tGf56V7BN6ujcyLnMmLMywwFhDbM05pyhpwDlpiOnpUcJ6qXbj_rua1LlTfOZO_m5zY&usqp=CAU
+10,10,10,Hỗn hợp viên dinh dưỡng cao cấp,Pháp,"Vẹt xích, yến phụng, chào mào",700,https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lxtgtrabrqop91
+11,31,1,Hạt cỏ canary,Việt Nam,Chim hoàng yến,500,https://lh3.googleusercontent.com/proxy/r6ztAB139rKyt3Uynbkf51oKEW08GhKn9rp5RUI45mjjyj4SIvZ51g90F7GEyGCOYrMBVXfSPh1LtZop9bXrWNE2aYeYN3uSqiFiMFxU0Adqi16C3IcwNaih76eEeQQM7iCAQxrBTDQtxZG5gg
+12,32,1,Hạt mè trắng,Việt Nam,Chim nhỏ,400,https://media.vov.vn/sites/default/files/styles/large/public/2023-07/cong_dung_cua_hat_vung.jpg
+13,33,1,Thức ăn viên cho hoàng yến,Nhập khẩu,Chào mào,500,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbyvic6UiQocquzS5nfiKu25hcBxwQoFDy7Q&s
+14,34,1,Hạt chia,Nhập khẩu,"Chim nhỏ, chào mào",300,https://images2.thanhnien.vn/Uploaded/ngocquy/2023_01_14/4-hat-chia-shutterstock-1030.jpg
+15,35,1,Hạt vừng đen,Việt Nam,"Chim nhỏ, chào mào",400,https://media.vov.vn/sites/default/files/styles/large/public/2024-01/1-14062582.jpg
+16,36,1,Hạt cải xanh,Việt Nam,"Chim hoàng yến, chào mào",500,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP3g36QUUekQ78TUx3HTdizIC_5gmGsdpPdw&s
+17,37,1,Bột trứng khô,Nhập khẩu,"Chim sinh sản, chào mào",200,https://ovovita.com.vn/wp-content/uploads/2022/04/Sc23258419_g-1.jpg
+18,38,1,Hạt hoa hồng,Việt Nam,"Chim hoàng yến, Chim chào mào",400,https://zako.vn/wp-content/uploads/hat-giong-hoa-hong-dat-chuan.jpg
+19,39,1,Hạt lanh,Nhập khẩu,Chim chào mào,300,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZlmWiZ9t2VZnXTlP9pqOFs1I7aRh0P9UszA&s
+20,40,1,Cám,Việt Nam,Chào mào,0.5,https://bizweb.dktcdn.net/thumb/1024x1024/100/263/045/products/z4183064164276-a078ec090468b44fccd13da4f15fc4b1.jpg?v=1678848260617

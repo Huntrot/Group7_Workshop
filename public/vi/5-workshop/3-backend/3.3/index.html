@@ -3,7 +3,7 @@
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.134.3">
+    <meta name="generator" content="Hugo 0.150.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tạo API Gateway và tích hợp Lambda :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1764238930" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1764238930" rel="stylesheet">
-    <link href="/css/hybrid.css?1764238930" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1764238930" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1764238930" rel="stylesheet">
-    <link href="/css/auto-complete.css?1764238930" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1764238930" rel="stylesheet">
-    <link href="/css/theme.css?1764238930" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1764238930" rel="stylesheet">
+    <link href="/css/nucleus.css?1764483350" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1764483350" rel="stylesheet">
+    <link href="/css/hybrid.css?1764483350" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1764483350" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1764483350" rel="stylesheet">
+    <link href="/css/auto-complete.css?1764483350" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1764483350" rel="stylesheet">
+    <link href="/css/theme.css?1764483350" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1764483350" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1764238930" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1764483350" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1764238930"></script>
+    <script src="/js/jquery-3.3.1.min.js?1764483350"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1764238930"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1764238930"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1764483350"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1764483350"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1764238930"></script>
+<script type="text/javascript" src="/js/search.js?1764483350"></script>
 
     
   </div>
@@ -427,6 +427,34 @@
 
             
           
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-workshop/3-backend/3.7/" title="Tích hợp aws x-ray" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-workshop/3-backend/3.7/">
+           <b> 5.3.7. </b> Tích hợp aws x-ray
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -569,13 +597,13 @@
  
   
     
-    <li data-nav-id="/vi/5-workshop/5-frontend/" title="Frontend Workshop (FE)" class="dd-item 
+    <li data-nav-id="/vi/5-workshop/5-frontend/" title="Frontend Workshop (UI)" class="dd-item 
         
         
         
         ">
       <a href="/vi/5-workshop/5-frontend/">
-           <b> 5.5. </b> Frontend Workshop (FE)
+           <b> 5.5. </b> Frontend Workshop (UI)
           
             <i class="fas fa-check read-icon"></i>
           
@@ -628,13 +656,13 @@
  
   
     
-    <li data-nav-id="/vi/5-workshop/5-frontend/5.2/" title="" class="dd-item 
+    <li data-nav-id="/vi/5-workshop/5-frontend/5.2/" title="Phân phối với CloudFront" class="dd-item 
         
         
         
         ">
       <a href="/vi/5-workshop/5-frontend/5.2/">
-           <b> 5.5.2. </b> 
+           <b> 5.5.2. </b> Phân phối với CloudFront
           
             <i class="fas fa-check read-icon"></i>
           
@@ -656,13 +684,13 @@
  
   
     
-    <li data-nav-id="/vi/5-workshop/5-frontend/5.3/" title="" class="dd-item 
+    <li data-nav-id="/vi/5-workshop/5-frontend/5.3/" title="Kết nối với API" class="dd-item 
         
         
         
         ">
       <a href="/vi/5-workshop/5-frontend/5.3/">
-           <b> 5.5.3. </b> 
+           <b> 5.5.3. </b> Kết nối với API
           
             <i class="fas fa-check read-icon"></i>
           
@@ -948,13 +976,12 @@
         <li><a href="#bước-1-tạo-iam-role">Bước 1: Tạo IAM Role</a></li>
       </ul>
     </li>
-    <li><a href="#iam_5images3api-gateway31iam_5png"><img src="/images/3.api-gateway/3.1/iam_4.png" alt="IAM_4">
-<img src="/images/3.api-gateway/3.1/iam_5.png" alt="IAM_5"></a>
+    <li><a href="#iam_5"><img src="/images/3.api-gateway/3.1/iam_4.png" alt="IAM_4"> <img src="/images/3.api-gateway/3.1/iam_5.png" alt="IAM_5"></a>
       <ul>
         <li><a href="#bước-2-tạo-lambda-function">Bước 2: Tạo Lambda Function</a></li>
       </ul>
     </li>
-    <li><a href="#lambda_4images3api-gateway31lambda_4png"><img src="/images/3.api-gateway/3.1/lambda_4.png" alt="LAMBDA_4"></a>
+    <li><a href="#lambda_4"><img src="/images/3.api-gateway/3.1/lambda_4.png" alt="LAMBDA_4"></a>
       <ul>
         <li><a href="#bước-3-deploy-file-jar">Bước 3: Deploy file jar</a></li>
       </ul>
@@ -988,19 +1015,19 @@
 <p>Tạo <strong>Lambda Function</strong> mới để xử lý các yêu cầu đến DynamoDB thông qua API Gateway.</p>
 <h2 id="các-bước-thực-hiện">Các bước thực hiện</h2>
 
-<div class="notices info" ><p>Tải file backend từ <a href="/files/backend06.zip">đây</a>.</p>
+<div class="notices info" ><p>Tải file backend từ <a href="/files/backend08.zip">đây</a>.</p>
 </div>
 
 <h3 id="bước-1-tạo-iam-role">Bước 1: Tạo IAM Role</h3>
 <ol>
 <li>Mở <strong>IAM Console → Roles → Create role</strong></li>
 </ol>
-<p><img alt="IAM_1" src="/images/5-Workshop/3.api-gateway/3.1/iam_1.png"></p>
-<p><img alt="IAM_2" src="/images/5-Workshop/3.api-gateway/3.1/iam_2.png"></p>
+<p><img src="/images/5-Workshop/3.api-gateway/3.1/iam_1.png" alt="IAM\_1"></p>
+<p><img src="/images/5-Workshop/3.api-gateway/3.1/iam_2.png" alt="IAM\_2"></p>
 <ol>
 <li>Chọn <strong>Trusted entity: AWS Service → Lambda</strong></li>
 </ol>
-<p><img alt="IAM_3" src="/images/3.api-gateway/3.1/iam_3.png"></p>
+<p><img src="/images/3.api-gateway/3.1/iam_3.png" alt="IAM\_3"></p>
 <ol start="2">
 <li>Gán quyền:
 <ul>
@@ -1010,8 +1037,8 @@
 </li>
 <li>Đặt tên role: <code>LambdaAPIAccessRole</code></li>
 </ol>
-<h2 id="iam_5images3api-gateway31iam_5png"><img alt="IAM_4" src="/images/3.api-gateway/3.1/iam_4.png">
-<img alt="IAM_5" src="/images/3.api-gateway/3.1/iam_5.png"></h2>
+<h2 id="iam_5"><img src="/images/3.api-gateway/3.1/iam_4.png" alt="IAM\_4">
+<img src="/images/3.api-gateway/3.1/iam_5.png" alt="IAM\_5"></h2>
 <h3 id="bước-2-tạo-lambda-function">Bước 2: Tạo Lambda Function</h3>
 <ol>
 <li>Vào <strong>AWS Lambda → Create function</strong></li>
@@ -1020,20 +1047,23 @@
 <li>Runtime: <strong>Java 17</strong></li>
 <li>Chọn IAM Role: <code>LambdaAPIAccessRole</code></li>
 </ol>
-<h2 id="lambda_4images3api-gateway31lambda_4png"><img alt="LAMBDA_4" src="/images/3.api-gateway/3.1/lambda_4.png"></h2>
+<h2 id="lambda_4"><img src="/images/3.api-gateway/3.1/lambda_4.png" alt="LAMBDA\_4"></h2>
 <h3 id="bước-3-deploy-file-jar">Bước 3: Deploy file jar</h3>
 <ol>
 <li>Vào <strong>S3 → Upload → Add files</strong>: Chọn file jar. Sau đó copy object Url
-<img alt="LAMBDA_5" src="/images/3.api-gateway/3.1/lambda_5.png"></li>
+<img src="/images/3.api-gateway/3.1/lambda_5.png" alt="LAMBDA\_5"></li>
 <li>Vào <strong>AWS Lambda → Upload from</strong>: dan s3 url vua tai len
-<img alt="LAMBDA_6" src="/images/3.api-gateway/3.1/lambda_6.png"></li>
+<img src="/images/3.api-gateway/3.1/lambda_6.png" alt="LAMBDA\_6"></li>
 <li>Vào <strong>AWS Lambda → Code → Runtime settings -&gt; Edit</strong></li>
 <li>Handler: <code>org.example.flyora_backend.handler.StreamLambdaHandler::handleRequest</code>
-<img alt="LAMBDA_7" src="/images/3.api-gateway/3.1/lambda_7.png"></li>
+<img src="/images/3.api-gateway/3.1/lambda_7.png" alt="LAMBDA\_7"></li>
 <li>Vào <strong>AWS Lambda → Code -&gt; Configuration → Edit</strong>:</li>
-<li>Timeout: 1 min</li>
+<li>Timeout: 1 min
+<img src="/images/3.api-gateway/3.1/lambda_8.png" alt="LAMBDA\_8"></li>
+<li>Vào <strong>AWS Lambda → Configuration → Environment variables → Edit</strong></li>
+<li>Key: APP_JWT_SECRET; Value: huntrotflyorateam!@ky5group5member
+<img src="/images/3.api-gateway/3.1/lambda_9.png" alt="LAMBDA\_9"></li>
 </ol>
-<p><img alt="LAMBDA_8" src="/images/3.api-gateway/3.1/lambda_8.png"></p>
 
 
 
@@ -1229,6 +1259,22 @@
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1481,19 +1527,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1764238930"></script>
-    <script src="/js/perfect-scrollbar.min.js?1764238930"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1764238930"></script>
-    <script src="/js/jquery.sticky.js?1764238930"></script>
-    <script src="/js/featherlight.min.js?1764238930"></script>
-    <script src="/js/highlight.pack.js?1764238930"></script>
+    <script src="/js/clipboard.min.js?1764483350"></script>
+    <script src="/js/perfect-scrollbar.min.js?1764483350"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1764483350"></script>
+    <script src="/js/jquery.sticky.js?1764483350"></script>
+    <script src="/js/featherlight.min.js?1764483350"></script>
+    <script src="/js/highlight.pack.js?1764483350"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1764238930"></script>
-    <script src="/js/learn.js?1764238930"></script>
-    <script src="/js/hugo-learn.js?1764238930"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1764483350"></script>
+    <script src="/js/learn.js?1764483350"></script>
+    <script src="/js/hugo-learn.js?1764483350"></script>
 
-    <link href="/mermaid/mermaid.css?1764238930" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1764238930"></script>
+    <link href="/mermaid/mermaid.css?1764483350" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1764483350"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

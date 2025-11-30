@@ -3,30 +3,30 @@
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.134.3">
+    <meta name="generator" content="Hugo 0.150.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Create API Gateway &amp; Integrate with Lambda :: AWS System Manager</title>
+    <title>Create Lambda Function to Handle DynamoDB Requests :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1764238930" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1764238930" rel="stylesheet">
-    <link href="/css/hybrid.css?1764238930" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1764238930" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1764238930" rel="stylesheet">
-    <link href="/css/auto-complete.css?1764238930" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1764238930" rel="stylesheet">
-    <link href="/css/theme.css?1764238930" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1764238930" rel="stylesheet">
+    <link href="/css/nucleus.css?1764483350" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1764483350" rel="stylesheet">
+    <link href="/css/hybrid.css?1764483350" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1764483350" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1764483350" rel="stylesheet">
+    <link href="/css/auto-complete.css?1764483350" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1764483350" rel="stylesheet">
+    <link href="/css/theme.css?1764483350" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1764483350" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1764238930" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1764483350" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1764238930"></script>
+    <script src="/js/jquery-3.3.1.min.js?1764483350"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1764238930"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1764238930"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1764483350"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1764483350"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1764238930"></script>
+<script type="text/javascript" src="/js/search.js?1764483350"></script>
 
     
   </div>
@@ -324,13 +324,13 @@
  
   
     
-    <li data-nav-id="/5-workshop/3-backend/3.3/" title="Create API Gateway &amp; Integrate with Lambda" class="dd-item 
+    <li data-nav-id="/5-workshop/3-backend/3.3/" title="Create Lambda Function to Handle DynamoDB Requests" class="dd-item 
         
         active
         
         ">
       <a href="/5-workshop/3-backend/3.3/">
-           <b> 5.3.3. </b> Create API Gateway &amp; Integrate with Lambda
+           <b> 5.3.3. </b> Create Lambda Function to Handle DynamoDB Requests
           
             <i class="fas fa-check read-icon"></i>
           
@@ -352,13 +352,13 @@
  
   
     
-    <li data-nav-id="/5-workshop/3-backend/3.4/" title="Creating API Gateway and Integrating with Lambda" class="dd-item 
+    <li data-nav-id="/5-workshop/3-backend/3.4/" title="Create API Gateway and Integrate with Lambda" class="dd-item 
         
         
         
         ">
       <a href="/5-workshop/3-backend/3.4/">
-           <b> 5.3.4. </b> Creating API Gateway and Integrating with Lambda
+           <b> 5.3.4. </b> Create API Gateway and Integrate with Lambda
           
             <i class="fas fa-check read-icon"></i>
           
@@ -380,13 +380,13 @@
  
   
     
-    <li data-nav-id="/5-workshop/3-backend/3.5/" title="Test API using Postman" class="dd-item 
+    <li data-nav-id="/5-workshop/3-backend/3.5/" title="Testing API using Postman" class="dd-item 
         
         
         
         ">
       <a href="/5-workshop/3-backend/3.5/">
-           <b> 5.3.5. </b> Test API using Postman
+           <b> 5.3.5. </b> Testing API using Postman
           
             <i class="fas fa-check read-icon"></i>
           
@@ -415,6 +415,34 @@
         ">
       <a href="/5-workshop/3-backend/3.6/">
            <b> 5.3.6. </b> S3 CSV Backup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-workshop/3-backend/3.7/" title="Integrating AWS X-Ray" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-workshop/3-backend/3.7/">
+           <b> 5.3.7. </b> Integrating AWS X-Ray
           
             <i class="fas fa-check read-icon"></i>
           
@@ -600,13 +628,13 @@
  
   
     
-    <li data-nav-id="/5-workshop/5-frontend/5.1/" title="" class="dd-item 
+    <li data-nav-id="/5-workshop/5-frontend/5.1/" title="Hosting website with S3" class="dd-item 
         
         
         
         ">
       <a href="/5-workshop/5-frontend/5.1/">
-           <b> 5.5.1. </b> 
+           <b> 5.5.1. </b> Hosting website with S3
           
             <i class="fas fa-check read-icon"></i>
           
@@ -628,13 +656,13 @@
  
   
     
-    <li data-nav-id="/5-workshop/5-frontend/5.2/" title="" class="dd-item 
+    <li data-nav-id="/5-workshop/5-frontend/5.2/" title="Distribute with CloudFront " class="dd-item 
         
         
         
         ">
       <a href="/5-workshop/5-frontend/5.2/">
-           <b> 5.5.2. </b> 
+           <b> 5.5.2. </b> Distribute with CloudFront 
           
             <i class="fas fa-check read-icon"></i>
           
@@ -656,13 +684,13 @@
  
   
     
-    <li data-nav-id="/5-workshop/5-frontend/5.3/" title="" class="dd-item 
+    <li data-nav-id="/5-workshop/5-frontend/5.3/" title="API Integration" class="dd-item 
         
         
         
         ">
       <a href="/5-workshop/5-frontend/5.3/">
-           <b> 5.5.3. </b> 
+           <b> 5.5.3. </b> API Integration
           
             <i class="fas fa-check read-icon"></i>
           
@@ -921,7 +949,7 @@
             
           
           
-            <a href='/'>AWS System Manager</a> > <a href='/5-workshop/'>Workshop</a> > <a href='/5-workshop/3-backend/'>Backend Workshop (API & Data Layer)</a> > Create API Gateway & Integrate with Lambda
+            <a href='/'>AWS System Manager</a> > <a href='/5-workshop/'>Workshop</a> > <a href='/5-workshop/3-backend/'>Backend Workshop (API & Data Layer)</a> > Create Lambda Function to Handle DynamoDB Requests
           
         
           
@@ -943,20 +971,12 @@
         <li><a href="#objective">Objective</a></li>
       </ul>
     </li>
-    <li><a href="#steps-to-follow">Steps to Follow</a>
+    <li><a href="#steps">Steps</a>
       <ul>
         <li><a href="#step-1-create-iam-role">Step 1: Create IAM Role</a></li>
-      </ul>
-    </li>
-    <li><a href="#iam_5images3api-gateway31iam_5png"><img src="/images/3.api-gateway/3.1/iam_4.png" alt="IAM_4">
-<img src="/images/3.api-gateway/3.1/iam_5.png" alt="IAM_5"></a>
-      <ul>
         <li><a href="#step-2-create-lambda-function">Step 2: Create Lambda Function</a></li>
-      </ul>
-    </li>
-    <li><a href="#lambda_1images3api-gateway31lambda_1png"><img src="/images/3.api-gateway/3.1/lambda_1.png" alt="LAMBDA_1"></a>
-      <ul>
-        <li><a href="#bước-3-paste-example-code">Bước 3: Paste Example Code</a></li>
+        <li><a href="#step-3-deploy-the-jar-file">Step 3: Deploy the JAR File</a></li>
+        <li><a href="#step-4-configure-lambda-function">Step 4: Configure Lambda Function</a></li>
       </ul>
     </li>
   </ul>
@@ -976,7 +996,7 @@
           
             <h1>
               
-              Create API Gateway &amp; Integrate with Lambda
+              Create Lambda Function to Handle DynamoDB Requests
             </h1>
           
 
@@ -985,180 +1005,84 @@
 
 
 	<h3 id="objective">Objective</h3>
-<p>Create a new <strong>Lambda Function</strong> to handle requests to DynamoDB via API Gateway..</p>
-<h2 id="steps-to-follow">Steps to Follow</h2>
+<p>Create a new <strong>Lambda Function</strong> to process requests to DynamoDB through API Gateway.</p>
+<hr>
+<h2 id="steps">Steps</h2>
+
+<div class="notices info" ><p>Download the backend file from <a href="/files/backend07.zip">here</a>.</p>
+</div>
+
+<hr>
 <h3 id="step-1-create-iam-role">Step 1: Create IAM Role</h3>
 <ol>
 <li>Open <strong>IAM Console → Roles → Create role</strong></li>
 </ol>
-<p><img alt="IAM_1" src="static/images/5-Workshop/3.api-gateway/3.1/iam_1.png"></p>
-<p><img alt="IAM_2" src="/images/5-Workshop/3.api-gateway/3.1/iam_2.png"></p>
-<ol>
-<li>Select <strong>Trusted entity: AWS Service → Lambda</strong></li>
-</ol>
-<p><img alt="IAM_3" src="/images/3.api-gateway/3.1/iam_3.png"></p>
+<p><img src="/images/5-Workshop/3.api-gateway/3.1/iam_1.png" alt="IAM_1"></p>
+<p><img src="/images/5-Workshop/3.api-gateway/3.1/iam_2.png" alt="IAM_2"></p>
 <ol start="2">
-<li>Attach permissions:
+<li>Select<br>
+<strong>Trusted entity: AWS Service → Lambda</strong></li>
+</ol>
+<p><img src="/images/3.api-gateway/3.1/iam_3.png" alt="IAM_3"></p>
+<ol start="3">
+<li>
+<p>Attach the following permissions:</p>
 <ul>
 <li><code>AmazonDynamoDBFullAccess</code></li>
 <li><code>CloudWatchLogsFullAccess</code></li>
 </ul>
 </li>
-<li>Name the role: <code>LambdaAPIAccessRole</code></li>
+<li>
+<p>Set the role name: <strong>LambdaAPIAccessRole</strong></p>
+</li>
 </ol>
-<h2 id="iam_5images3api-gateway31iam_5png"><img alt="IAM_4" src="/images/3.api-gateway/3.1/iam_4.png">
-<img alt="IAM_5" src="/images/3.api-gateway/3.1/iam_5.png"></h2>
+<p><img src="/images/3.api-gateway/3.1/iam_4.png" alt="IAM_4">
+<img src="/images/3.api-gateway/3.1/iam_5.png" alt="IAM_5"></p>
+<hr>
 <h3 id="step-2-create-lambda-function">Step 2: Create Lambda Function</h3>
 <ol>
 <li>Go to <strong>AWS Lambda → Create function</strong></li>
 <li>Select <strong>Author from scratch</strong></li>
-<li>Name: <code>DynamoDB_API_Handler</code></li>
-<li>Runtime: <strong>Python 3.13</strong></li>
-<li>Select IAM Role: <code>LambdaAPIAccessRole</code></li>
+<li>Function name: <code>DynamoDB_API_Handler</code></li>
+<li>Runtime: <strong>Java 17</strong></li>
+<li>Choose IAM Role: <strong>LambdaAPIAccessRole</strong></li>
 </ol>
-<h2 id="lambda_1images3api-gateway31lambda_1png"><img alt="LAMBDA_1" src="/images/3.api-gateway/3.1/lambda_1.png"></h2>
-<h3 id="bước-3-paste-example-code">Bước 3: Paste Example Code</h3>
-<pre><code>    ```python
-    import boto3
-    import json
-    from decimal import Decimal
-
-dynamodb = boto3.resource('dynamodb')
-
-
-class DecimalEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, Decimal):
-            return int(obj) if obj % 1 == 0 else float(obj)
-        return super(DecimalEncoder, self).default(obj)
-
-def lambda_handler(event, context):
-    try:
-        method = event.get('httpMethod', 'GET')
-        path = event.get('path', '')  
-        body = json.loads(event.get('body', '{}')) if event.get('body') else {}
-
-        
-        path_to_table = {
-            '/api/account': 'Account',
-            '/api/admin': 'Admin',
-            '/api/role': 'Role',
-            '/api/customer': 'Customer',
-            '/api/staff': 'SalesStaff',
-            '/api/owner': 'ShopOwner',
-            '/api/product': 'Product',
-            '/api/category': 'ProductCategory',
-            '/api/review': 'ProductReview',
-            '/api/promotion': 'Promotion',
-            '/api/inventory': 'Inventory',
-            '/api/type/food': 'FoodType',
-            '/api/type/furniture': 'FurnitureType',
-            '/api/type/toy': 'ToyType',
-            '/api/type/bird': 'BirdType',
-            '/api/detail/food': 'FoodDetail',
-            '/api/detail/furniture': 'FurnitureDetail',
-            '/api/detail/toy': 'ToyDetail',
-
-    
-            '/api/order': 'Order',
-            '/api/order-item': 'OrderItem',
-            '/api/payment': 'Payment',
-            '/api/payment-method': 'PaymentMethod',
-            '/api/delivery-note': 'DeliveryNote',
-            '/api/shipping-method': 'ShippingMethod',
-
-    
-            '/api/notification': 'Notification',
-            '/api/notification-type': 'NotificationType',
-            '/api/chatbot': 'ChatBot',
-            '/api/faq': 'FAQ',
-            '/api/new': 'NewsArticle',
-
-    
-            '/api/log/access': 'AccessLog',
-            '/api/log/system': 'SystemLog',
-            '/api/issue': 'IssueReport',
-            '/api/policy': 'Policy'
-}
-        
-
-        
-        table_name = path_to_table.get(path)
-        if not table_name:
-            return {
-                'statusCode': 404,
-                'body': json.dumps({'error': f'Unknown API path: {path}'})
-            }
-
-        table = dynamodb.Table(table_name)
-
-        
-        if method == 'GET':
-            response = table.scan()
-            return {
-                'statusCode': 200,
-                'headers': {'Content-Type': 'application/json'},
-                'body': json.dumps(response['Items'], cls=DecimalEncoder)
-            }
-
-        
-        elif method == 'POST':
-            item = body.get('item')
-            if not item:
-                return {
-                    'statusCode': 400,
-                    'body': json.dumps({'error': 'Missing item data'})
-                }
-            table.put_item(Item=item)
-            return {
-                'statusCode': 200,
-                'headers': {'Content-Type': 'application/json'},
-                'body': json.dumps({'message': 'Item added successfully', 'item': item}, cls=DecimalEncoder)
-            }
-
-        
-        elif method == 'PUT':
-            item = body.get('item')
-            if not item:
-                return {
-                    'statusCode': 400,
-                    'body': json.dumps({'error': 'Missing item data for update'})
-                }
-            table.put_item(Item=item)
-            return {
-                'statusCode': 200,
-                'headers': {'Content-Type': 'application/json'},
-                'body': json.dumps({'message': 'Item updated successfully', 'item': item}, cls=DecimalEncoder)
-            }
-
-        
-        elif method == 'DELETE':
-            key = body.get('key')
-            if not key:
-                return {
-                    'statusCode': 400,
-                    'body': json.dumps({'error': 'Missing key for delete'})
-                }
-            table.delete_item(Key=key)
-            return {
-                'statusCode': 200,
-                'body': json.dumps({'message': 'Item deleted successfully'})
-            }
-
-        
-        else:
-            return {
-                'statusCode': 405,
-                'body': json.dumps({'error': f'Method {method} not allowed'})
-            }
-
-    except Exception as e:
-        return {
-            'statusCode': 500,
-            'body': json.dumps({'error': str(e)})
-        }
-</code></pre>
-<p><img alt="LAMBDA_2" src="/images/3.api-gateway/3.1/lambda_3.png"></p>
+<p><img src="/images/3.api-gateway/3.1/lambda_4.png" alt="LAMBDA_4"></p>
+<hr>
+<h3 id="step-3-deploy-the-jar-file">Step 3: Deploy the JAR File</h3>
+<ol>
+<li>Go to <strong>S3 → Upload → Add files</strong><br>
+Upload the jar file, then copy the <strong>Object URL</strong></li>
+</ol>
+<p><img src="/images/3.api-gateway/3.1/lambda_5.png" alt="LAMBDA_5"></p>
+<ol start="2">
+<li>Go to <strong>AWS Lambda → Upload from S3</strong><br>
+Paste the object URL you copied</li>
+</ol>
+<p><img src="/images/3.api-gateway/3.1/lambda_6.png" alt="LAMBDA_6"></p>
+<ol start="3">
+<li>Go to <strong>AWS Lambda → Code → Runtime settings → Edit</strong></li>
+<li>Set Handler:<br>
+<code>org.example.flyora_backend.handler.StreamLambdaHandler::handleRequest</code></li>
+</ol>
+<p><img src="/images/3.api-gateway/3.1/lambda_7.png" alt="LAMBDA_7"></p>
+<hr>
+<h3 id="step-4-configure-lambda-function">Step 4: Configure Lambda Function</h3>
+<ol>
+<li>Go to <strong>AWS Lambda → Configuration → General configuration → Edit</strong></li>
+<li>Set <strong>Timeout: 1 min</strong></li>
+</ol>
+<p><img src="/images/3.api-gateway/3.1/lambda_8.png" alt="LAMBDA_8"></p>
+<ol start="3">
+<li>Go to <strong>AWS Lambda → Configuration → Environment variables → Edit</strong></li>
+<li>Add:
+<ul>
+<li><strong>Key:</strong> <code>APP_JWT_SECRET</code></li>
+<li><strong>Value:</strong> <code>huntrotflyorateam!@ky5group5member</code></li>
+</ul>
+</li>
+</ol>
+<p><img src="/images/3.api-gateway/3.1/lambda_9.png" alt="LAMBDA_9"></p>
 
 
 
@@ -1354,6 +1278,22 @@ def lambda_handler(event, context):
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1596,7 +1536,7 @@ def lambda_handler(event, context):
 			<a class="nav nav-prev" href="/5-workshop/3-backend/3.2/" title="Verify Data in DynamoDB"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/5-workshop/3-backend/3.4/" title="Creating API Gateway and Integrating with Lambda" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/5-workshop/3-backend/3.4/" title="Create API Gateway and Integrate with Lambda" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1606,19 +1546,19 @@ def lambda_handler(event, context):
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1764238930"></script>
-    <script src="/js/perfect-scrollbar.min.js?1764238930"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1764238930"></script>
-    <script src="/js/jquery.sticky.js?1764238930"></script>
-    <script src="/js/featherlight.min.js?1764238930"></script>
-    <script src="/js/highlight.pack.js?1764238930"></script>
+    <script src="/js/clipboard.min.js?1764483350"></script>
+    <script src="/js/perfect-scrollbar.min.js?1764483350"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1764483350"></script>
+    <script src="/js/jquery.sticky.js?1764483350"></script>
+    <script src="/js/featherlight.min.js?1764483350"></script>
+    <script src="/js/highlight.pack.js?1764483350"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1764238930"></script>
-    <script src="/js/learn.js?1764238930"></script>
-    <script src="/js/hugo-learn.js?1764238930"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1764483350"></script>
+    <script src="/js/learn.js?1764483350"></script>
+    <script src="/js/hugo-learn.js?1764483350"></script>
 
-    <link href="/mermaid/mermaid.css?1764238930" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1764238930"></script>
+    <link href="/mermaid/mermaid.css?1764483350" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1764483350"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

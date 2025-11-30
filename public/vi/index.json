@@ -25,7 +25,7 @@
 	"title": "Hosting website với S3",
 	"tags": [],
 	"description": "",
-	"content": " "
+	"content": " Bước 1: Tạo một S3 Bucket Truy cập vào dịch vụ S3. Nhấn Create bucket. Nhập một Tên Bucket duy nhất (ví dụ: flyora-shop).\nBỏ chọn “Block all public access” Xác nhận cảnh báo về quyền truy cập công khai. Nhấn Create bucket. Bước 2: Tải lên các tệp website Mở bucket vừa tạo. Nhấn Upload → Add files → chọn các tệp website của bạn (ví dụ: index.html) Nhấn Upload. Bước 3: Bật tính năng Static Website Hosting Chuyển đến tab Properties của bucket. Kéo xuống Static website hosting. Nhấn Edit → Bật Static website hosting Nhập: Index document: index.html Error document: index.html (tùy chọn) Nhấn Save changes. Chuyển sang tab Permission của bucket. Chỉnh sửa Bucket Policy Dán JSON policy sau (thay flyora-shop bằng tên bucket của bạn): { \u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Sid\u0026#34;: \u0026#34;PublicReadGetObject\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Principal\u0026#34;: \u0026#34;*\u0026#34;, \u0026#34;Action\u0026#34;: \u0026#34;s3:GetObject\u0026#34;, \u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:s3:::your-bucket-name/*\u0026#34; } ] } Bước 4: Kiểm tra Website Nhấn vào Bucket website endpoint URL http://your-bucket-name.s3-website-ap-southeast-1.amazonaws.com Đảm bảo website hiển thị như hình dưới: "
 },
 {
 	"uri": "//localhost:1313/vi/5-workshop/2-prerequisites/2.1/",
@@ -36,13 +36,6 @@
 },
 {
 	"uri": "//localhost:1313/vi/5-workshop/4-ai/4.2/",
-	"title": "",
-	"tags": [],
-	"description": "",
-	"content": " "
-},
-{
-	"uri": "//localhost:1313/vi/5-workshop/5-frontend/5.2/",
 	"title": "",
 	"tags": [],
 	"description": "",
@@ -70,14 +63,14 @@
 	"content": "Kiểm tra dữ liệu trong DynamoDB Trong bước này, bạn sẽ xác minh rằng dữ liệu từ file CSV đã được import thành công vào DynamoDB.\nCác bước thực hiện Upload dữ liệu CSV lên Bucket Tải file mẫu CSV từ đây.\nTrong Bucket vừa tạo:\nChọn tab Objects → Upload. Giải nén file zip. Kéo \u0026amp; thả các file, sau đó nhấn Upload. [!TIP] Sau khi upload xong hãy đợi khoảng 3-5 phút để lambda import dữ liệu\nTruy cập dịch vụ DynamoDB Vào AWS Management Console → tìm DynamoDB. Chọn Tables → click vào bảng ví dụ: Products. Xem dữ liệu Chọn tab Explore items. Kiểm tra danh sách sản phẩm đã được import. Nếu không thấy dữ liệu, kiểm tra:\nTên bảng DynamoDB phải trùng với tên file CSV. File CSV phải có header hợp lệ. Lambda có đủ quyền truy cập S3 và DynamoDB. Tạo GSI cho DynamoDB\nTạo GSI (Global Secondary Index) cho DynamoDB\nĐể backend có thể truy vấn dữ liệu dựa trên các trường không phải khóa chính (ví dụ: tìm Account bằng username, tìm Order bằng customer_id), chúng ta cần tạo các Global Secondary Indexes (GSI) tương ứng với cấu trúc trong mã nguồn Java.\nChúng ta sẽ sử dụng AWS CloudShell để chạy script tự động tạo toàn bộ Index nhằm đảm bảo chính xác và tiết kiệm thời gian.\nTrên thanh điều hướng phía trên cùng (Top Navigation Bar), nhấp vào biểu tượng CloudShell (hình terminal \u0026gt;_). Đợi vài giây để môi trường dòng lệnh khởi động.\nTại dòng lệnh CloudShell, tạo một file script mới tên là create_gsi.sh:\nXóa file (nếu đã tạo trước đó): rm create_all_gsi.sh\nTạo File mới: nano create_all_gsi.sh\nTải file về mở lên rồi copy toàn bộ vào Cloudshell.\nCtrl + O (Để lưu) -\u0026gt; Nhấn Enter\nCtrl + X (Để thoát)\nCấp quyền chạy cho file: chmod +x create_all_gsi.sh\nKhởi chạy file: ./create_all_gsi.sh\nThời gian đợi sẽ tùy thuộc vào việc Indexs được tạo ra trong bao lâu\n"
 },
 {
-	"uri": "//localhost:1313/vi/5-workshop/4-ai/4.3/",
-	"title": "",
+	"uri": "//localhost:1313/vi/5-workshop/5-frontend/5.2/",
+	"title": "Phân phối với CloudFront",
 	"tags": [],
 	"description": "",
-	"content": " "
+	"content": "Tạo CloudFront Distribution trỏ đến S3 bucket Truy cập dịch vụ CloudFront. Nhấn Create CloudFront Distribution (Tạo Phân phối CloudFront). Nhập một Tên CloudFront (ví dụ: flyora-shop). Chọn S3 bucket mà bạn đã tạo trước đó. Bật Website endpoint (Điểm cuối Website), đảm bảo bạn nhận được URL có dạng như sau: [http://Tên-S3-của-bạn.s3-website.ap-southeast-1.amazonaws.com/](http://Tên-S3-của-bạn.s3-website.ap-southeast-1.amazonaws.com/) Cấu hình: - Viewer protocol policy (Chính sách giao thức người xem): Redirect HTTP to HTTPS (Chuyển hướng HTTP sang HTTPS) - Allowed HTTP method (Phương thức HTTP được phép): GET, HEAD, OPTION - Cache policy (Chính sách cache): CachingOptimized (Tối ưu hóa cache) - Response headers policy (Chính sách tiêu đề phản hồi): CORS-with-preflight-and-SecurityHeadersPolicy Chọn do not enable security protections (không bật tính năng bảo vệ bảo mật). Review (Xem lại) và nhấn Create Distribution (Tạo Phân phối). Sau khi tạo Distribution, bạn cần chờ 5 đến 10 phút để quá trình triển khai (deploy) hoàn tất. Nếu triển khai thành công, nó sẽ hiển thị ngày bạn đã triển khai. "
 },
 {
-	"uri": "//localhost:1313/vi/5-workshop/5-frontend/5.3/",
+	"uri": "//localhost:1313/vi/5-workshop/4-ai/4.3/",
 	"title": "",
 	"tags": [],
 	"description": "",
@@ -91,11 +84,18 @@
 	"content": "Xây dựng Backend Trong workshop này, bạn sẽ:\nSử dụng Amazon S3 để lưu trữ file dữ liệu đầu vào (CSV). Cấu hình AWS Lambda Trigger để tự động import dữ liệu vào DynamoDB. Tạo Lambda Function (API Handler) và công khai qua API Gateway để truy cập dữ liệu. Kiểm thử API bằng Postman hoặc API Gateway Console. Dọn dẹp toàn bộ tài nguyên sau khi hoàn thành. "
 },
 {
+	"uri": "//localhost:1313/vi/5-workshop/5-frontend/5.3/",
+	"title": "Kết nối với API",
+	"tags": [],
+	"description": "",
+	"content": "Bước 1: Lấy URL của API Gateway Trước hết, bạn phải nhận được URL của API Gateway: Mở thư mục dự án của bạn trong VS Code. Tạo một tệp mới có tên là api.js bên trong thư mục src. Thêm mã JavaScript sau: Bước 2: Tạo api.js trong VS Code Tạo tệp api.js: Bước 3: Cấu hình Biến Môi trường Tạo một tệp .env trong dự án của bạn. Thêm URL của API Gateway của bạn: Bước 4: Kiểm tra API trong Postman Lấy dữ liệu từ Postman. Bạn sẽ nhận được phản hồi với mã trạng thái 200 kèm theo dữ liệu JSON: Bước 5: Triển khai và Xác minh trên S3 Truy cập trang web của bạn: http://your-bucket-name.s3-website-ap-southeast-1.amazonaws.com Sử dụng dữ liệu từ Postman với URL: Nếu bạn đăng nhập và thấy thông báo như thế này, thì việc Tích hợp API đã thành công: "
+},
+{
 	"uri": "//localhost:1313/vi/5-workshop/3-backend/3.3/",
 	"title": "Tạo API Gateway và tích hợp Lambda",
 	"tags": [],
 	"description": "",
-	"content": "Mục tiêu Tạo Lambda Function mới để xử lý các yêu cầu đến DynamoDB thông qua API Gateway.\nCác bước thực hiện Tải file backend từ đây.\nBước 1: Tạo IAM Role Mở IAM Console → Roles → Create role Chọn Trusted entity: AWS Service → Lambda Gán quyền: AmazonDynamoDBFullAccess CloudWatchLogsFullAccess Đặt tên role: LambdaAPIAccessRole Bước 2: Tạo Lambda Function Vào AWS Lambda → Create function Chọn Author from scratch Nhập tên: DynamoDB_API_Handler Runtime: Java 17 Chọn IAM Role: LambdaAPIAccessRole Bước 3: Deploy file jar Vào S3 → Upload → Add files: Chọn file jar. Sau đó copy object Url Vào AWS Lambda → Upload from: dan s3 url vua tai len Vào AWS Lambda → Code → Runtime settings -\u0026gt; Edit Handler: org.example.flyora_backend.handler.StreamLambdaHandler::handleRequest Vào AWS Lambda → Code -\u0026gt; Configuration → Edit: Timeout: 1 min "
+	"content": "Mục tiêu Tạo Lambda Function mới để xử lý các yêu cầu đến DynamoDB thông qua API Gateway.\nCác bước thực hiện Tải file backend từ đây.\nBước 1: Tạo IAM Role Mở IAM Console → Roles → Create role Chọn Trusted entity: AWS Service → Lambda Gán quyền: AmazonDynamoDBFullAccess CloudWatchLogsFullAccess Đặt tên role: LambdaAPIAccessRole Bước 2: Tạo Lambda Function Vào AWS Lambda → Create function Chọn Author from scratch Nhập tên: DynamoDB_API_Handler Runtime: Java 17 Chọn IAM Role: LambdaAPIAccessRole Bước 3: Deploy file jar Vào S3 → Upload → Add files: Chọn file jar. Sau đó copy object Url Vào AWS Lambda → Upload from: dan s3 url vua tai len Vào AWS Lambda → Code → Runtime settings -\u0026gt; Edit Handler: org.example.flyora_backend.handler.StreamLambdaHandler::handleRequest Vào AWS Lambda → Code -\u0026gt; Configuration → Edit: Timeout: 1 min Vào AWS Lambda → Configuration → Environment variables → Edit Key: APP_JWT_SECRET; Value: huntrotflyorateam!@ky5group5member "
 },
 {
 	"uri": "//localhost:1313/vi/5-workshop/4-ai/",
@@ -109,28 +109,28 @@
 	"title": "Tạo API Gateway và tích hợp với Lambda",
 	"tags": [],
 	"description": "",
-	"content": "Mục tiêu Kết nối AWS API Gateway với Lambda Function để tạo endpoint RESTful cho phép truy cập dữ liệu trong DynamoDB.\nCác bước thực hiện 1. Truy cập dịch vụ API Gateway Vào AWS Console → API Gateway Chọn Create API Chọn loại REST API (Build) Chọn: Create new API: New API API name: FlyoraAPI Endpoint Type: Regional Chọn Create API 2. Tạo Resource và Method Trong sidebar, chọn Actions → Create Resource Resource Name: api Chọn Create Resource Chọn /api → Actions → Create Resource\nTrong cấu hình resource:\nResource path: /api/ Resource Name: v1 Nhấn Create resource Chọn /v1 → Actions → Create Resource\nTrong cấu hình resource:\nTick Proxy resource Resource path: /api/v1/ Resource Name: {myProxy+} Nhấn Create resource 3. Gắn Lambda Sau khi tạo thành công /api/vi/{myProxy+}, xuất hiện method ANY: Chọn ANY → Method request → Edit Authorization: AWS_IAM Chọn ANY → Integration request → Edit Gắn Lambda: Integration type: Lambda Function Tick Lambda proxy integration Lambda Region: ap-southeast-1 (Singapore) Lambda Function: chọn hàm Lambda_API_Handler của bạn 4. Deploy API Chọn Actions → Deploy API Deployment stage: New stage Stage name: dev Description: Development stage for Lambda API Nhấn Deploy Sau khi deploy, bạn sẽ nhận được Invoke URL dạng: https://\u0026lt;api_id\u0026gt;.execute-api.ap-southeast-1.amazonaws.com/dev\n"
+	"content": "Mục tiêu Kết nối AWS API Gateway với Lambda Function để tạo endpoint RESTful cho phép truy cập dữ liệu trong DynamoDB.\nCác bước thực hiện 1. Truy cập dịch vụ API Gateway Vào AWS Console → API Gateway Chọn Create API Chọn loại REST API (Build) Chọn: Create new API: New API API name: FlyoraAPI Endpoint Type: Regional Chọn Create API 2. Tạo Resource và Method Trong sidebar, chọn Actions → Create Resource Resource Name: api Chọn Create Resource Chọn /api → Actions → Create Resource\nTrong cấu hình resource:\nResource path: /api/ Resource Name: v1 Nhấn Create resource Trong cấu hình resource:\nTick Proxy resource Resource path: /api/ Resource Name: {proxy+} Nhấn Create resource Chọn /v1 → Actions → Create Resource\nTrong cấu hình resource:\nTick Proxy resource Resource path: /api/v1/ Resource Name: {myProxy+} Nhấn Create resource 6. Enable CORS cho tất cả resource Vào method OPTIONS → Integration response → Header Mappings, đảm bảo có cấu hình: Access-Control-Allow-Origin: \u0026lsquo;*\u0026rsquo; Access-Control-Allow-Headers: \u0026lsquo;Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token\u0026rsquo; Access-Control-Allow-Methods: \u0026lsquo;DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT\u0026rsquo; 3. Gắn Lambda Sau khi tạo thành công /api/vi/{myProxy+}, xuất hiện method ANY: Chọn ANY → Integration request → Edit Gắn Lambda: Integration type: Lambda Function Tick Lambda proxy integration Lambda Region: ap-southeast-1 (Singapore) Lambda Function: chọn hàm Lambda_API_Handler của bạn 4. Deploy API Chọn Actions → Deploy API Deployment stage: New stage Stage name: dev Description: Development stage for Lambda API Nhấn Deploy Sau khi deploy, bạn sẽ nhận được Invoke URL dạng: https://\u0026lt;api_id\u0026gt;.execute-api.ap-southeast-1.amazonaws.com/dev\n"
 },
 {
 	"uri": "//localhost:1313/vi/5-workshop/5-frontend/",
-	"title": "Frontend Workshop (FE)",
+	"title": "Frontend Workshop (UI)",
 	"tags": [],
 	"description": "",
-	"content": "Xây dựng Frontend \u0026amp; Nhúng Chatbot "
+	"content": "Lưu trữ Frontend và Tích hợp API trên AWS Trong workshop này, bạn sẽ học cách triển khai một ứng dụng web frontend trên AWS và kết nối nó với API backend được lưu trữ thông qua Amazon API Gateway.\nHoạt động này là sự kết hợp giữa hosting frontend và tích hợp API, cho thấy cách các dịch vụ AWS có thể hỗ trợ các ứng dụng web serverless tương tác.\nAmazon S3 – Lưu trữ và phục vụ các tài nguyên web tĩnh của bạn (HTML, CSS, JS).\nAmazon CloudFront – Phân phối website của bạn trên toàn cầu với HTTPS và độ trễ thấp.\nAmazon API Gateway – Cung cấp các endpoint API backend mà frontend của bạn có thể gọi.\nWorkshop này minh họa cách kết nối một website tĩnh với backend API thông qua API Gateway, tạo nên một complete kiến trúc web serverless cho phép tương tác dữ liệu thời gian thực giữa frontend và backend.\n"
 },
 {
 	"uri": "//localhost:1313/vi/5-workshop/3-backend/3.5/",
 	"title": "Kiểm thử API bằng Postman",
 	"tags": [],
 	"description": "",
-	"content": "Mục tiêu Kiểm thử API Gateway REST endpoint tích hợp với Lambda Function để xác nhận hoạt động dữ liệu DynamoDB.\nTải và cài đặt Postman trước khi bắt đầu phần này.\nChỉnh lại Authorization Vào AWS Console → API Gateway Chọn FlyoraAPI Chọn /api/v1/{myProxy+} → ANY → Method request → Edit Authorization: AWS_IAM Tạo access key Vào AWS Console → IAM → Users Nhấn Create User Đặt tên: test Xác nhận tạo iam user Vào test → Security credentiala → Create access key Chọn Local code Copy access key và Secret access key Kiểm thử GET Mở Postman\nChọn GET\nNhập URL: https://3b39kyvi8f.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/product/1\nTab Headers: Key: Content-Type | Value: application/json\nTab Authorization:\nType: AWS Signature Nhap AccessKey Nhap SecretKey AWS Region: ap-southeast-1 Service Name: execute-api Nhấn Send\nKết quả: Trả về danh sách Items trong bảng reviews\nKiểm thử POST Chọn POST\nURL: https://uwbxj9wfq6.execute-api.ap-southeast-1.amazonaws.com/dev/api/account\nBody → raw → JSON\n{ \u0026#34;item\u0026#34;: { \u0026#34;id\u0026#34;: \u0026#34;120\u0026#34;, \u0026#34;username\u0026#34;: \u0026#34;owner02\u0026#34;, \u0026#34;password\u0026#34;: \u0026#34;securepass\u0026#34;, \u0026#34;email\u0026#34;: \u0026#34;owner02@gmail.com\u0026#34;, \u0026#34;phone\u0026#34;: \u0026#34;0912345678\u0026#34;, \u0026#34;role_id\u0026#34;: \u0026#34;2\u0026#34;, \u0026#34;is_active\u0026#34;: \u0026#34;1\u0026#34;, \u0026#34;is_approved\u0026#34;: \u0026#34;1\u0026#34;, \u0026#34;approved_by\u0026#34;: \u0026#34;NULL\u0026#34; } }\nNhấn Send Kết quả: Thêm Items trong bảng Account "
+	"content": "Mục tiêu Kiểm thử API Gateway REST endpoint tích hợp với Lambda Function để xác nhận hoạt động dữ liệu DynamoDB.\nTải và cài đặt Postman trước khi bắt đầu phần này.\nChỉnh lại Authorization Vào AWS Console → API Gateway Chọn FlyoraAPI Chọn /api/v1/{myProxy+} → ANY → Method request → Edit Authorization: AWS_IAM Tạo access key Vào AWS Console → IAM → Users Nhấn Create User Đặt tên: test Xác nhận tạo iam user Vào test → Security credentiala → Create access key Chọn Local code Copy access key và Secret access key Kiểm thử GET Mở Postman\nChọn GET\nNhập URL: https://3b39kyvi8f.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/product/1\nTab Headers: Key: Content-Type | Value: application/json\nTab Authorization:\nType: AWS Signature Nhap AccessKey Nhap SecretKey AWS Region: ap-southeast-1 Service Name: execute-api Nhấn Send\nKết quả: Trả về danh sách Items trong bảng reviews\nKiểm thử POST Chọn POST\nURL: https://3b39kyvi8f.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/submit\nBody → raw → JSON\n{ \u0026#34;customerId\u0026#34;: 2, \u0026#34;rating\u0026#34;: 4, \u0026#34;comment\u0026#34;: \u0026#34;Chim ăn ngon và vui vẻ!\u0026#34;, \u0026#34;customerName\u0026#34;: \u0026#34;Nguyễn Văn B\u0026#34; } Nhấn Send\nKết quả: Thêm Items trong bảng Review\n"
 },
 {
 	"uri": "//localhost:1313/vi/5-workshop/",
 	"title": "Workshop",
 	"tags": [],
 	"description": "",
-	"content": "Triển khai hệ thống thương mại điện tử Flyora trên AWS Tổng quan Trong workshop này, bạn sẽ triển khai các thành phần cốt lõi của nền tảng Flyora theo mô hình Serverless trên AWS.\nMục tiêu là xây dựng hệ thống có khả năng mở rộng, tối ưu chi phí và dễ bảo trì.\nCác thành phần triển khai:\nFrontend: Lưu trữ \u0026amp; phân phối giao diện qua S3 + CloudFront Backend API: Xử lý logic nghiệp vụ qua API Gateway + AWS Lambda Cơ sở dữ liệu: Quản lý dữ liệu sản phẩm / đơn hàng bằng DynamoDB + S3 Xác thực người dùng: Thực hiện thông qua Amazon Cognito Chatbot: Hỗ trợ tư vấn sản phẩm, tích hợp vào UI (Nhóm AI thực hiện) Workshop được phân chia theo vai trò nhóm để dễ triển khai song song: Backend (BE), AI (Chatbot), và Frontend (FE).\nKiến trúc tổng thể Nội dung Workshop Giới thiệu mục tiêu \u0026amp; kết quả kỳ vọng\nChuẩn bị môi trường (Prerequisites)\nTạo IAM User + Cấu hình quyền truy cập Cái gì đó mà tôi chưa nghĩ ra tại bước chuẩn bị :)) Backend Workshop (BE) — Xây dựng API + Pipeline import dữ liệu tự động\nChuẩn bị \u0026amp; Cấu hình Lambda Trigger cho S3 Tạo Lambda tự động ghi dữ liệu CSV vào DynamoDB (S3 Trigger) Tạo API Gateway và tích hợp Lambda làm Backend API Kiểm thử API bằng Postman / API Gateway Console AI Workshop (Chatbot) — Hỗ trợ tư vấn sản phẩm\n(Để nhóm AI tự điền nội dung) (Để nhóm AI tự điền nội dung) (Để nhóm AI tự điền nội dung) Frontend Workshop (FE) — Hiển thị dữ liệu \u0026amp; tích hợp chatbot\n(Để nhóm FE tự điền nội dung) (Để nhóm FE tự điền nội dung) (Để nhóm FE tự điền nội dung) Thiết lập CI/CD tự động deploy\nKiểm thử hệ thống \u0026amp; đánh giá hiệu năng\nDọn dẹp tài nguyên để tránh phát sinh chi phí\nWorkshop này được thiết kế chạy trong phạm vi AWS Free Tier,\nkhông sử dụng EC2, không SSH, và không yêu cầu dịch vụ trả phí.\n"
+	"content": "Triển khai hệ thống thương mại điện tử Flyora trên AWS Tổng quan Trong workshop này, bạn sẽ triển khai các thành phần cốt lõi của nền tảng Flyora theo mô hình Serverless trên AWS.\nMục tiêu là xây dựng hệ thống có khả năng mở rộng, tối ưu chi phí và dễ bảo trì.\nCác thành phần triển khai:\nFrontend: Lưu trữ \u0026amp; phân phối giao diện qua S3 + CloudFront Backend API: Xử lý logic nghiệp vụ qua API Gateway + AWS Lambda Cơ sở dữ liệu: Quản lý dữ liệu sản phẩm / đơn hàng bằng DynamoDB + S3 Xác thực người dùng: Thực hiện thông qua Amazon Cognito Chatbot: Hỗ trợ tư vấn sản phẩm, tích hợp vào UI (Nhóm AI thực hiện) Workshop được phân chia theo vai trò nhóm để dễ triển khai song song: Backend (BE), AI (Chatbot), và Frontend (FE).\nKiến trúc tổng thể Nội dung Workshop Giới thiệu mục tiêu \u0026amp; kết quả kỳ vọng\nChuẩn bị môi trường (Prerequisites)\nTạo IAM User + Cấu hình quyền truy cập Cái gì đó mà tôi chưa nghĩ ra tại bước chuẩn bị :)) Backend Workshop (BE) — Xây dựng API + Pipeline import dữ liệu tự động\nChuẩn bị \u0026amp; Cấu hình Lambda Trigger cho S3 Tạo Lambda tự động ghi dữ liệu CSV vào DynamoDB (S3 Trigger) Tạo API Gateway và tích hợp Lambda làm Backend API Kiểm thử API bằng Postman / API Gateway Console AI Workshop (Chatbot) — Hỗ trợ tư vấn sản phẩm\n(Để nhóm AI tự điền nội dung) (Để nhóm AI tự điền nội dung) (Để nhóm AI tự điền nội dung) Frontend Workshop (FE) — Hiển thị dữ liệu \u0026amp; Hosting website\nHosting website với S3 Phân phối với CloudFront Kết nối với API Thiết lập CI/CD tự động deploy\nKiểm thử hệ thống \u0026amp; đánh giá hiệu năng\nDọn dẹp tài nguyên để tránh phát sinh chi phí\nWorkshop này được thiết kế chạy trong phạm vi AWS Free Tier,\nkhông sử dụng EC2, không SSH, và không yêu cầu dịch vụ trả phí.\n"
 },
 {
 	"uri": "//localhost:1313/vi/5-workshop/3-backend/3.6/",
@@ -152,6 +152,13 @@
 	"tags": [],
 	"description": "",
 	"content": "Kiểm thử \u0026amp; Tối ưu hiệu năng "
+},
+{
+	"uri": "//localhost:1313/vi/5-workshop/3-backend/3.7/",
+	"title": "Tích hợp aws x-ray",
+	"tags": [],
+	"description": "",
+	"content": "Mục tiêu Sử dụng AWS X-Ray để theo dõi và kiểm thử toàn bộ luồng xử lý của API Gateway → Lambda → DynamoDB.\nX-Ray giúp quan sát trace, latency, lỗi, và các đoạn (segment/subsegment) để đảm bảo API hoạt động đúng và tối ưu.\nCác bước thực hiện 1. Truy cập dịch vụ IAM Vào AWS Console → IAM Chọn Roles → LambdaAPIAccessRole Chọn Add permissions → Attach policies → AWSXRayDaemonWriteAccess 2. Truy cập Lambda Vào AWS Console → Lambda Chọn Functions → DynamoDB_API_Handler -Configuration → Monitoring and operations tools → Additional monitoring tools → Edit Lambda service traces: Tick Enable 3. Truy cập dịch vụ Api gateway Vào AWS Console → Api gateway Chọn APIs → FlyoraAPI Stages → Logs and tracing → Edit Tick X-Ray tracing 4. Kiểm thử Vào AWS Console → Lambda Ở mục Test, Create new event\nEvent name: test\nDán mục dưới đây vào Event JSON:\n{\r\u0026#34;resource\u0026#34;: \u0026#34;/{myProxy+}\u0026#34;,\r\u0026#34;path\u0026#34;: \u0026#34;/api/v1/bird-types\u0026#34;,\r\u0026#34;httpMethod\u0026#34;: \u0026#34;GET\u0026#34;,\r\u0026#34;headers\u0026#34;: {},\r\u0026#34;multiValueHeaders\u0026#34;: {},\r\u0026#34;queryStringParameters\u0026#34;: {},\r\u0026#34;multiValueQueryStringParameters\u0026#34;: {},\r\u0026#34;pathParameters\u0026#34;: {},\r\u0026#34;stageVariables\u0026#34;: {},\r\u0026#34;requestContext\u0026#34;: {\r\u0026#34;identity\u0026#34;: {}\r},\r\u0026#34;body\u0026#34;: null,\r\u0026#34;isBase64Encoded\u0026#34;: false\r} Save -\u0026gt; Test\nTiếp theo vào AWS Console → X-ray Ở mục Traces, Xuất hiện id mới Bấm vào, xem chi tiết các trace đó\n"
 },
 {
 	"uri": "//localhost:1313/vi/5-workshop/8-cleanup/",
