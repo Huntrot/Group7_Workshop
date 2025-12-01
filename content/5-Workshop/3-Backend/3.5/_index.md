@@ -23,11 +23,11 @@ Download and install [Postman](https://dl.pstmn.io/download/latest/win64) before
 - Navigate to  
   **/api/v1/{myProxy+} → ANY → Method request → Edit**
 
-![POST_5](/images/3.api-gateway/3.3/post_5.png)
+![POST_5](/images/5-Workshop/3.api-gateway/3.3/post_5.png)
 
-- Set Authorization to **AWS_IAM**
+- Set Authorization to **AWS_IAM**(Note: Only enable when testing with Postman, then remember to turn it off afterwards)
 
-![POST_6](/images/3.api-gateway/3.3/post_6.png)
+![POST_6](/images/5-Workshop/3.api-gateway/3.3/post_6.png)
 
 ---
 
@@ -35,34 +35,34 @@ Download and install [Postman](https://dl.pstmn.io/download/latest/win64) before
 - Go to **AWS Console → IAM → Users**
 - Click **Create User**
 
-![POST_8](/images/3.api-gateway/3.3/post_8.png)
+![POST_8](/images/5-Workshop/3.api-gateway/3.3/post_8.png)
 
 - Set username: **test**
 
-![POST_7](/images/3.api-gateway/3.3/post_7.png)
+![POST_7](/images/5-Workshop/3.api-gateway/3.3/post_7.png)
 
 - Confirm user creation
 
-![POST_9](/images/3.api-gateway/3.3/post_9.png)
+![POST_9](/images/5-Workshop/3.api-gateway/3.3/post_9.png)
 
 - Open the **test** user → **Security credentials → Create access key**
 
-![POST_10](/images/3.api-gateway/3.3/post_10.png)
+![POST_10](/images/5-Workshop/3.api-gateway/3.3/post_10.png)
 
 - Choose **Local code**
 
-![POST_11](/images/3.api-gateway/3.3/post_11.png)
+![POST_11](/images/5-Workshop/3.api-gateway/3.3/post_11.png)
 
 - Copy the **Access key** and **Secret access key**
 
-![POST_12](/images/3.api-gateway/3.3/post_12.png)
+![POST_12](/images/5-Workshop/3.api-gateway/3.3/post_12.png)
 
 ---
 
 ## **Testing GET Request**
 - Open **Postman**
 - Choose **GET**
-- Enter URL:```https://3b39kyvi8f.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/product/1```
+- Enter URL:```https://<api_id>.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/product/1```
 
 - **Headers** tab:  
   - Key: `Content-Type` | Value: `application/json`
@@ -78,13 +78,13 @@ Download and install [Postman](https://dl.pstmn.io/download/latest/win64) before
 
 - Result: Returns the list of `Items` from the **reviews** table.
 
-![POST_13](/images/3.api-gateway/3.3/post_13.png)
+![POST_13](/images/5-Workshop/3.api-gateway/3.3/post_13.png)
 
 ---
 
 ## **Testing POST Request**
 - Choose **POST**
-- URL:```https://3b39kyvi8f.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/submit```
+- URL:```https://<api_id>.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/submit```
 
 - **Body → raw → JSON**
   ```json
