@@ -13,7 +13,7 @@ Tạo **Lambda Function** mới để xử lý các yêu cầu đến DynamoDB t
 
 ## Các bước thực hiện
 {{% notice info %}}
-Tải file backend từ [đây](/files/backend08.zip).
+Tải file backend từ [đây](/files/backend09.zip).
 {{% /notice %}}
 ### Bước 1: Tạo IAM Role
 1. Mở **IAM Console → Roles → Create role**  
