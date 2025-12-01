@@ -30,7 +30,7 @@ Kết nối **AWS API Gateway** với **Lambda Function** để tạo endpoint R
 
 
 
-![API\_1](/images/3.api-gateway/3.2/api_1.png)
+![API\_1](/images/5-Workshop/3.api-gateway/3.2/api_1.png)
 
 
 
@@ -40,7 +40,7 @@ Kết nối **AWS API Gateway** với **Lambda Function** để tạo endpoint R
 
 
 
-![API\_2](/images/3.api-gateway/3.2/api_2.png)
+![API\_2](/images/5-Workshop/3.api-gateway/3.2/api_2.png)
 
 
 
@@ -54,7 +54,7 @@ Kết nối **AWS API Gateway** với **Lambda Function** để tạo endpoint R
 
 
 
-![API\_3](/images/3.api-gateway/3.2/api_3.png)
+![API\_3](/images/5-Workshop/3.api-gateway/3.2/api_3.png)
 ---
 
 
@@ -66,7 +66,7 @@ Kết nối **AWS API Gateway** với **Lambda Function** để tạo endpoint R
 
 
 
-![API\_4](/images/3.api-gateway/3.2/api_4.png)
+![API\_4](/images/5-Workshop/3.api-gateway/3.2/api_4.png)
 
 
 
@@ -77,7 +77,7 @@ Kết nối **AWS API Gateway** với **Lambda Function** để tạo endpoint R
 
 
 
-![API\_5](/images/3.api-gateway/3.2/api_10.png)
+![API\_5](/images/5-Workshop/3.api-gateway/3.2/api_10.png)
 
 
 
@@ -98,13 +98,13 @@ Kết nối **AWS API Gateway** với **Lambda Function** để tạo endpoint R
    - **Resource path:** /api/  
    - **Resource Name:** `v1`
    - Nhấn **Create resource**
-  ![API\_14](/images/3.api-gateway/3.2/api_14.png)
+  ![API\_14](/images/5-Workshop/3.api-gateway/3.2/api_14.png)
 4. Trong cấu hình resource:
    - Tick **Proxy resource**
    - **Resource path:** /api/  
    - **Resource Name:** `{proxy+}`
    - Nhấn **Create resource**
-![API\_14](/images/3.api-gateway/3.2/api_18.png)
+![API\_14](/images/5-Workshop/3.api-gateway/3.2/api_18.png)
 5. Chọn **/v1 → Actions → Create Resource**
 
 
@@ -114,14 +114,14 @@ Kết nối **AWS API Gateway** với **Lambda Function** để tạo endpoint R
    - **Resource Name:** `{myProxy+}`
    - Nhấn **Create resource**
 
-![API\_15](/images/3.api-gateway/3.2/api_15.png)
+![API\_15](/images/5-Workshop/3.api-gateway/3.2/api_15.png)
 6. **Enable CORS** cho tất cả resource
-![API\_15](/images/3.api-gateway/3.2/api_19.png)
+![API\_15](/images/5-Workshop/3.api-gateway/3.2/api_19.png)
 - Vào method **OPTIONS → Integration response → Header Mappings**, đảm bảo có cấu hình: 
    - Access-Control-Allow-Origin: '*'
    - Access-Control-Allow-Headers: 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'
    - Access-Control-Allow-Methods: 'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'
-  ![API\_15](/images/3.api-gateway/3.2/api_20.png)
+  ![API\_15](/images/5-Workshop/3.api-gateway/3.2/api_20.png)
 ---
 
 
@@ -135,7 +135,7 @@ Kết nối **AWS API Gateway** với **Lambda Function** để tạo endpoint R
 
 
 
-![API\_16](/images/3.api-gateway/3.2/api_16.png)
+![API\_16](/images/5-Workshop/3.api-gateway/3.2/api_16.png)
 
 
 1. Gắn Lambda:
@@ -143,7 +143,7 @@ Kết nối **AWS API Gateway** với **Lambda Function** để tạo endpoint R
    - Tick **Lambda proxy integration**
    - **Lambda Region:** `ap-southeast-1` (Singapore)  
    - **Lambda Function:** chọn hàm `Lambda_API_Handler` của bạn
-  ![API\_17](/images/3.api-gateway/3.2/api_17.png)
+  ![API\_17](/images/5-Workshop/3.api-gateway/3.2/api_17.png)
 ---
 
 
@@ -159,7 +159,7 @@ Kết nối **AWS API Gateway** với **Lambda Function** để tạo endpoint R
 
 
 
-![API\_9](/images/3.api-gateway/3.2/api_9.png)
+![API\_9](/images/5-Workshop/3.api-gateway/3.2/api_9.png)
 
 
 

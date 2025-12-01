@@ -30,7 +30,7 @@ Download the backend file from [here](/files/backend07.zip).
 2. Select  
    **Trusted entity: AWS Service → Lambda**
 
-![IAM_3](/images/3.api-gateway/3.1/iam_3.png)
+![IAM_3](/images/5-Workshop/3.api-gateway/3.1/iam_3.png)
 
 3. Attach the following permissions:
    - `AmazonDynamoDBFullAccess`
@@ -38,8 +38,8 @@ Download the backend file from [here](/files/backend07.zip).
 
 4. Set the role name: **LambdaAPIAccessRole**
 
-![IAM_4](/images/3.api-gateway/3.1/iam_4.png)
-![IAM_5](/images/3.api-gateway/3.1/iam_5.png)
+![IAM_4](/images/5-Workshop/3.api-gateway/3.1/iam_4.png)
+![IAM_5](/images/5-Workshop/3.api-gateway/3.1/iam_5.png)
 
 ---
 
@@ -51,7 +51,7 @@ Download the backend file from [here](/files/backend07.zip).
 4. Runtime: **Java 17**
 5. Choose IAM Role: **LambdaAPIAccessRole**
 
-![LAMBDA_4](/images/3.api-gateway/3.1/lambda_4.png)
+![LAMBDA_4](/images/5-Workshop/3.api-gateway/3.1/lambda_4.png)
 
 ---
 
@@ -60,18 +60,18 @@ Download the backend file from [here](/files/backend07.zip).
 1. Go to **S3 → Upload → Add files**  
    Upload the jar file, then copy the **Object URL**
 
-![LAMBDA_5](/images/3.api-gateway/3.1/lambda_5.png)
+![LAMBDA_5](/images/5-Workshop/3.api-gateway/3.1/lambda_5.png)
 
 2. Go to **AWS Lambda → Upload from S3**  
    Paste the object URL you copied
 
-![LAMBDA_6](/images/3.api-gateway/3.1/lambda_6.png)
+![LAMBDA_6](/images/5-Workshop/3.api-gateway/3.1/lambda_6.png)
 
 3. Go to **AWS Lambda → Code → Runtime settings → Edit**
 4. Set Handler:  
    `org.example.flyora_backend.handler.StreamLambdaHandler::handleRequest`
 
-![LAMBDA_7](/images/3.api-gateway/3.1/lambda_7.png)
+![LAMBDA_7](/images/5-Workshop/3.api-gateway/3.1/lambda_7.png)
 
 ---
 
@@ -80,11 +80,11 @@ Download the backend file from [here](/files/backend07.zip).
 1. Go to **AWS Lambda → Configuration → General configuration → Edit**
 2. Set **Timeout: 1 min**
 
-![LAMBDA_8](/images/3.api-gateway/3.1/lambda_8.png)
+![LAMBDA_8](/images/5-Workshop/3.api-gateway/3.1/lambda_8.png)
 
 3. Go to **AWS Lambda → Configuration → Environment variables → Edit**
 4. Add:
    - **Key:** `APP_JWT_SECRET`  
    - **Value:** `huntrotflyorateam!@ky5group5member`
 
-![LAMBDA_9](/images/3.api-gateway/3.1/lambda_9.png)
+![LAMBDA_9](/images/5-Workshop/3.api-gateway/3.1/lambda_9.png)

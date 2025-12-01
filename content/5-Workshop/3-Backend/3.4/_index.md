@@ -19,11 +19,11 @@ Connect **AWS API Gateway** with a **Lambda Function** to create a RESTful endpo
 - Go to **AWS Console → API Gateway**
 - Click **Create API**
 
-![API_1](/images/3.api-gateway/3.2/api_1.png)
+![API_1](/images/5-Workshop/3.api-gateway/3.2/api_1.png)
 
 - Select **REST API (Build)**
 
-![API_2](/images/3.api-gateway/3.2/api_2.png)
+![API_2](/images/5-Workshop/3.api-gateway/3.2/api_2.png)
 
 - Configure:
   - **Create new API:** New API  
@@ -31,7 +31,7 @@ Connect **AWS API Gateway** with a **Lambda Function** to create a RESTful endpo
   - **Endpoint type:** Regional  
 - Click **Create API**
 
-![API_3](/images/3.api-gateway/3.2/api_3.png)
+![API_3](/images/5-Workshop/3.api-gateway/3.2/api_3.png)
 
 ---
 
@@ -40,12 +40,12 @@ Connect **AWS API Gateway** with a **Lambda Function** to create a RESTful endpo
 1. In the sidebar, select  
    **Actions → Create Resource**
 
-![API_4](/images/3.api-gateway/3.2/api_4.png)
+![API_4](/images/5-Workshop/3.api-gateway/3.2/api_4.png)
 
 - **Resource Name:** `api`  
 - Click **Create Resource**
 
-![API_5](/images/3.api-gateway/3.2/api_10.png)
+![API_5](/images/5-Workshop/3.api-gateway/3.2/api_10.png)
 
 ---
 
@@ -59,7 +59,7 @@ Connect **AWS API Gateway** with a **Lambda Function** to create a RESTful endpo
 - **Resource Name:** `v1`  
 - Click **Create Resource**
 
-![API_14](/images/3.api-gateway/3.2/api_14.png)
+![API_14](/images/5-Workshop/3.api-gateway/3.2/api_14.png)
 
 ---
 
@@ -70,7 +70,7 @@ Connect **AWS API Gateway** with a **Lambda Function** to create a RESTful endpo
 - **Resource Name:** `{proxy+}`
 - Click **Create Resource**
 
-![API_18](/images/3.api-gateway/3.2/api_18.png)
+![API_18](/images/5-Workshop/3.api-gateway/3.2/api_18.png)
 
 ---
 
@@ -83,13 +83,13 @@ Configure:
 - **Resource Name:** `{myProxy+}`
 - Click **Create Resource**
 
-![API_15](/images/3.api-gateway/3.2/api_15.png)
+![API_15](/images/5-Workshop/3.api-gateway/3.2/api_15.png)
 
 ---
 
 6. **Enable CORS** for all resources
 
-![API_CORS](/images/3.api-gateway/3.2/api_19.png)
+![API_CORS](/images/5-Workshop/3.api-gateway/3.2/api_19.png)
 
 Under **OPTIONS → Integration response → Header Mappings**, ensure the headers below exist:
 
@@ -99,7 +99,7 @@ Under **OPTIONS → Integration response → Header Mappings**, ensure the heade
 - **Access-Control-Allow-Methods:**  
   `DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT`
 
-![API_Headers](/images/3.api-gateway/3.2/api_20.png)
+![API_Headers](/images/5-Workshop/3.api-gateway/3.2/api_20.png)
 
 ---
 
@@ -108,7 +108,7 @@ Under **OPTIONS → Integration response → Header Mappings**, ensure the heade
 1. After creating **/api/v1/{myProxy+}**, the **ANY** method appears:
    - Select **ANY → Integration request → Edit**
 
-![API_16](/images/3.api-gateway/3.2/api_16.png)
+![API_16](/images/5-Workshop/3.api-gateway/3.2/api_16.png)
 
 ---
 
@@ -118,7 +118,7 @@ Under **OPTIONS → Integration response → Header Mappings**, ensure the heade
 - **Lambda Region:** `ap-southeast-1` (Singapore)  
 - **Lambda Function:** select your `Lambda_API_Handler`
 
-![API_17](/images/3.api-gateway/3.2/api_17.png)
+![API_17](/images/5-Workshop/3.api-gateway/3.2/api_17.png)
 
 ---
 
@@ -129,7 +129,7 @@ Under **OPTIONS → Integration response → Header Mappings**, ensure the heade
   - **Description:** Development stage for Lambda API  
 - Click **Deploy**
 
-![API_9](/images/3.api-gateway/3.2/api_9.png)
+![API_9](/images/5-Workshop/3.api-gateway/3.2/api_9.png)
 
 ---
 
