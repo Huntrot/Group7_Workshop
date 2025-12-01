@@ -19,7 +19,7 @@ X-Ray helps visualize traces, latency, errors, and segments/subsegments to ensur
 #### **1. Access IAM Service**
 - Go to **AWS Console → IAM**
 
-![XRAY_1](/images/2.prerequisite/iam_1.png)
+![XRAY_1](/images/5-Workshop/2.prerequisite/iam_1.png)
 
 - Select **Roles → LambdaAPIAccessRole**
 

@@ -25,7 +25,7 @@ X-Ray giúp quan sát trace, latency, lỗi, và các đoạn (segment/subsegmen
 - Vào **AWS Console → IAM**  
 
 
-![XRAY\_1](/images/2.prerequisite/iam_1.png)
+![XRAY\_1](/images/5-Workshop/2.prerequisite/iam_1.png)
 
 
 

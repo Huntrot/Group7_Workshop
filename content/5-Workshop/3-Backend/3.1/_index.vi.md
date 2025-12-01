@@ -14,16 +14,16 @@ pre: " <b> 5.3.1. </b> "
 
 * Vào **AWS Management Console** → tìm **IAM**.
 
-![IAM\_1](/images/2.prerequisite/iam_1.png)
+![IAM\_1](/images/5-Workshop/2.prerequisite/iam_1.png)
 
 * Chọn **Roles** → **Create Role**.
 
-![IAM\_2](/images/2.prerequisite/iam_2.png)
+![IAM\_2](/images/5-Workshop/2.prerequisite/iam_2.png)
 
 * Chọn **Trusted entity type:** *AWS service*.
 * Chọn **Use case:** *Lambda*, sau đó nhấn **Next**.
 
-![IAM\_3](/images/2.prerequisite/iam_3.png)
+![IAM\_3](/images/5-Workshop/2.prerequisite/iam_3.png)
 
 #### 2. Gán quyền truy cập cho Role
 
@@ -33,8 +33,8 @@ pre: " <b> 5.3.1. </b> "
   * `AmazonDynamoDBFullAccess_v2`
 * Nhấn **Next**, đặt tên role là `LambdaS3DynamoDBRole`.
 
-![IAM\_4](/images/2.prerequisite/iam_4.png)
-![IAM\_5](/images/2.prerequisite/iam_5.png)
+![IAM\_4](/images/5-Workshop/2.prerequisite/iam_4.png)
+![IAM\_5](/images/5-Workshop/2.prerequisite/iam_5.png)
 
 {{% notice note %}}
 Role này giúp Lambda có thể đọc file từ **S3** và ghi dữ liệu vào **DynamoDB**.

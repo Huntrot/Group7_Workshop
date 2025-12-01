@@ -28,7 +28,11 @@ Tải và cài đặt [Postman](https://dl.pstmn.io/download/latest/win64) trư�
 - Chọn **FlyoraAPI**
 - Chọn **/api/v1/{myProxy+} → ANY → Method request → Edit**
 ![POST\_5](/images/5-Workshop/3.api-gateway/3.3/post_5.png)
+<<<<<<< Updated upstream
 - Authorization: AWS_IAM
+=======
+- Authorization: AWS_IAM (Lưu ý chỉ bật khi dùng postman để kiểm thử, sau đó phải tắt đi)
+>>>>>>> Stashed changes
 ![POST\_6](/images/5-Workshop/3.api-gateway/3.3/post_6.png)
 1. **Tạo access key**
 - Vào **AWS Console → IAM → Users**
@@ -48,7 +52,7 @@ Tải và cài đặt [Postman](https://dl.pstmn.io/download/latest/win64) trư�
 - Mở **Postman**
 - Chọn **GET**
 - Nhập URL:
-```https://3b39kyvi8f.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/product/1```
+```https://<api_id>.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/product/1```
 
 
 
@@ -78,7 +82,7 @@ Key: `Content-Type` | Value: `application/json`
 ### **Kiểm thử POST**
 - Chọn **POST**
 - URL:
-```https://3b39kyvi8f.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/submit```
+```https://<api_id>.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/submit```
 
 
 

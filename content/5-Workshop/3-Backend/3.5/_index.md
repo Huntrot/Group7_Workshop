@@ -25,7 +25,7 @@ Download and install [Postman](https://dl.pstmn.io/download/latest/win64) before
 
 ![POST_5](/images/5-Workshop/3.api-gateway/3.3/post_5.png)
 
-- Set Authorization to **AWS_IAM**
+- Set Authorization to **AWS_IAM**(Note: Only enable when testing with Postman, then remember to turn it off afterwards)
 
 ![POST_6](/images/5-Workshop/3.api-gateway/3.3/post_6.png)
 
@@ -62,7 +62,7 @@ Download and install [Postman](https://dl.pstmn.io/download/latest/win64) before
 ## **Testing GET Request**
 - Open **Postman**
 - Choose **GET**
-- Enter URL:```https://3b39kyvi8f.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/product/1```
+- Enter URL:```https://<api_id>.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/product/1```
 
 - **Headers** tab:  
   - Key: `Content-Type` | Value: `application/json`
@@ -84,7 +84,7 @@ Download and install [Postman](https://dl.pstmn.io/download/latest/win64) before
 
 ## **Testing POST Request**
 - Choose **POST**
-- URL:```https://3b39kyvi8f.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/submit```
+- URL:```https://<api_id>.execute-api.ap-southeast-1.amazonaws.com/dev/api/v1/reviews/submit```
 
 - **Body → raw → JSON**
   ```json
