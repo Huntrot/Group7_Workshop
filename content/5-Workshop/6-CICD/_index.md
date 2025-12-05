@@ -1,7 +1,7 @@
 ---
-title : "Frontend CI/CD (React)"
+title : "CI/CD Automation"
 date : "2025-01-15"
-weight: 2
+weight: 6
 chapter: false
 pre: " <b> 5.6. </b> "
 ---
@@ -9,7 +9,7 @@ pre: " <b> 5.6. </b> "
 # AWS CodeBuild Setup Guide for Flyora Frontend
 
 {{% notice info %}}
-This guide covers CI/CD setup for the **Frontend Repository Only** (React).
+This guide covers CI/CD setup for the **Frontend Repository** (React).
 {{% /notice %}}
 
 This guide walks you through setting up AWS CodeBuild and CodePipeline for the Flyora React frontend application.
