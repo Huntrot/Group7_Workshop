@@ -47,9 +47,9 @@ The workshop is divided into group roles for parallel development:
    - [Test API via Postman / API Gateway Console](3-Backend/3.4/)
 
 4. **AI Workshop (Chatbot)** — Product Consultation Support
-   - *(AI team will fill in content)* [](4-AI/4.1/)
-   - *(AI team will fill in content)* [](4-AI/4.2/)
-   - *(AI team will fill in content)* [](4-AI/4.3/)
+   - [(Create VPC & Configure Security Groups for RDS and Lambda)](4-AI/4.1/)
+   - [(Creating logic for lambda function)](4-AI/4.2/)
+   - [(Configure RDS and connect to Dbeaver)](4-AI/4.3/)
 
 5. **Frontend Workshop (FE)** — Display Data & Hosting website
    - [Hosting website with S3](5-Frontend/5.1/)

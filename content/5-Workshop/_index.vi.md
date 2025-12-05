@@ -47,9 +47,9 @@ Workshop được phân chia theo vai trò nhóm để dễ triển khai song so
    - [Kiểm thử API bằng Postman / API Gateway Console](3-Backend/3.4/)
 
 4. **AI Workshop (Chatbot)** — Hỗ trợ tư vấn sản phẩm
-   - *(Để nhóm AI tự điền nội dung)* [](4-AI/4.1/)
-   - *(Để nhóm AI tự điền nội dung)* [](4-AI/4.2/)
-   - *(Để nhóm AI tự điền nội dung)* [](4-AI/4.3/)
+   - [Tạo VPC  & Cấu hình Sercurity Group cho RDS và Lambda] [](4-AI/4.1/)
+   - [(Tạo logic cho hàm lambda)] [](4-AI/4.2/)
+   - [(Cấu hình RDS và kết nối với Dbeaver)] [](4-AI/4.3/)
 
 5. **Frontend Workshop (FE)** — Hiển thị dữ liệu & Hosting website
    -  [Hosting website với S3](5-Frontend/5.1/)
