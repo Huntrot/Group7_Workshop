@@ -13,7 +13,7 @@ Tạo **Lambda Function** mới để xử lý các yêu cầu đến DynamoDB t
 
 ## Các bước thực hiện
 {{% notice info %}}
-Tải file backend từ [đây](/files/backend09.zip).
+Tải file backend từ [đây](/files/backend12.zip).
 {{% /notice %}}
 ### Bước 1: Tạo IAM Role
 1. Mở **IAM Console → Roles → Create role**  
@@ -68,10 +68,11 @@ Tải file backend từ [đây](/files/backend09.zip).
 6. Timeout: 1 min
 ![LAMBDA\_8](/images/5-Workshop/3.api-gateway/3.1/lambda_8.png) 
 3. Vào **AWS Lambda → Configuration → Environment variables → Edit** 
-4. Key: APP_JWT_SECRET; Value: huntrotflyorateam!@ky5group5member 
+4. Key: `APP_JWT_SECRET`; Value: `huntrotflyorateam!@ky5group5member` 
 ![LAMBDA\_9](/images/5-Workshop/3.api-gateway/3.1/lambda_9.png)
 
-
+5. Tương tự:
+    Key: `GHN_TOKEN`; Value: `445c659d-5586-11f0-8c19-5aba781b9b65`
 
 
 
