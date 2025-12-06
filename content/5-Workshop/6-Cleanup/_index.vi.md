@@ -166,7 +166,10 @@ X-Ray traces sẽ tự động hết hạn sau 30 ngày và không tính phí l�
 3. Sau khi xóa xong NAT gateway và Elastic IP qua phần **Your VPCs** ấn VPC đã tạo → **Action** → **Delete VPC**
 4. Qua phần **EC2** chọn **Instances** **chọn EC2** đã tạo → **Instances state** → **Terminate instances**
 ---
-
+### 13. Xóa Cloudfront
+1. Vào **CloudFront**, chọn phân phối đã tạo → **Actions** → **Disable**. Chờ cho đến khi trạng thái chuyển sang Disabled.
+2. Select the checkbox for the disabled distribution again.
+3. Choose Delete and confirm the deletion. The distribution cannot be recovered once deleted.
 ### Kiểm tra lại
 
 Sau khi hoàn tất các bước trên, hãy kiểm tra lại các dịch vụ sau để đảm bảo không còn tài nguyên nào:
@@ -176,6 +179,7 @@ Sau khi hoàn tất các bước trên, hãy kiểm tra lại các dịch vụ s
 - ✅ **Lambda**: Không còn function nào (3 functions)
 - ✅ **DynamoDB**: Không còn bảng nào
 - ✅ **S3**: Không còn bucket nào (2 buckets)
+- ✅ **Cloudfront**: Không còn cấu hình phân phối nội dung
 - ✅ **IAM Users**: Không còn user test
 - ✅ **IAM Roles**: Không còn 3 roles đã tạo
 - ✅ **CloudWatch Logs**: Không còn log groups liên quan
