@@ -151,6 +151,19 @@ X-Ray traces automatically expire after 30 days and don't incur storage charges,
 2. Select **Traces**
 3. Traces will be automatically deleted after the default retention period
 
+### 10. Delete RDS and Subnet groups
+1. Go to **Subnet groups**, select the created subnet group, and click **Delete**.
+2. Go to **Databases**, select the created database → **Actions** → **Delete**. 
+
+### 11. Delete BirdShopChatBot Lambda and Layer
+1. Go to **Functions**, select **BirdShopChatBot** → **Actions** → **Delete**.
+2. Go to **Layers**, select the created layer, and click **Delete**.
+
+### 12. Delete VPC, NAT Gateway, Elastic IP, and EC2
+1. Go to **VPC**, select the created NAT gateway → **Actions** → **Delete NAT gateway**.
+2. Select **Elastic IPs** → **Actions** → **Release Elastic IP addresses**.
+3. After deleting the NAT gateway and Elastic IP, go to **Your VPCs**, select the created VPC → **Actions** → **Delete VPC**.
+4. Go to **EC2**, select **Instances**, choose the created EC2 instance → **Instance state** → **Terminate instance**.
 ---
 
 ### Final Verification
@@ -166,6 +179,10 @@ After completing the steps above, verify the following services to ensure no res
 - ✅ **IAM Roles**: No created roles remaining (3 roles)
 - ✅ **CloudWatch Logs**: No related log groups remaining
 - ✅ **X-Ray**: Traces will expire automatically
+- ✅ **RDS**: Successfully deleted
+- ✅ **NAT gateway**: No longer exists
+- ✅ **Elastic IP**: No longer exists
+- ✅ **EC2** : Terminated
 
 {{% notice warning %}}
 Make sure you've deleted all resources to avoid unexpected charges. Pay special attention to S3 buckets as they can accumulate data over time.

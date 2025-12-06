@@ -151,6 +151,20 @@ X-Ray traces sẽ tự động hết hạn sau 30 ngày và không tính phí l�
 2. Chọn **Traces**
 3. Traces sẽ tự động bị xóa sau thời gian lưu trữ mặc định
 
+### 10. Xóa RDS và Subnet groups
+
+1. Vào **subnet group** chọn subnet group đã tạo và ấn **delete**
+2. Vào **database** ấn vào **database** đã tạo → **Action** → **Delete**
+
+### 11. Xóa Lambda BirdShopChatBot và layer
+1. Vào **function** chọn **BirdShopChatBot** → **Action** → **Delete**
+2. Vào **Layers** chọn layer đã tạo ấn **delete**
+
+### 12. Xóa VPC và NAT gateway và Elastic IP, EC2
+1. Vào **VPC** chọn NAT gateway đã tạo → **Action** → **Delete NAT gateway**
+2. Chọn **Elastic IP** → **Action** → **Release Elastic IP addresses**
+3. Sau khi xóa xong NAT gateway và Elastic IP qua phần **Your VPCs** ấn VPC đã tạo → **Action** → **Delete VPC**
+4. Qua phần **EC2** chọn **Instances** **chọn EC2** đã tạo → **Instances state** → **Terminate instances**
 ---
 
 ### Kiểm tra lại
@@ -166,7 +180,10 @@ Sau khi hoàn tất các bước trên, hãy kiểm tra lại các dịch vụ s
 - ✅ **IAM Roles**: Không còn 3 roles đã tạo
 - ✅ **CloudWatch Logs**: Không còn log groups liên quan
 - ✅ **X-Ray**: Traces sẽ tự động hết hạn
-
+- ✅ **RDS**: Xóa thành công
+- ✅ **NAT** gateway: Không còn nữa
+- ✅ **Elastic IP**: Không còn nữa
+- ✅ **EC2** : Đã được terminate
 {{% notice warning %}}
 Hãy chắc chắn rằng bạn đã xóa tất cả các tài nguyên để tránh phát sinh chi phí không mong muốn. Đặc biệt chú ý xóa S3 buckets vì chúng có thể tích lũy dữ liệu theo thời gian.
 {{% /notice %}}
