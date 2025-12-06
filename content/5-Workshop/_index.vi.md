@@ -1,6 +1,5 @@
 ---
 title : "Workshop"
-date :  "2025-01-15"
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
@@ -36,31 +35,25 @@ Workshop được phân chia theo vai trò nhóm để dễ triển khai song so
 
 1. [Giới thiệu mục tiêu & kết quả kỳ vọng](1-Introduction/)
 
-2. [Chuẩn bị môi trường (Prerequisites)](2-Prerequisites/)
-   - [Tạo IAM User + Cấu hình quyền truy cập](2-Prerequisites/2.1/)
-   - [Cái gì đó mà tôi chưa nghĩ ra tại bước chuẩn bị :))](2-Prerequisites/2.2/)
+2. **Backend Workshop (BE)** — Xây dựng API + Pipeline import dữ liệu tự động
+   - [Chuẩn bị & Cấu hình Lambda Trigger cho S3](2-Backend/2.1/)
+   - [Tạo Lambda tự động ghi dữ liệu CSV vào DynamoDB (S3 Trigger)](2-Backend/2.2/)
+   - [Tạo API Gateway và tích hợp Lambda làm Backend API](2-Backend/2.3/)
+   - [Kiểm thử API bằng Postman / API Gateway Console](2-Backend/2.4/)
 
-3. **Backend Workshop (BE)** — Xây dựng API + Pipeline import dữ liệu tự động
-   - [Chuẩn bị & Cấu hình Lambda Trigger cho S3](3-Backend/3.1/)
-   - [Tạo Lambda tự động ghi dữ liệu CSV vào DynamoDB (S3 Trigger)](3-Backend/3.2/)
-   - [Tạo API Gateway và tích hợp Lambda làm Backend API](3-Backend/3.3/)
-   - [Kiểm thử API bằng Postman / API Gateway Console](3-Backend/3.4/)
+3. **AI Workshop (Chatbot)** — Hỗ trợ tư vấn sản phẩm
+   - [Tạo VPC  & Cấu hình Sercurity Group cho RDS và Lambda](3-AI/3.1/)
+   - [Cấu hình RDS và kết nối với Dbeaver](3-AI/3.2/)
+   - [Tạo logic cho hàm lambda](3-AI/3.3/)
 
-4. **AI Workshop (Chatbot)** — Hỗ trợ tư vấn sản phẩm
-   - [Tạo VPC  & Cấu hình Sercurity Group cho RDS và Lambda] [](4-AI/4.1/)
-   - [(Tạo logic cho hàm lambda)] [](4-AI/4.2/)
-   - [(Cấu hình RDS và kết nối với Dbeaver)] [](4-AI/4.3/)
+4. **Frontend Workshop (FE)** — Hiển thị dữ liệu & Hosting website
+   -  [Hosting website với S3](4-Frontend/4.1/)
+   -  [Phân phối với CloudFront](4-Frontend/4.2/)
+   -  [Kết nối với API](4-Frontend/4.3/)
 
-5. **Frontend Workshop (FE)** — Hiển thị dữ liệu & Hosting website
-   -  [Hosting website với S3](5-Frontend/5.1/)
-   -  [Phân phối với CloudFront](5-Frontend/5.2/)
-   -  [Kết nối với API](5-Frontend/5.3/)
+5. [Thiết lập CI/CD tự động deploy](5-CICD/)
 
-6. [Thiết lập CI/CD tự động deploy](6-CICD/)
-
-7. [Kiểm thử hệ thống & đánh giá hiệu năng](7-Testing/)
-
-8. [Dọn dẹp tài nguyên để tránh phát sinh chi phí](8-Cleanup/)
+6. [Dọn dẹp tài nguyên để tránh phát sinh chi phí](6-Cleanup/)
 
 ---
 
