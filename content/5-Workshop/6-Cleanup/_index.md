@@ -165,7 +165,10 @@ X-Ray traces automatically expire after 30 days and don't incur storage charges,
 3. After deleting the NAT gateway and Elastic IP, go to **Your VPCs**, select the created VPC → **Actions** → **Delete VPC**.
 4. Go to **EC2**, select **Instances**, choose the created EC2 instance → **Instance state** → **Terminate instance**.
 ---
-
+### 13. Delete Cloudfront
+1. Go to **CloudFront**, select the created distribution → **Actions** → **Disable**. Wait until the status changes to Disabled.
+2. Select the checkbox for the disabled distribution again.
+3. Choose Delete and confirm the deletion. The distribution cannot be recovered once deleted.
 ### Final Verification
 
 After completing the steps above, verify the following services to ensure no resources remain:
@@ -175,6 +178,7 @@ After completing the steps above, verify the following services to ensure no res
 - ✅ **Lambda**: No functions remaining (3 functions)
 - ✅ **DynamoDB**: No tables remaining
 - ✅ **S3**: No buckets remaining (2 buckets)
+- ✅ **Cloudfront**: No more distribution
 - ✅ **IAM Users**: No test user remaining
 - ✅ **IAM Roles**: No created roles remaining (3 roles)
 - ✅ **CloudWatch Logs**: No related log groups remaining
