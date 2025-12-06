@@ -1,6 +1,5 @@
 ---
 title : "Giới thiệu"
-date : "2025-01-15"
 weight : 1
 chapter : false
 pre : " <b> 5.1. </b> "
@@ -52,13 +51,12 @@ Nền tảng Flyora sử dụng kiến trúc serverless hoàn toàn:
 
 Workshop được tổ chức theo các module theo nhóm:
 
-1. **Prerequisites** - Thiết lập môi trường và cấu hình IAM
-2. **Backend Team** - Phát triển API và data pipeline
-3. **AI Team** - Tích hợp chatbot và tính năng AI
-4. **Frontend Team** - Phát triển và triển khai UI
-5. **CI/CD** - Pipeline triển khai tự động
-6. **Testing** - Kiểm thử hệ thống và hiệu năng
-7. **Cleanup** - Quản lý tài nguyên và tối ưu chi phí
+1. **Backend Team** - Phát triển API và data pipeline
+2. **AI Team** - Tích hợp chatbot và tính năng AI
+3. **Frontend Team** - Phát triển và triển khai UI
+4. **CI/CD** - Pipeline triển khai tự động
+5. **Testing** - Kiểm thử hệ thống và hiệu năng
+6. **Cleanup** - Quản lý tài nguyên và tối ưu chi phí
 
 ### Kết quả Mong đợi
 
@@ -85,7 +83,3 @@ Trước khi bắt đầu, đảm bảo bạn có:
 - Quen thuộc với REST APIs và JSON
 - Kiến thức cơ bản về HTML/CSS/JavaScript (cho frontend)
 - Git đã cài đặt trên máy local
-
-### Bắt đầu Thôi!
-
-Sẵn sàng xây dựng nền tảng thương mại điện tử serverless? Chuyển sang phần [Prerequisites](../2-Prerequisites/) để thiết lập môi trường.

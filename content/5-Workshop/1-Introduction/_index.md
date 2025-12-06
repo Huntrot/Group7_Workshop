@@ -1,6 +1,5 @@
 ---
 title : "Introduction"
-date : "2025-01-15"
 weight: 1
 chapter: false
 pre: " <b> 5.1. </b> "
@@ -52,13 +51,12 @@ The Flyora platform uses a fully serverless architecture:
 
 This workshop is organized into team-based modules:
 
-1. **Prerequisites** - Environment setup and IAM configuration
-2. **Backend Team** - API development and data pipeline
-3. **AI Team** - Chatbot integration and AI features
-4. **Frontend Team** - UI development and deployment
-5. **CI/CD** - Automated deployment pipeline
-6. **Testing** - System validation and performance testing
-7. **Cleanup** - Resource management and cost optimization
+1. **Backend Team** - API development and data pipeline
+2. **AI Team** - Chatbot integration and AI features
+3. **Frontend Team** - UI development and deployment
+4. **CI/CD** - Automated deployment pipeline
+5. **Testing** - System validation and performance testing
+6. **Cleanup** - Resource management and cost optimization
 
 ### Expected Outcomes
 
@@ -85,7 +83,3 @@ Before starting, ensure you have:
 - Familiarity with REST APIs and JSON
 - Basic knowledge of HTML/CSS/JavaScript (for frontend work)
 - Git installed on your local machine
-
-### Let's Get Started!
-
-Ready to build your serverless e-commerce platform? Let's move on to the [Prerequisites](../2-Prerequisites/) section to set up your environment.
