@@ -16,27 +16,14 @@ pre: " <b> 5.4.3. </b> "
 
 
 
-###  Bước 2: Tạo api.js trong VS Code
-* Tạo tệp `api.js`:
-    ![apigateway_2](/images/5-Workshop/5.frontend/apigateway_2.png)
-
-
-
-###  Bước 3: Cấu hình Biến Môi trường
-* Tạo một tệp **.env** trong dự án của bạn.
-* Thêm **URL của API Gateway** của bạn:
-    ![apigateway_5](/images/5-Workshop/5.frontend/apigateway_5.png)
-
-
-
-###  Bước 4: Kiểm tra API trong Postman
+###  Bước 2: Kiểm tra API trong Postman
 * Lấy dữ liệu từ **Postman**.
 * Bạn sẽ nhận được phản hồi với **mã trạng thái 200** kèm theo dữ liệu **JSON**:
     ![apigateway_3](/images/5-Workshop/5.frontend/apigateway_3.png)
 
 
 
-###  Bước 5: Triển khai và Xác minh trên S3
+###  Bước 3: Triển khai và Xác minh trên S3
 * Truy cập trang web của bạn: **http://your-bucket-name.s3-website-ap-southeast-1.amazonaws.com**
 * Sử dụng dữ liệu từ Postman với URL:
     ```https://uwbxj9wfq6.execute-api.ap-southeast-1.amazonaws.com/dev
